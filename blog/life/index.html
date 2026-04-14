@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Conway's Game of Life | ØX.net</title>
+	<meta name="description" content="Conway's Game of Life implemented in HTML5 canvas.">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Material+Icons');
+		@import url('https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css');
+		::selection {
+			background: red;
+			color: #fff;
+			text-shadow: none }
+		body {
+			font-family: serif;
+			margin: auto;
+			max-width: 50em }
+		.align-center {
+			text-align: center }
+		h1, h2 {
+			font-family: sans-serif; }
+		#universe{
+			margin-top:1em }
+	</style>
+	<link rel="icon" type="image/svg+xml" href="https://xn--x-4ga.net/favicon.svg">
+</head>
+
+<body>
+	<main>
+		<h1>Conway's Game of Life</h1>
+		<p>The <a href="http://en.m.wikipedia.org/wiki/Conway's_Game_of_Life" target="_blank">Game of Life</a>, also known simply as Life, is a cellular automaton devised by the British mathematician John Horton Conway in 1970. It is a zero–player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.</p>
+		<h2>Usage</h2>
+		<ol>
+			<li>Populate the grid by click and dragging your mouse to revive/kill cells, or by choosing pre–populated patterns from the drop–down.</li>
+			<li>Press the “Start Life” button to see your cells evolve.</li>
+		</ol>
+		<div class="align-center">
+			<canvas id="universe" width="800" height="400"></canvas>
+			<input type="button" class="material-icons" value="play_arrow" onclick="life.toggleLife();" id="start">
+			<input type="button" class="material-icons" value="skip_next" onclick="life.nextGen();">
+			<input type="button" class="material-icons" value="fast_rewind" onclick="life.changeSpeed(life.speed() - 1); $('#speed').text(life.speed());">
+			<input type="button" class="material-icons" value="fast_forward" onclick="life.changeSpeed(life.speed() + 1); $('#speed').text(life.speed());">
+			<input type="button" class="material-icons" value="clear" onclick="life.clear();">
+			<select id="patterns">
+				<option value="" selected="selected">Patterns</option>
+				<option value="patterns/glider.rle">Glider</option>
+				<option value="patterns/rats.rle">$rats</option>
+				<option value="patterns/123.rle">1-2-3</option>
+				<option value="patterns/1234.rle">1-2-3-4</option>
+				<option value="patterns/10cellinfinitegrowth.rle">10-cell infinite growth</option>
+				<option value="patterns/101.rle">101</option>
+			</select>
+		</div>
+	</main>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script src="canvaslife.js"></script>
+
+	<script>
+	$('document').ready(function () {
+		life.initUniverse('#universe');
+			$('#speed').text(life.speed());
+			let start_value = 'play_arrow';
+			$('#start').click(function () {
+				if ($(this).val() == start_value) {
+					$(this).val("pause");
+				} else {
+					$(this).val(start_value);
+				}
+			});
+			$('#patterns').change(function () {
+				$('#patterns option:selected').each(function () {
+					url = $(this).val();
+					if (url) {
+						life.loadPattern(url);
+					}
+				});
+			});
+		});
+	</script>
+</body>
+
+</html>

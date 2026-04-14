@@ -126,6 +126,7 @@ h6 { font-size: 1.125rem; }
 
 /* --- 5. LAYOUT PRINCIPAL --- */
 main {
+	flex: 1;
 	max-width: var(--max-width-content);
 	margin: 0 auto;
 	padding: 5rem 1.5rem;

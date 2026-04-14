@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>ØX.net</title>
-        <link>http://xn--x-4ga.net/</link>
+        <link>https://xn--x-4ga.net/</link>
         <description>Publicaciones recientes de ØX.net</description>
-        <lastBuildDate>mar, 14 abr 2026 15:19:22 </lastBuildDate>
-        <atom:link href="http://xn--x-4ga.net/rss.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>mar, 14 abr 2026 18:13:18 </lastBuildDate>
+        <atom:link href="https://xn--x-4ga.net/rss.xml" rel="self" type="application/rss+xml" />
         
         
         <item>
             <title>A Full and Comprehensive Style Test</title>
-            <link>http://xn--x-4ga.net/2010-10-10_a_full_and_comprehensive-style_test.html</link>
+            <link>https://xn--x-4ga.net/2010-10-10_a_full_and_comprehensive-style_test.html</link>
             <pubDate>dom, 10 oct 2010 01:00:00 -0300</pubDate>
-            <guid>http://xn--x-4ga.net/2010-10-10_a_full_and_comprehensive-style_test.html</guid>
+            <guid>https://xn--x-4ga.net/2010-10-10_a_full_and_comprehensive-style_test.html</guid>
             <description><![CDATA[Exhaustive test of HTML tags present in this site.]]></description>
         </item>
         
         <item>
             <title>El argumento de Einstein–Podolsky–Rosen en la Teoría Cuántica</title>
-            <link>http://xn--x-4ga.net/2007-04-03_einstein_podolsky_rosen.html</link>
+            <link>https://xn--x-4ga.net/2007-04-03_einstein_podolsky_rosen.html</link>
             <pubDate>mar, 03 abr 2007 00:00:00 -0400</pubDate>
-            <guid>http://xn--x-4ga.net/2007-04-03_einstein_podolsky_rosen.html</guid>
+            <guid>https://xn--x-4ga.net/2007-04-03_einstein_podolsky_rosen.html</guid>
             <description><![CDATA[En el ejemplar del 15 de Mayo de 1935 de Physical Review, Albert Einstein apareció como coautor de un artículo con sus dos investigadores de postdoctorado asociados en el Instituto de Estudios Avanzados, Boris Podolsky y Nathan Rosen. El artículo se titulaba “Can Quantum Mechanical Description of Physical Reality Be Considered Complete?” (Einstein et al. 1935 «¿Puede considerarse completa la descripción de la realidad física que da la Mecánica Cuántica?»). Conocida generalmente como «EPR», este artículo se convirtió rápidamente en una pieza central del debate sobre la interpretación de la Teoría Cuántica, un debate que continua hoy. Esta entrada describe el argumento del artículo de 1935, considerando algunas versiones y reacciones distintas y explorando el significado actual de los temas que surgieron.]]></description>
         </item>
         

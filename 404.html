@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>404 página no encontrada | ØX.net</title>
+	<style>
+		body {
+			margin: 0; 
+			padding: 0 1em;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			text-align: center;
+			font-family: sans-serif;
+		}
+		main {
+			max-width: 50em;
+			width: 100%;
+		}
+		a {
+			color: #111; 
+			text-decoration: underline; 
+			text-decoration-style: dotted;
+		}
+		img {
+			display: block; 
+			margin: 0 auto 1.5em;
+			max-width: 65%; 
+		}
+		.small-caps {
+			font-variant: small-caps;
+		}
+		form {
+			margin-top: 1.5em;
+		}
+	</style>
+	<link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+<main>
+	<img src="img/404.png" alt="Ops!… Houston, tenemos un problema.">
+	<p><b>Ops!… Houston, tenemos un problema</b>.<br> Lo sentimos, hemos perdido esa <span class="small-caps">url</span> o está apuntando a algo que no existe.</p>
+	<p>Intenta encontrarlo de nuevo, o regresa al <a href="https://xn--x-4ga.net"><span class="small-caps">inicio</span></a>.</p>
+	<form action="https://duckduckgo.com/">
+		<input type="text" placeholder="Buscar…" name="q">
+		<input type="hidden" name="sites" value="https://xn--x-4ga.net/">
+	</form>
+	</main>
+</body>
+</html>

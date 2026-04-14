@@ -116,7 +116,6 @@ h6 { font-size: 1.125rem; }
 
 .sans { font-family: var(--font-sans); }
 .small-caps { font-variant: small-caps; }
-.translator { font-style: oblique; }
 
 .align-center { text-align: center; }
 .align-left { text-align: left; }
@@ -203,6 +202,18 @@ hr.asterism:after {
 
 .main-nav a:hover { color: #fff; }
 
+.nav-logo .logo-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.nav-logo:hover .logo-img {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
 .search-form { display: flex; align-items: center; }
 
 .search-form input {
@@ -250,6 +261,42 @@ hr.asterism:after {
 }
 
 .post-metadata a.source:hover { opacity: 0.7; }
+
+/* Contenedor del enlace */
+.source-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #666; /* Color por defecto */
+    transition: color 0.2s ease;
+}
+
+.source-link:hover {
+    color: #007bff; /* Color al pasar el mouse */
+}
+
+/* El icono propiamente dicho */
+.icon-link {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: currentColor; /* Esto hace que el SVG use el color del texto */
+    
+    /* Ruta a tu archivo SVG */
+    -webkit-mask-image: url('../img/external-link.svg');
+    mask-image: url('../img/external-link.svg');
+    
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    /* Ajuste fino de posición */
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.translator { display: block; font-style: oblique; }
 
 /* Tags de Post */
 .post-tags-section {

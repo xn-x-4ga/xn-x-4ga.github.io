@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Índice Principal -->
+    <url>
+        <loc>{{ config.base_url }}</loc>
+        <lastmod>{{ now.strftime('%Y-%m-%dT%H:%M:%S%z') }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Entradas del Blog -->
+    {% for post in posts %}
+    <url>
+        <loc>{{ config.base_url }}{% if config.base_url and not config.base_url.endswith('/') %}/{% endif %}{{ post.url }}</loc>
+        <lastmod>{{ post.date.strftime('%Y-%m-%dT%H:%M:%S%z') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    {% endfor %}
+</urlset>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{ config.locale.split('_')[0] }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }} | {{ config.site_name }}</title>{% if description %}
+	<meta name="description" content="{{ description }}">{% endif %}{% if author %}
+	<meta name="author" content="{{ author }}">{% endif %}{% if tags %}
+	<meta name="keywords" content="{{ tags | join(', ') }}">{% endif %}
+	<link rel="icon" type="image/svg+xml" href="{{ config.base_url }}favicon.svg">
+	<link rel="stylesheet" href="{{ config.base_url }}css/main.css">{% if has_code %}
+	<link rel="stylesheet" href="{{ config.base_url }}css/pygments.css">{% endif %}
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ config.base_url }}rss.xml">
+</head>
+<body>
+	<header>
+		<nav class="main-nav" aria-label="Navegación principal">
+			<div class="nav-left">
+				<a href="{{ config.base_url }}" class="nav-logo" aria-label="Inicio">
+					<img src="{{ config.base_url }}img/site-logo.svg" alt="Logo" class="site-logo">
+				</a>
+			</div>
+			<div class="nav-right">
+				<a href="{{ config.base_url }}about">Acerca de</a>
+				<a href="{{ config.base_url }}blog">Blog</a>
+				<form class="search-form" action="https://duckduckgo.com/" role="search">
+					<input type="search" placeholder="Buscar…" name="q" aria-label="Buscar contenido">
+					<input type="hidden" name="sites" value="{{ config.base_url }}">
+				</form>
+			</div>
+		</nav>
+	</header>
+	<main>{% block main_content %}
+		<article>
+			<header>
+				<h1>{{ title }}</h1>
+				<div class="post-metadata">
+    {# Configuración de idiomas (puedes mover esto a un archivo de configuración global) #}
+    {% set labels = {
+        'es': {'by': 'de', 'source': 'Fuente original', 'translated': 'Traducido por'},
+        'en': {'by': 'by', 'source': 'Original source', 'translated': 'Translated by'}
+    } %}
+    {% set l = labels[lang] if lang in labels else labels['es'] %}
+
+    {# Autor #}
+    {% if author %}
+        <b>{{ author }}</b> 
+    {% endif %}
+
+    {# Fecha #}
+    <time datetime="{{ date.strftime('%Y-%m-%d') if date else '' }}">
+        {% if date %}
+            {# Nota: Para meses en otros idiomas, usualmente se requiere el filtro |date de Babel o configuración de locale en Python #}
+            {{ date.strftime('%d de %B, %Y') }}
+            {% if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
+        {% endif %}
+    </time>
+
+    {# Fuente #}
+<!--    {% if source and source.url %} 
+        <a class="source" href="{{ source.url }}" target="_blank" rel="noopener" title="{{ l.source }}: {{ source.name | default('Link') }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+        </a>
+    {% endif %}-->
+    {% if source and source.url %} 
+    <a class="source-link" href="{{ source.url }}" target="_blank" rel="noopener" title="{{ l.source }}: {{ source.name | default('Link') }}">
+        <span class="icon-link"></span>
+    </a>
+{% endif %}
+
+    {# Traductor #}
+    {% if translator and translator.name %}
+        <span class="translator">
+            {{ l.translated }} 
+            {% if translator.link %}
+                <a href="{{ translator.link }}">{{ translator.name }}</a>
+            {% else %}
+                {{ translator.name }}
+            {% endif %}
+        </span>
+    {% endif %}
+</div>
+				<!--div class="post-metadata">{% if author %}
+					<b>{{ author }}</b> {% endif %}
+					<time datetime="{{ date.strftime('%Y-%m-%d') if date else '' }}">{% if date %}{{ date.strftime('%d de %B, %Y') }}{% if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}{% endif %}</time>{% if source %} 
+					<a class="source" href="{{ source }}" target="_blank" rel="noopener" title="Fuente original">
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+							<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+							<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+						</svg>
+					</a>{% endif %}{% if translator %}<br>
+					<span class="translator">Traducido por {{ translator }}</span>{% endif %}
+				</div-->
+			</header>
+			{{ content | safe }}{% if tags %}
+			<section class="post-tags-section">{% for tag in tags %}
+				<a class="tag-box" href="tag/{{ tag.lower().replace(' ', '_') }}.html">{{ tag }}</a>{% endfor %}
+			</section>{% endif %}
+		</article>
+		{% endblock %}
+	</main>
+	<footer>
+		<p>
+			<a href="rss.xml" class="footer-link-item" target="_blank">
+				<img src="{{ config.base_url }}img/rss.svg" alt="RSS Feed" class="icon-rss">
+			</a>
+			<span class="copyright">© 2026 — Proyecto. Publicación digital independiente.</span>
+		</p>
+			<a class="footer-validators" href="https://validator.w3.org/check/referer" target="_blank">
+				<img src="{{ config.base_url }}img/w3c-html5.svg" alt="¡HTML5 Válido!" class="img-validator">
+			</a>
+			<a class="footer-validators" href="https://jigsaw.w3.org/css-validator/validator?uri=main.css" target="_blank">
+				<img src="{{ config.base_url }}img/w3c-css.svg" alt="¡CSS Válido!" class="img-validator">
+			</a>
+	</footer>
+</body>
+</html>

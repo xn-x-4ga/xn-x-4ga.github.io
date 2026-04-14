@@ -77,7 +77,6 @@ body {
 	scroll-behavior: smooth;
 	margin: 0;
 	padding: 0;
-	width: 100%;
 }
 
 body {
@@ -133,7 +132,6 @@ main {
 	max-width: var(--max-width-content);
 	margin: 0 auto;
 	padding: 5rem 1.5rem;
-	display: block;
 }
 
 main p a:not([class]):not(.footnote-ref a) {
@@ -180,7 +178,6 @@ hr.asterism:after {
 	background: var(--nav-bg);
 	color: #fff;
 	width: 100%;
-	box-sizing: border-box;
 	position: sticky;
 	top: 0;
 	z-index: 1000;
@@ -204,19 +201,19 @@ hr.asterism:after {
 
 
 
-
+ /*
 .nav-logo {
     display: flex;
     align-items: center;
-    color: #333; /* Color inicial del logo */
+    color: #333;
     transition: color 0.3s ease;
 }
 
 .nav-logo:hover {
-    color: #000; /* Color al pasar el mouse */
-}
+    color: #000;
+}*/
 
-.logo-icon {
+.nav-logo {
     display: inline-block;
     width: 28px;
     height: 28px;
@@ -234,17 +231,7 @@ hr.asterism:after {
     mask-size: contain;
 }
 
-
-
-
-.nav-logo .logo-img {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    vertical-align: middle;
-}
-
-.nav-logo:hover .logo-img {
+.nav-logo:hover {
     opacity: 0.8;
     transition: opacity 0.2s ease-in-out;
 }
@@ -260,7 +247,6 @@ hr.asterism:after {
 	font-size: 0.85rem;
 	outline: none;
 	height: 1.75rem;
-	box-sizing: border-box;
 	transition: border-color 0.2s;
 }
 
@@ -474,7 +460,6 @@ figure {
 	padding: 0;
 	width: 100%;
 	max-width: 100%;
-	box-sizing: border-box;
 }
 
 figure img, .content img {

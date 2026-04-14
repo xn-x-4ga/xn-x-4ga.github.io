@@ -85,14 +85,11 @@ body {
 	font-family: var(--font-serif);
 	font-size: 1.25rem;
 	line-height: 1.75;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
 }
 
 ::selection {
 	background: var(--accent-color);
 	color: #fff;
-	text-shadow: none;
 }
 
 /* --- 4. TIPOGRAFÍA Y TÍTULOS --- */
@@ -164,7 +161,6 @@ hr.asterism {
 }
 
 hr.asterism:after {
-	display: inline;
 	content: "⁂";
 }
 

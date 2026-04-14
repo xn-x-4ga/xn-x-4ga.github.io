@@ -77,7 +77,6 @@ body {
 	scroll-behavior: smooth;
 	margin: 0;
 	padding: 0;
-	min-height: 100vh;
 }
 
 body {
@@ -86,8 +85,6 @@ body {
 	font-family: var(--font-serif);
 	font-size: 1.25rem;
 	line-height: 1.75;
-	display: flex;
-    flex-direction: column;
 }
 
 ::selection {
@@ -129,11 +126,9 @@ h6 { font-size: 1.125rem; }
 
 /* --- 5. LAYOUT PRINCIPAL --- */
 main {
-	flex: 1;
 	max-width: var(--max-width-content);
 	margin: 0 auto;
 	padding: 5rem 1.5rem;
-	width: 100%;
 }
 
 main p a:not([class]):not(.footnote-ref a) {
@@ -199,20 +194,6 @@ hr.asterism:after {
 }
 
 .main-nav a:hover { color: #fff; }
-
-
-
- /*
-.nav-logo {
-    display: flex;
-    align-items: center;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.nav-logo:hover {
-    color: #000;
-}*/
 
 .nav-logo {
     display: inline-block;

@@ -8,7 +8,7 @@
 	--max-width-content: 42.5rem; /* 680px */
 
 	/* Colores de Fondo y Texto */
-	--accent-color: #ff827c;/*#007bff*/
+	--accent-color: #007bff;
 	--bg-color: #ffffff;
 	--border-color: rgba(0, 0, 0, 0.1);
 	--text-primary: rgba(0, 0, 0, 0.8);
@@ -36,6 +36,9 @@
 	--color-warning: #8a6d3b;
 	--bg-warning: #fcf8e3;
 	--brd-warning: #faebcc;
+
+	/* URLs */
+	--url-color: #ff827c;
 
 	/* Footer */
 	--footer-bg: #fafafa;
@@ -136,7 +139,7 @@ main {
 main p a:not([class]):not(.footnote-ref a) {
 	color: inherit;
 	text-decoration: none;
-	border-bottom: 0.1rem solid var(--accent-color);
+	border-bottom: 0.1rem solid var(--url-color);
 	transition: all 0.3s ease;
 }
 
@@ -550,6 +553,7 @@ pre::-webkit-scrollbar-track { background: transparent; }
 pre::-webkit-scrollbar-thumb {
 	background: var(--border-color);
 	border-radius: 0.25rem;
+	padding: 0.4rem;
 }
 
 p code, li code {
@@ -616,7 +620,7 @@ main p a:not([class]):not(.footnote-ref a),
 .footnote-item a:not(.footnote-backref) {
 	color: inherit;
 	text-decoration: none;
-	border-bottom: 0.09375rem solid var(--accent-color);
+	border-bottom: 0.09375rem solid var(--url-color);
 	transition: border-color 0.3s ease;
 }
 

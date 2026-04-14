@@ -449,6 +449,26 @@ a.source-link:hover {
 }
 
 /* --- 9. MULTIMEDIA --- */
+audio {
+    /* Centrado automático (requiere que el elemento sea block) */
+    display: block;
+    margin: 2rem auto;
+    
+    /* Dimensiones y forma de "píldora" */
+    width: 100%;
+    max-width: 400px;
+    height: 45px;
+    border-radius: 50px;
+    
+    /* Estética estilo Chrome (Gris claro) */
+    background-color: #f1f3f4;
+    
+    /* Ajustes específicos para Firefox */
+    border: 1px solid #dcdcdc;
+    filter: contrast(90%) brightness(105%); 
+    outline: none;
+}
+
 figure {
 	margin: 2.5rem 0;
 	padding: 0;

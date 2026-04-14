@@ -556,7 +556,6 @@ p code, li code {
 	background: rgba(128, 128, 128, 0.15);
 	padding: 0.2em 0.4em;
 	border-radius: 0.1875rem;
-	color: var(--accent-color);
 }
 
 kbd {

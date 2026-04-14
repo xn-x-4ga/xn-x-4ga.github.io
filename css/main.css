@@ -202,6 +202,41 @@ hr.asterism:after {
 
 .main-nav a:hover { color: #fff; }
 
+
+
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    color: #333; /* Color inicial del logo */
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #000; /* Color al pasar el mouse */
+}
+
+.logo-icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    
+    /* El color de fondo será el color del logo */
+    background-color: currentColor;
+    
+    /* Aplicamos el SVG como máscara */
+    -webkit-mask-image: url('../img/logo.svg');
+    mask-image: url('../img/logo.svg');
+    
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+
+
+
 .nav-logo .logo-img {
     width: 28px;
     height: 28px;

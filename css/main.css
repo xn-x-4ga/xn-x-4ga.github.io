@@ -302,12 +302,12 @@ hr.asterism:after {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
-    color: #666; /* Color por defecto */
+    color: var(--accent-color);
     transition: color 0.2s ease;
 }
 
 .source-link:hover {
-    color: #007bff; /* Color al pasar el mouse */
+    opacity: 0.7;
 }
 
 /* El icono propiamente dicho */

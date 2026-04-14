@@ -298,7 +298,7 @@ hr.asterism:after {
 .post-metadata a.source:hover { opacity: 0.7; }
 
 /* Contenedor del enlace */
-.source-link {
+a.source-link {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
@@ -306,7 +306,7 @@ hr.asterism:after {
     transition: color 0.2s ease;
 }
 
-.source-link:hover {
+a.source-link:hover {
     opacity: 0.7;
 }
 
@@ -482,23 +482,16 @@ figcaption b {
 }
 
 .video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	height: 0;
-	overflow: hidden;
-	max-width: 100%;
-	background: #000;
-	margin: 2rem 0;
-	border-radius: 0.5rem;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background: #000;
+    margin: 2rem 0;
 }
 
 .video-container iframe {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 /* --- 10. TABLAS Y CÓDIGO --- */

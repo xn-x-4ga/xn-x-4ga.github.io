@@ -14,35 +14,35 @@
 	<meta name="keywords" content="{{ tags | join(', ') }}">
 	{%- endif %}
 
-	{# SEO Social #}
+	 <!-- SEO Social --> 
 	<meta property="og:site_name" content="{{ config.site_name }}">
 	<meta property="og:title" content="{{ title }}">
-	<meta property="og:url" content="{{ config.base_url }}{{ title | lower | replace(' ', '-') }}">
+	<meta property="og:url" content="{{ current_url }}">
 	{%- if description %}
 	<meta property="og:description" content="{{ description | striptags }}">
 	{%- endif %}
 	<meta property="og:type" content="article">
-	<meta name="twitter:card" content="summary_large_image">
+	<meta property="og:image" content="{{ config.base_url }}img/og-default.jpg">
 
-	{# Microdatos (JSON-LD) #}
+	<!-- Microdatos (JSON-LD) -->
 	<script type="application/ld+json">
 	{
-	  "@context": "https://schema.org",
-	  "@type": "BlogPosting",
-	  "headline": {{ title | tojson }},
-	  "description": {{ description | default('') | striptags | tojson }},
-	  "url": "{{ config.base_url }}{{ title | lower | replace(' ', '-') }}",
-	  {%- if date %}
-	  "datePublished": "{{ date.strftime('%Y-%m-%d') }}",
-	  {%- endif %}
-	  "author": {
-		"@type": "Person",
-		"name": {{ author | default('Admin') | tojson }}
-	  },
-	  "publisher": {
-		"@type": "Organization",
-		"name": {{ config.site_name | tojson }}
-	  }
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": {{ title | tojson }},
+		"description": {{ description | default('') | striptags | tojson }},
+		"url": "{{ current_url }}",
+		{%- if date %}
+		"datePublished": "{{ date.strftime('%Y-%m-%d') }}",
+		{%- endif %}
+		"author": {
+			"@type": "Person",
+			"name": {{ author | default('Admin') | tojson }}
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": {{ config.site_name | tojson }}
+		}
 	}
 	</script>
 
@@ -87,8 +87,17 @@
 					{%- endif %}
 
 					{%- if date %}
+					{# Definimos nombres de meses para traducción manual #}
+					{% set months_en = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %}
+					
 					<time datetime="{{ date.strftime('%Y-%m-%d') }}" title="{{ date.strftime('%d/%m/%Y %H:%M') }}">
-						{{ date.strftime('%d de %B, %Y') }}
+						{%- if lang == 'en' %}
+							{# Usamos el índice del mes (date.month - 1) para sacar el nombre en inglés #}
+							{{ months_en[date.month - 1] }} {{ date.strftime('%d, %Y') }}
+						{%- else %}
+							{{ date.strftime('%d de %B, %Y') }}
+						{%- endif %}
+
 						{%- if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
 					</time>
 					{%- endif %}
@@ -127,14 +136,24 @@
 	</main>
 	<footer>
 		<p>
-			<a href="rss.xml" class="footer-link-item" target="_blank">
+			<a href="{{ config.base_url }}rss.xml" class="footer-link-item" target="_blank">
 				<img src="{{ config.base_url }}img/rss.svg" alt="RSS Feed" class="icon-rss">
 			</a>
 		</p>
-		<a class="footer-validators" href="https://validator.w3.org/check/referer" target="_blank" rel="noopener">
+		
+		{# Validador HTML5 moderno (Nu Checker) #}
+		<a class="footer-validators" 
+		   href="https://validator.w3.org/nu/?doc={{ current_url | urlencode }}" 
+		   target="_blank" 
+		   rel="noopener noreferrer">
 			<img src="{{ config.base_url }}img/w3c-html5.svg" alt="¡HTML5 Válido!" class="img-validator">
 		</a>
-		<a class="footer-validators" href="https://jigsaw.w3.org/css-validator/validator?uri={{ config.base_url }}css/main.css" target="_blank" rel="noopener">
+
+		{# Validador CSS #}
+		<a class="footer-validators" 
+		   href="https://jigsaw.w3.org/css-validator/validator?uri={{ (config.base_url ~ 'css/main.css') | urlencode }}" 
+		   target="_blank" 
+		   rel="noopener noreferrer">
 			<img src="{{ config.base_url }}img/w3c-css.svg" alt="¡CSS Válido!" class="img-validator">
 		</a>
 	</footer>

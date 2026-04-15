@@ -10,13 +10,13 @@
 	/* Colores de Fondo y Texto */
 	--accent-color: #007bff;
 	--bg-color: #ffffff;
-	--border-color: rgba(0, 0, 0, 0.1);
-	--text-primary: rgba(0, 0, 0, 0.8);
-	--text-secondary: rgba(0, 0, 0, 0.5);
+	--border-color: #0000001a;
+	--text-primary: #000000cc;
+	--text-secondary: #00000080;
 
 	/* Navegación */
 	--nav-bg: #000000;
-	--nav-text: rgba(255, 255, 255, 0.8);
+	--nav-text: #ffffffcc;
 
 	/* Tipografías */
 	--font-mono: 'JetBrains Mono', monospace;
@@ -42,32 +42,32 @@
 
 	/* Footer */
 	--footer-bg: #fafafa;
-	--footer-text: rgba(0, 0, 0, 0.5);
+	--footer-text: #00000080;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--bg-color: #121212;
-		--text-primary: rgba(255, 255, 255, 0.87);
-		--text-secondary: rgba(255, 255, 255, 0.60);
+		--text-primary: #ffffffde;
+		--text-secondary: #ffffff99;
 		--accent-color: #66b2ff;
-		--border-color: rgba(255, 255, 255, 0.15);
+		--border-color: #ffffff26;
 		--nav-bg: #000000;
-		--nav-text: rgba(255, 255, 255, 0.7);
+		--nav-text: #ffffffb3;
 		--color-danger: #e2a09f;
-		--bg-danger: rgba(169, 68, 66, 0.2);
+		--bg-danger: #a9444233;
 		--brd-danger: #a94442;
 		--color-info: #9fd0e2;
-		--bg-info: rgba(49, 112, 143, 0.2);
+		--bg-info: #31708f33;
 		--brd-info: #31708f;
 		--color-success: #a0ce9f;
-		--bg-success: rgba(60, 118, 61, 0.2);
+		--bg-success: #3c763d33;
 		--brd-success: #3c763d;
 		--color-warning: #e2cfa0;
-		--bg-warning: rgba(138, 109, 59, 0.2);
+		--bg-warning: #8a6d3b33;
 		--brd-warning: #8a6d3b;
 		--footer-bg: #1a1a1a;
-		--footer-text: rgba(255, 255, 255, 0.6);
+		--footer-text: #ffffff99;
 	}
 }
 
@@ -255,7 +255,7 @@ header {
 .post-metadata a {
 	color: var(--text-secondary);
 	text-decoration: none;
-	border-bottom: 0.0625rem dotted rgba(0, 0, 0, 0.2);
+	border-bottom: 0.0625rem dotted #00000033;
 	transition: all 0.2s ease;
 }
 
@@ -319,7 +319,7 @@ a.source-link:hover {
 	font-size: 0.8rem;
 	font-weight: 500;
 	color: var(--text-secondary);
-	background: rgba(0, 0, 0, 0.05);
+	background: #0000000d;
 	padding: 0.2rem 0.6rem;
 	border-radius: 0.25rem;
 	text-decoration: none;
@@ -517,17 +517,9 @@ td, th {
 th { font-weight: 700; background-color: var(--bg-color); }
 
 pre, code, kbd, samp { font-family: var(--font-mono); }
-
-pre::-webkit-scrollbar { height: 0.5rem; }
-pre::-webkit-scrollbar-track { background: transparent; }
-pre::-webkit-scrollbar-thumb {
-	background: var(--border-color);
-	border-radius: 0.25rem;
-	padding: 0.4rem;
-}
-
+pre { background: transparent;  padding: 0.4rem; }
 p code, li code {
-	background: rgba(128, 128, 128, 0.15);
+	background: #80808026;
 	padding: 0.2em 0.4em;
 	border-radius: 0.1875rem;
 }
@@ -536,7 +528,7 @@ kbd {
 	background: #f4f4f4;
 	border: #ccc 0.0625rem solid;
 	border-radius: 0.25rem;
-	box-shadow: 0 0.0625rem 0 rgba(0, 0, 0, 0.2), 0 0.0625rem 0 0 #fff inset;
+	box-shadow: 0 0.0625rem 0 #00000033, 0 0.0625rem 0 0 #fff inset;
 	color: #333;
 	display: inline-block;
 	font-weight: 700;
@@ -640,7 +632,7 @@ main p a:not([class]):not(.footnote-ref a),
 .pagination-item:hover {
 	border-color: var(--accent-color);
 	color: var(--accent-color);
-	background-color: rgba(0, 123, 255, 0.05);
+	background-color: #007bff0d;
 }
 
 .pagination-item.active {

@@ -2,45 +2,57 @@
 
 {% block main_content %}
 <article>
-	{% if is_index %}
-		<h1 class="index-header">{{ title }}</h1>
-	{% else %}
-		<header class="taxonomy-header">
+	<header class="{{ 'index-header' if is_index else 'taxonomy-header' }}">
+		{% if is_index -%}
+			<h1 class="index-header">{{ title }}</h1>
+		{%- else -%}
 			<h1 class="taxonomy-label">{{ folder_name }}</h1>
 			<h2 class="taxonomy-title">{{ title }}</h2>
-		</header>
-	{% endif %}
+		{%- endif %}
+	</header>
 
 	<div class="taxonomy-container">
 		<ul class="taxonomy-list">
-			{% for p in page_posts %}
+			{% for p in page_posts -%}
 				<li class="taxonomy-item">
-    <div class="taxonomy-date">
-        {% if not is_taxonomy and p.category %}
-            <a href="{{ base_path }}categoría/{{ p.category.lower().replace(' ', '_') }}.html" class="taxonomy-category">{{ p.category }}</a>
-        {% endif %}
-        {# Solución al error de strftime: solo renderiza si date existe #}
-        {% if p.date %}[{{ p.date.strftime('%Y-%m-%d') }}]{% endif %}
-    </div>
-    
-    <a href="{{ base_path }}{{ p.url }}" class="taxonomy-link">{{ p.title | default('Sin título') }}</a>
-    
-    {% if p.description %}
-        {# Solución para eliminar etiquetas HTML en la descripción #}
-        <p class="taxonomy-description">{{ p.description | striptags }}</p>
-    {% endif %}
-</li>
-			{% endfor %}
+					<div class="taxonomy-date">
+						{% if not is_taxonomy and p.category -%}
+							<a href="{{ base_path }}categoría/{{ p.category | lower | replace(' ', '_') | urlencode }}.html" 
+							   class="taxonomy-category">{{ p.category }}</a>
+						{%- endif %}
+						
+						{% if p.date -%}
+							<time datetime="{{ p.date.strftime('%Y-%m-%d') }}">
+								[{{ p.date.strftime('%Y-%m-%d') }}]
+							</time>
+						{%- endif %}
+					</div>
+					
+					<a href="{{ base_path }}{{ p.url }}" class="taxonomy-link">{{ p.title | default('Sin título') }}</a>
+					
+					{% if p.description -%}
+						<p class="taxonomy-description">{{ p.description | striptags | truncate(200) }}</p>
+					{%- endif %}
+				</li>
+			{% else -%}
+				<li class="taxonomy-empty">No hay publicaciones disponibles.</li>
+			{% endfor -%}
 		</ul>
 
-		{% if total_pages > 1 %}
-			<nav class="pagination">
-				{% for p_idx in range(total_pages) %}
-					{% set target_url = base_name ~ '.html' if p_idx == 0 else base_name ~ '%02d' | format(p_idx) ~ '.html' %}
-					<a href="{{ base_path }}{{ target_url }}" class="pagination-item {% if p_idx == current_page %}active{% endif %}">{{ p_idx + 1 }}</a>
-				{% endfor %}
+		{% if total_pages > 1 -%}
+			<nav class="pagination" aria-label="Paginación">
+				{% for p_idx in range(total_pages) -%}
+					{% set suffix = '' if p_idx == 0 else '%02d' | format(p_idx) -%}
+					{% set target_url = base_name ~ suffix ~ '.html' -%}
+					
+					<a href="{{ base_path }}{{ target_url }}" 
+					   class="pagination-item {{ 'active' if p_idx == current_page }}"
+					   {% if p_idx == current_page %}aria-current="page"{% endif %}>
+						{{- p_idx + 1 -}}
+					</a>
+				{% endfor -%}
 			</nav>
-		{% endif %}
+		{%- endif %}
 	</div>
 </article>
 {% endblock %}

@@ -137,6 +137,7 @@ class BlogGenerator:
 					is_taxonomy=is_taxonomy,
 					is_index=is_index,
 					has_code=False,
+					current_url=f"{self.config['base_url']}{folder_name + '/' if folder_name else ''}{filename}",
 					now=datetime.datetime.now()
 				))
 
@@ -163,7 +164,11 @@ class BlogGenerator:
 		for p in posts:
 			with open(self.dest_dir / p['url'], 'w', encoding='utf-8') as f:
 				f.write(self.template_base.render(
-					config=self.config, **p, base_path='', now=datetime.datetime.now()
+					config=self.config,
+					**p,
+					base_path='',
+					now=datetime.datetime.now(),
+					current_url=f"{self.config['base_url']}{p['url']}"
 				))
 
 		for folder, mapping in tax_maps.items():

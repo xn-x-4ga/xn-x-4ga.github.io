@@ -5,7 +5,7 @@ date: 2010-10-10
 category: Test
 tags: [html, css, test, sit amet]
 description: Exhaustive test of HTML tags present in this site.
-image: ysLsgRmnqACna35.jpeg
+image: lorem_ipsum.jpeg
 source:
   name: GitHub
   url: https://gist.github.com/ErisDS/7e3455b70133640823c0

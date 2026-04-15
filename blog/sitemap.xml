@@ -3,7 +3,7 @@
     <!-- Índice Principal -->
     <url>
         <loc>https://xn--x-4ga.net/blog/</loc>
-        <lastmod>2026-04-15T04:52:44</lastmod>
+        <lastmod>2026-04-15T15:24:41</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -51,16 +51,6 @@
     </url>
     
     <url>
-        <loc>https://xn--x-4ga.net/blog/1955-06-01_poderio_e_impotencia_de_einstein.html</loc>
-        
-        
-        <lastmod>1995-06-01T00:00:00-0400</lastmod>
-        
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
         <loc>https://xn--x-4ga.net/blog/1987-09-21_la_carga_del_escepticismo.html</loc>
         
         
@@ -75,6 +65,26 @@
         
         
         <lastmod>1986-01-08T00:00:00-0300</lastmod>
+        
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://xn--x-4ga.net/blog/1970-10-01_the_fantastic_combinations_of_john_conways_new_solitaire_game_life.html</loc>
+        
+        
+        <lastmod>1970-10-01T00:00:00-0400</lastmod>
+        
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://xn--x-4ga.net/blog/1955-06-01_poderio_e_impotencia_de_einstein.html</loc>
+        
+        
+        <lastmod>1955-06-01T00:00:00-0400</lastmod>
         
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

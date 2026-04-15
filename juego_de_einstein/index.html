@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Juego de Einstein | ØX.net</title>
+    <style>
+        body { font-family: serif; font-size: 1.25rem; line-height: 1.75; margin: auto; max-width: 50em; padding: 20px; }
+        select { margin-bottom: 5px; width: 100%; max-width: 300px; }
+        table input { background-color: #f9f9f9; border: 1px solid #ccc; }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="https://xn--x-4ga.net/favicon.svg">
+</head>
+<body>
+    <h1>El Juego de Einstein</h1>
+    <p>Einstein propuso este problema y afirmó que solo el 2% de la población podría resolverlo. Demuestra que estás dentro de ese 2%.</p>
+    
+    <h2>Condiciones iniciales:</h2>
+    <ul>
+        <li>El noruego vive en la primera casa, junto a la casa azul.</li>
+        <li>El que vive en la casa del centro toma leche.</li>
+        <li>El inglés vive en la casa roja.</li>
+        <li>La mascota del sueco es un perro.</li>
+        <li>El danés bebe té.</li>
+        <li>La casa verde es la inmediata de la izquierda de la casa blanca.</li>
+        <li>El de la casa verde toma café.</li>
+        <li>El que fuma PallMall cría pájaros.</li>
+        <li>El de la casa amarilla fuma Dunhill.</li>
+        <li>El que fuma Blend vive junto al que tiene gatos.</li>
+        <li>El que tiene caballos vive junto al que fuma Dunhill.</li>
+        <li>El que fuma BlueMaster bebe cerveza.</li>
+        <li>El alemán fuma Prince.</li>
+        <li>El que fuma Blend tiene un vecino que bebe agua.</li>
+        <li><b><em>¿Quién tiene peces por mascota?</em></b></li>
+    </ul>
+
+    <form name="einstein">
+        <h3>Casa 1</h3>
+        <ol>
+            <li><select name="P1"><option value="0">Nacionalidad…</option><option value="1">alemán</option><option value="2">danés</option><option value="3">inglés</option><option value="4">noruego</option><option value="5">sueco</option></select></li>
+            <li><select name="P2"><option value="0">Color…</option><option value="1">amarilla</option><option value="2">azul</option><option value="3">blanca</option><option value="4">roja</option><option value="5">verde</option></select></li>
+            <li><select name="P3"><option value="0">Bebida…</option><option value="1">agua</option><option value="2">café</option><option value="3">cerveza</option><option value="4">leche</option><option value="5">té</option></select></li>
+            <li><select name="P4"><option value="0">Tabaco…</option><option value="1">Blend</option><option value="2">BlueMaster</option><option value="3">Dunhill</option><option value="4">PalMall</option><option value="5">Prince</option></select></li>
+            <li><select name="P5"><option value="0">Mascota…</option><option value="1">caballos</option><option value="2">gatos</option><option value="3">pájaros</option><option value="4">peces</option><option value="5">perro</option></select></li>
+        </ol>
+
+        <h3>Casa 2</h3>
+        <ol start="6">
+            <li><select name="P6"><option value="0">Nacionalidad…</option><option value="1">alemán</option><option value="2">danés</option><option value="3">inglés</option><option value="4">noruego</option><option value="5">sueco</option></select></li>
+            <li><select name="P7"><option value="0">Color…</option><option value="1">amarilla</option><option value="2">azul</option><option value="3">blanca</option><option value="4">roja</option><option value="5">verde</option></select></li>
+            <li><select name="P8"><option value="0">Bebida…</option><option value="1">agua</option><option value="2">café</option><option value="3">cerveza</option><option value="4">leche</option><option value="5">té</option></select></li>
+            <li><select name="P9"><option value="0">Tabaco…</option><option value="1">Blend</option><option value="2">BlueMaster</option><option value="3">Dunhill</option><option value="4">PalMall</option><option value="5">Prince</option></select></li>
+            <li><select name="P10"><option value="0">Mascota…</option><option value="1">caballos</option><option value="2">gatos</option><option value="3">pájaros</option><option value="4">peces</option><option value="5">perro</option></select></li>
+        </ol>
+
+        <h3>Casa 3</h3>
+        <ol start="11">
+            <li><select name="P11"><option value="0">Nacionalidad…</option><option value="1">alemán</option><option value="2">danés</option><option value="3">inglés</option><option value="4">noruego</option><option value="5">sueco</option></select></li>
+            <li><select name="P12"><option value="0">Color…</option><option value="1">amarilla</option><option value="2">azul</option><option value="3">blanca</option><option value="4">roja</option><option value="5">verde</option></select></li>
+            <li><select name="P13"><option value="0">Bebida…</option><option value="1">agua</option><option value="2">café</option><option value="3">cerveza</option><option value="4">leche</option><option value="5">té</option></select></li>
+            <li><select name="P14"><option value="0">Tabaco…</option><option value="1">Blend</option><option value="2">BlueMaster</option><option value="3">Dunhill</option><option value="4">PalMall</option><option value="5">Prince</option></select></li>
+            <li><select name="P15"><option value="0">Mascota…</option><option value="1">caballos</option><option value="2">gatos</option><option value="3">pájaros</option><option value="4">peces</option><option value="5">perro</option></select></li>
+        </ol>
+
+        <h3>Casa 4</h3>
+        <ol start="16">
+            <li><select name="P16"><option value="0">Nacionalidad…</option><option value="1">alemán</option><option value="2">danés</option><option value="3">inglés</option><option value="4">noruego</option><option value="5">sueco</option></select></li>
+            <li><select name="P17"><option value="0">Color…</option><option value="1">amarilla</option><option value="2">azul</option><option value="3">blanca</option><option value="4">roja</option><option value="5">verde</option></select></li>
+            <li><select name="P18"><option value="0">Bebida…</option><option value="1">agua</option><option value="2">café</option><option value="3">cerveza</option><option value="4">leche</option><option value="5">té</option></select></li>
+            <li><select name="P19"><option value="0">Tabaco…</option><option value="1">Blend</option><option value="2">BlueMaster</option><option value="3">Dunhill</option><option value="4">PalMall</option><option value="5">Prince</option></select></li>
+            <li><select name="P20"><option value="0">Mascota…</option><option value="1">caballos</option><option value="2">gatos</option><option value="3">pájaros</option><option value="4">peces</option><option value="5">perro</option></select></li>
+        </ol>
+
+        <h3>Casa 5</h3>
+        <ol start="21">
+            <li><select name="P21"><option value="0">Nacionalidad…</option><option value="1">alemán</option><option value="2">danés</option><option value="3">inglés</option><option value="4">noruego</option><option value="5">sueco</option></select></li>
+            <li><select name="P22"><option value="0">Color…</option><option value="1">amarilla</option><option value="2">azul</option><option value="3">blanca</option><option value="4">roja</option><option value="5">verde</option></select></li>
+            <li><select name="P23"><option value="0">Bebida…</option><option value="1">agua</option><option value="2">café</option><option value="3">cerveza</option><option value="4">leche</option><option value="5">té</option></select></li>
+            <li><select name="P24"><option value="0">Tabaco…</option><option value="1">Blend</option><option value="2">BlueMaster</option><option value="3">Dunhill</option><option value="4">PalMall</option><option value="5">Prince</option></select></li>
+            <li><select name="P25"><option value="0">Mascota…</option><option value="1">caballos</option><option value="2">gatos</option><option value="3">pájaros</option><option value="4">peces</option><option value="5">perro</option></select></li>
+        </ol>
+
+        <h2>Tus resultados</h2>
+        <table>
+            <tr><td>Respuestas correctas:</td><td><input name="Pcorrectas" size="40" readonly></td></tr>
+            <tr><td>Respuestas incorrectas:</td><td><input name="Pincorrectas" size="40" readonly></td></tr>
+            <tr><td>Puntuación:</td><td><input name="porcentaje" size="4" readonly> %</td></tr>
+            <tr><td>Comentario:</td><td><input name="Nota" size="60" readonly></td></tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button type="button" onclick="Corrige()">Corregir</button>
+                    <button type="button" onclick="BorraValores()">Borrar</button>
+                    <button type="button" onclick="Solucion()">Solución</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        // Arreglo de respuestas correctas basado en el orden de los <option> de cada select
+        const respuestasCorrectas = [
+            4, 1, 1, 3, 2, // Casa 1
+            2, 2, 5, 1, 1, // Casa 2
+            3, 4, 4, 4, 3, // Casa 3
+            1, 5, 2, 5, 4, // Casa 4
+            5, 3, 3, 2, 5  // Casa 5
+        ];
+
+        function Corrige() {
+            let puntos = 0;
+            let correctas = [];
+            let incorrectas = [];
+            const form = document.einstein;
+
+            for (let i = 1; i <= 25; i++) {
+                let valorSeleccionado = form["P" + i].selectedIndex;
+                if (valorSeleccionado === respuestasCorrectas[i - 1]) {
+                    puntos++;
+                    correctas.push(i);
+                } else {
+                    incorrectas.push(i);
+                }
+            }
+
+            form.Pcorrectas.value = correctas.join(", ");
+            form.Pincorrectas.value = incorrectas.join(", ");
+            let perc = Math.round((puntos / 25) * 100);
+            form.porcentaje.value = perc;
+
+            if (perc === 100) form.Nota.value = "¡Igualito que Einstein!";
+            else if (perc > 89) form.Nota.value = "¡Casi las aciertas todas!";
+            else if (perc > 49) form.Nota.value = "Vas por buen camino.";
+            else form.Nota.value = "Sigue practicando la lógica.";
+        }
+
+        function BorraValores() {
+            document.einstein.reset();
+        }
+
+        function Solucion() {
+            const form = document.einstein;
+            for (let i = 1; i <= 25; i++) {
+                form["P" + i].selectedIndex = respuestasCorrectas[i - 1];
+            }
+        }
+    </script>
+</body>
+</html>

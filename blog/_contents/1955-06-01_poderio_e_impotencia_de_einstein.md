@@ -1,7 +1,7 @@
 ---
 title: Poderío e impotencia de Einstein
 author: Ernesto Sábato
-date: 1995-06-01
+date: 1955-06-01
 category: Archivo
 tags: [Albert Einstein, Ernesto Sábato]
 description: Según pude averiguar, este texto lo escribio Ernesto Sábato en abril de 1955; mientras se encontraba en la ciudad de Buenos Aires. Mas tarde, fue publicado en Revista <cite>Atenea</cite>. Año 32, vol. 121, nº 360 (Concepción, Chile) Junio de 1955. pp. 361–369.

@@ -23,13 +23,26 @@
 			text-decoration: none;
 			border-bottom: 0.1rem solid #ff827c;
 			transition: all 0.3s ease; }
-		.align-center {
-			display: block;
-			text-align: center; }
+		.buttons {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: center;
+			align-items: center;
+			gap: .2rem;
+			margin-bottom: 5rem; }
+		.canvas-container {
+			max-width: 800px;
+			margin: 1em auto; }
 		h1, h2 {
 			font-family: sans-serif; }
 		#universe{
-			margin-top:1em; }
+			display: block;
+			margin: .1rem auto; }
+		.speed-indicator {
+			color: #666;
+			font-family: sans-serif;
+			text-align: right; }
 	</style>
 	<link rel="icon" type="image/svg+xml" href="https://xn--x-4ga.net/favicon.svg">
 </head>
@@ -42,8 +55,13 @@
 			<li>Populate the grid by click and dragging your mouse to revive/kill cells, or by choosing pre–populated patterns from the drop–down.</li>
 			<li>Press the “Start Life” button to see your cells evolve.</li>
 		</ol>
-		<div class="align-center">
+		<div class="canvas-container">
+			<div class="speed-indicator">
+				Speed: <span id="speed">1</span>
+			</div>
 			<canvas id="universe" width="800" height="400"></canvas>
+		</div>
+		<div class="buttons ">
 			<input type="button" class="material-icons" value="play_arrow" onclick="life.toggleLife();" id="start">
 			<input type="button" class="material-icons" value="skip_next" onclick="life.nextGen();">
 			<input type="button" class="material-icons" value="fast_rewind" onclick="life.changeSpeed(life.speed() - 1); $('#speed').text(life.speed());">

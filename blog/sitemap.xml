@@ -3,7 +3,7 @@
     <!-- Índice Principal -->
     <url>
         <loc>https://xn--x-4ga.net/blog/</loc>
-        <lastmod>2026-04-15T15:28:38</lastmod>
+        <lastmod>2026-04-15T18:14:18</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -25,6 +25,16 @@
         
         
         <lastmod>2016-05-09T00:00:00-0300</lastmod>
+        
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://xn--x-4ga.net/blog/2011-08-18_guia_phd.html</loc>
+        
+        
+        <lastmod>2011-08-18T00:00:00-0400</lastmod>
         
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

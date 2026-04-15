@@ -10,6 +10,7 @@ description: This article was published with the title “Mathematical Games” 
 source:
   name: "Scientific American Magazine"
   url: https://dx.doi.org/10.1038/scientificamerican1070-120
+lang: en
 ---
 
 Most of the work of John Horton Conway, a mathematician at Gonville and Caius College of the University of Cambridge has been in pure mathematics. For instance, in 1967 he discovered a new group—some call it “Conway's constellation”—that includes all but two of the then known sporadic groups. (They are called “sporadic” because they fail to fit any classification scheme.) It is a breakthrough that has had exciting repercussions in both group theory and number theory. It ties in closely with an earlier discovery by John Conway of an extremely dense packing of unit spheres in a space of 24 dimensions where each sphere touches 196,560 others. As Conway has remarked, “There is a lot of room up there.”
@@ -32,7 +33,7 @@ Conways genetic laws are delightfully simple. First note that each cell of the c
 2. Deaths. Each counter with four or more neighbors dies (is removed) from overpopulation. Every counter with one neighbor or none dies from isolation.
 3. Births. Each empty cell adjacent to exactly three neighbors—no more, no fewer—is a birth cell. A counter is placed on it at the next move.
 
-<figure>
+<figure class="plus_25">
 	<img src="img/doi10.1038_scientificamerican1070-120_img-1.svg" alt="img" />
 	<figcaption class="align-center">The fate of five triplets in “life”.</figcaption>
 </figure>
@@ -47,7 +48,7 @@ Conways genetic laws are delightfully simple. First note that each cell of the c
 	<figcaption class="align-center"></figcaption>
 </figure>
 
-It is important to understand that all births and deaths occur <em>simultaneously</em>. Together they constitute a single generation or, as we shall call it, a “move” in the complete “life history” of the initial configuration. Conway recommends the following procedure for making the moves:</p>
+It is important to understand that all births and deaths occur <em>simultaneously</em>. Together they constitute a single generation or, as we shall call it, a “move” in the complete “life history” of the initial configuration. Conway recommends the following procedure for making the moves:
 
 1. Start with a pattern consisting of black counters.
 2. Locate all counters that will die. Identify them by putting a black counter on top of each.
@@ -64,9 +65,9 @@ Let us see what happens to a variety of simple patterns.
 
 A single organism or any pair of counters, wherever placed, will obviously vanish on the first move.
 
-A beginning pattern of three counters also dies immediately unless at least  one counter has two neighbors. The illustration on the opposite page shows the five triplets that do not fade on the first move. (Their orientation is of course irrelevant.) The first three [<i>a</i>, <i>b</i>, <i>c</i>] vanish on the second move. In connection with <i>c</i> it is worth noting that a single diagonal chain of counters, however long, loses its end counters on each move until the chain finally disappears. The speed a chess king moves in any direction is called by Conway (for reasons to be made clear later) the “speed of light.” We say, therefore, that a diagonal chain decays at each end with the speed of light.
+A beginning pattern of three counters also dies immediately unless at least  one counter has two neighbors. The illustration on the opposite page shows the five triplets that do not fade on the first move. (Their orientation is of course irrelevant.) The first three [*a*, *b*, *c*] vanish on the second move. In connection with <i>c</i> it is worth noting that a single diagonal chain of counters, however long, loses its end counters on each move until the chain finally disappears. The speed a chess king moves in any direction is called by Conway (for reasons to be made clear later) the “speed of light.” We say, therefore, that a diagonal chain decays at each end with the speed of light.
 
-Pattern <i>d</i> becomes a stable “block” (two–by–two square) on the second move. Pattern <i>e</i> is the simplest of what are called “flip–flops” (oscillating figures of period 2). It alternates between horizontal and vertical rows of three. Conway calls it a “blinker“.
+Pattern <i>d</i> becomes a stable “block” (two–by–two square) on the second move. Pattern <i>e</i> is the simplest of what are called “flip–flops” (oscillating figures of period 2). It alternates between horizontal and vertical rows of three. Conway calls it a “blinker”.
 
 The illustration above shows the life histories of the five tetrominoes (four rookwise–connected counters). The square [<i>a</i>] is, as we have seen, a still–life figure. Tetrominoes <i>b</i> and <i>c</i> reach a stable figure, called a “beehive,” on the second move. Beehives are frequently produced patterns. Tetromino <i>d</i> becomes a beehive on the third move. Tetromino <i>e</i> is the most interesting of the lot. After nine moves it becomes four isolated blinkers, a flip–flop called “traffic lights.” It too is a common configuration. The illustration above shows the 12 commonest forms of still life.
 

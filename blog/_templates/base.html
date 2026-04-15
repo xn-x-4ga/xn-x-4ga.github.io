@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }} | {{ config.site_name }}</title>{% if description %}
-	<meta name="description" content="{{ description }}">{% endif %}{% if author %}
+	<meta name="description" content="{{ description | striptags }}">{% endif %}{% if author %}
 	<meta name="author" content="{{ author }}">{% endif %}{% if tags %}
 	<meta name="keywords" content="{{ tags | join(', ') }}">{% endif %}
 	<link rel="icon" type="image/svg+xml" href="{{ config.base_url }}favicon.svg">
@@ -34,8 +34,10 @@
 		<article>
 			<header>
 				<h1>{{ title }}</h1>
-				<div class="post-metadata">
-    {# Configuración de idiomas (puedes mover esto a un archivo de configuración global) #}
+				{# Solo renderiza el contenedor si existe al menos uno de los metadatos internos #}
+{% if author or date or source or translator %}
+<div class="post-metadata">
+    {# Configuración de idiomas #}
     {% set labels = {
         'es': {'by': 'de', 'source': 'Fuente original', 'translated': 'Traducido por'},
         'en': {'by': 'by', 'source': 'Original source', 'translated': 'Translated by'}
@@ -48,20 +50,19 @@
     {% endif %}
 
     {# Fecha #}
-    <time datetime="{{ date.strftime('%Y-%m-%d') if date else '' }}">
-        {% if date %}
-            {# Nota: Para meses en otros idiomas, usualmente se requiere el filtro |date de Babel o configuración de locale en Python #}
-            {{ date.strftime('%d de %B, %Y') }}
-            {% if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
-        {% endif %}
+    {% if date %}
+    <time datetime="{{ date.strftime('%Y-%m-%d') }}">
+        {{ date.strftime('%d de %B, %Y') }}
+        {% if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
     </time>
+    {% endif %}
 
     {# Fuente #}
     {% if source and source.url %} 
     <a class="source-link" href="{{ source.url }}" target="_blank" rel="noopener" title="{{ l.source }}: {{ source.name | default('Link') }}">
         <span class="icon-link"></span>
     </a>
-{% endif %}
+    {% endif %}
 
     {# Traductor #}
     {% if translator and translator.name %}
@@ -75,6 +76,7 @@
         </span>
     {% endif %}
 </div>
+{% endif %}
 			</header>
 			{{ content | safe }}{% if tags %}
 			<section class="post-tags-section">{% for tag in tags %}

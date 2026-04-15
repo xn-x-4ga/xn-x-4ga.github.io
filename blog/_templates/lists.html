@@ -15,12 +15,21 @@
 		<ul class="taxonomy-list">
 			{% for p in page_posts %}
 				<li class="taxonomy-item">
-					<div class="taxonomy-date">{% if not is_taxonomy and p.category %}<a href="{{ base_path }}categoría/{{ p.category.lower().replace(' ', '_') }}.html" class="taxonomy-category">{{ p.category }}</a>{% endif %}[{{ p.date.strftime('%Y-%m-%d') }}]</div>
-					<a href="{{ base_path }}{{ p.url }}" class="taxonomy-link">{{ p.title | default('Sin título') }}</a>
-					{% if p.description %}
-						<p class="taxonomy-description">{{ p.description }}</p>
-					{% endif %}
-				</li>
+    <div class="taxonomy-date">
+        {% if not is_taxonomy and p.category %}
+            <a href="{{ base_path }}categoría/{{ p.category.lower().replace(' ', '_') }}.html" class="taxonomy-category">{{ p.category }}</a>
+        {% endif %}
+        {# Solución al error de strftime: solo renderiza si date existe #}
+        {% if p.date %}[{{ p.date.strftime('%Y-%m-%d') }}]{% endif %}
+    </div>
+    
+    <a href="{{ base_path }}{{ p.url }}" class="taxonomy-link">{{ p.title | default('Sin título') }}</a>
+    
+    {% if p.description %}
+        {# Solución para eliminar etiquetas HTML en la descripción #}
+        <p class="taxonomy-description">{{ p.description | striptags }}</p>
+    {% endif %}
+</li>
 			{% endfor %}
 		</ul>
 

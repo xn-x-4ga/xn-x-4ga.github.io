@@ -1,102 +1,144 @@
 <!DOCTYPE html>
 <html lang="{{ config.locale.split('_')[0] }}">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title }} | {{ config.site_name }}</title>{% if description %}
-	<meta name="description" content="{{ description | striptags }}">{% endif %}{% if author %}
-	<meta name="author" content="{{ author }}">{% endif %}{% if tags %}
-	<meta name="keywords" content="{{ tags | join(', ') }}">{% endif %}
-	<link rel="icon" type="image/svg+xml" href="{{ config.base_url }}favicon.svg">
-	<link rel="stylesheet" href="{{ config.base_url }}css/main.css">{% if has_code %}
-	<link rel="stylesheet" href="{{ config.base_url }}css/pygments.css">{% endif %}
-	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ config.base_url }}rss.xml">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | {{ config.site_name }}</title>
+    {%- if description %}
+    <meta name="description" content="{{ description | striptags }}">
+    {%- endif %}
+    {%- if author %}
+    <meta name="author" content="{{ author }}">
+    {%- endif %}
+    {%- if tags %}
+    <meta name="keywords" content="{{ tags | join(', ') }}">
+    {%- endif %}
+
+    {# SEO Social #}
+    <meta property="og:site_name" content="{{ config.site_name }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:url" content="{{ config.base_url }}{{ title | lower | replace(' ', '-') }}">
+    {%- if description %}
+    <meta property="og:description" content="{{ description | striptags }}">
+    {%- endif %}
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+
+    {# Microdatos (JSON-LD) #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ title | tojson }},
+      "description": {{ description | default('') | striptags | tojson }},
+      "url": "{{ config.base_url }}{{ title | lower | replace(' ', '-') }}",
+      {%- if date %}
+      "datePublished": "{{ date.strftime('%Y-%m-%d') }}",
+      {%- endif %}
+      "author": {
+        "@type": "Person",
+        "name": {{ author | default('Admin') | tojson }}
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": {{ config.site_name | tojson }}
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="{{ config.base_url }}favicon.svg">
+    <link rel="stylesheet" href="{{ config.base_url }}css/main.css">
+    {%- if has_code %}
+    <link rel="stylesheet" href="{{ config.base_url }}css/pygments.css">
+    {%- endif %}
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ config.base_url }}rss.xml">
 </head>
 <body>
-	<header>
-		<nav class="main-nav" aria-label="Navegación principal">
-			<div class="nav-left">
-				<a href="{{ config.base_url }}" aria-label="Inicio">
-					<span class="nav-logo"></span>
-				</a>
-			</div>
-			<div class="nav-right">
-				<a href="{{ config.base_url }}about">Acerca de</a>
-				<a href="{{ config.base_url }}blog">Blog</a>
-				<form class="search-form" action="https://duckduckgo.com/" role="search">
-					<input type="search" placeholder="Buscar…" name="q" aria-label="Buscar contenido">
-					<input type="hidden" name="sites" value="{{ config.base_url }}">
-				</form>
-			</div>
-		</nav>
-	</header>
-	<main>{% block main_content %}
-		<article>
-			<header>
-				<h1>{{ title }}</h1>
-				{# Solo renderiza el contenedor si existe al menos uno de los metadatos internos #}
-{% if author or date or source or translator %}
-<div class="post-metadata">
-    {# Configuración de idiomas #}
-    {% set labels = {
-        'es': {'by': 'de', 'source': 'Fuente original', 'translated': 'Traducido por'},
-        'en': {'by': 'by', 'source': 'Original source', 'translated': 'Translated by'}
-    } %}
-    {% set l = labels[lang] if lang in labels else labels['es'] %}
+    <header>
+        <nav class="main-nav" aria-label="Navegación principal">
+            <div class="nav-left">
+                <a href="{{ config.base_url }}" aria-label="Inicio">
+                    <span class="nav-logo"></span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <a href="{{ config.base_url }}about">Acerca de</a>
+                <a href="{{ config.base_url }}blog">Blog</a>
+                <form class="search-form" action="https://duckduckgo.com/" role="search">
+                    <input type="search" placeholder="Buscar…" name="q" aria-label="Buscar contenido">
+                    <input type="hidden" name="sites" value="{{ config.base_url }}">
+                </form>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {%- block main_content -%}
+        <article>
+            <header>
+                <h1>{{ title }}</h1>
+                {%- if author or date or source or translator %}
+                <div class="post-metadata">
+                    {%- set labels = {
+                        'es': {'by': 'de', 'source': 'Fuente original', 'translated': 'Traducido por'},
+                        'en': {'by': 'by', 'source': 'Original source', 'translated': 'Translated by'}
+                    } -%}
+                    {%- set l = labels[lang] if lang in labels else labels['es'] -%}
 
-    {# Autor #}
-    {% if author %}
-        <b>{{ author }}</b> 
-    {% endif %}
+                    {%- if author %}
+                    <b>{{ author }}</b> 
+                    {%- endif %}
 
-    {# Fecha #}
-    {% if date %}
-    <time datetime="{{ date.strftime('%Y-%m-%d') }}">
-        {{ date.strftime('%d de %B, %Y') }}
-        {% if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
-    </time>
-    {% endif %}
+                    {%- if date %}
+                    <time datetime="{{ date.strftime('%Y-%m-%d') }}" title="{{ date.strftime('%d/%m/%Y %H:%M') }}">
+                        {{ date.strftime('%d de %B, %Y') }}
+                        {%- if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
+                    </time>
+                    {%- endif %}
 
-    {# Fuente #}
-    {% if source and source.url %} 
-    <a class="source-link" href="{{ source.url }}" target="_blank" rel="noopener" title="{{ l.source }}: {{ source.name | default('Link') }}">
-        <span class="icon-link"></span>
-    </a>
-    {% endif %}
+                    {%- if source and source.url %} 
+                    <a class="source-link" href="{{ source.url }}" target="_blank" rel="noopener" title="{{ l.source }}: {{ source.name | default('Link') }}">
+                        <span class="icon-link"></span>
+                    </a>
+                    {%- endif %}
 
-    {# Traductor #}
-    {% if translator and translator.name %}
-        <span class="translator">
-            {{ l.translated }} 
-            {% if translator.link %}
-                <a href="{{ translator.link }}">{{ translator.name }}</a>
-            {% else %}
-                {{ translator.name }}
-            {% endif %}
-        </span>
-    {% endif %}
-</div>
-{% endif %}
-			</header>
-			{{ content | safe }}{% if tags %}
-			<section class="post-tags-section">{% for tag in tags %}
-				<a class="tag-box" href="tag/{{ tag.lower().replace(' ', '_') }}.html">{{ tag }}</a>{% endfor %}
-			</section>{% endif %}
-		</article>
-		{% endblock %}
-	</main>
-	<footer>
-		<p>
-			<a href="rss.xml" class="footer-link-item" target="_blank">
-				<img src="{{ config.base_url }}img/rss.svg" alt="RSS Feed" class="icon-rss">
-			</a>
-		</p>
-			<a class="footer-validators" href="https://validator.w3.org/check/referer" target="_blank">
-				<img src="{{ config.base_url }}img/w3c-html5.svg" alt="¡HTML5 Válido!" class="img-validator">
-			</a>
-			<a class="footer-validators" href="https://jigsaw.w3.org/css-validator/validator?uri={{ config.base_url }}css/main.css" target="_blank">
-				<img src="{{ config.base_url }}img/w3c-css.svg" alt="¡CSS Válido!" class="img-validator">
-			</a>
-	</footer>
+                    {%- if translator and translator.name %}
+                    <span class="translator">
+                        {{ l.translated }} 
+                        {%- if translator.link %}
+                        <a href="{{ translator.link }}">{{ translator.name }}</a>
+                        {%- else %}
+                        {{ translator.name }}
+                        {%- endif %}
+                    </span>
+                    {%- endif %}
+                </div>
+                {%- endif %}
+            </header>
+            
+            {{ content | safe }}
+
+            {%- if tags %}
+            <section class="post-tags-section">
+                {%- for tag in tags %}
+                <a class="tag-box" href="tag/{{ tag.lower().replace(' ', '_') }}.html" rel="tag">{{ tag }}</a>
+                {%- endfor %}
+            </section>
+            {%- endif %}
+        </article>
+        {%- endblock -%}
+    </main>
+    <footer>
+        <p>
+            <a href="rss.xml" class="footer-link-item" target="_blank">
+                <img src="{{ config.base_url }}img/rss.svg" alt="RSS Feed" class="icon-rss">
+            </a>
+        </p>
+        <a class="footer-validators" href="https://validator.w3.org/check/referer" target="_blank" rel="noopener">
+            <img src="{{ config.base_url }}img/w3c-html5.svg" alt="¡HTML5 Válido!" class="img-validator">
+        </a>
+        <a class="footer-validators" href="https://jigsaw.w3.org/css-validator/validator?uri={{ config.base_url }}css/main.css" target="_blank" rel="noopener">
+            <img src="{{ config.base_url }}img/w3c-css.svg" alt="¡CSS Válido!" class="img-validator">
+        </a>
+    </footer>
 </body>
 </html>

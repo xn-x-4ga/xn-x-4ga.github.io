@@ -9,7 +9,7 @@ tags:
 description: This article was published with the title “Mathematical Games” in Scientific American Magazine Vol. 223 No. 4 (October 1970), p. 120.
 source:
   name: "Scientific American Magazine"
-  link: https://dx.doi.org/10.1038/scientificamerican1070-120
+  url: https://dx.doi.org/10.1038/scientificamerican1070-120
 ---
 
 Most of the work of John Horton Conway, a mathematician at Gonville and Caius College of the University of Cambridge has been in pure mathematics. For instance, in 1967 he discovered a new group—some call it “Conway's constellation”—that includes all but two of the then known sporadic groups. (They are called “sporadic” because they fail to fit any classification scheme.) It is a breakthrough that has had exciting repercussions in both group theory and number theory. It ties in closely with an earlier discovery by John Conway of an extremely dense packing of unit spheres in a space of 24 dimensions where each sphere touches 196,560 others. As Conway has remarked, “There is a lot of room up there.”

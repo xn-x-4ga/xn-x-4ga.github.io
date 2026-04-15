@@ -119,8 +119,6 @@ Developing a good research question is not a flash of genius or insight; it is a
 
 I thank G. Blohm for helpful comments on early versions of this piece.
 
-Development process and traps to avoid
-
 [^1]: Dennett, D. C. <cite>I’ve Been Thinking</cite> (WW Norton, 2025).
 [^2]: Orouji, S., Liu, M. C., Korem, T. & Peters, M. A. K. Sci. Adv. 10, eadp6040 (2024).
 [^3]: Dayan, P. & Abbott, L. F. Theoretical Neuroscience (MIT Press, 2005).

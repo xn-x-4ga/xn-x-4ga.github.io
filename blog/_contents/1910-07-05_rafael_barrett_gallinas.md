@@ -3,7 +3,7 @@ title: Gallinas
 author: Rafael Barrett
 category: Archivo
 tags: [anarquismo, cuento]
-description: Célebre relato de Rafael Barrett publicado originalmente en el diario <cite>El Nacional</cite> el 5 de julio de 1910. Es un cuento/ensayo breve donde el autor reflexiona sobre la propiedad privada, la crueldad y la desconfianza.
+description: Célebre relato de Rafael Barrett publicado originalmente en el diario <cite>El Nacional</cite>. Es un cuento/ensayo breve donde el autor reflexiona sobre la propiedad privada, la crueldad y la desconfianza.
 date: 1910-07-05
 ---
 

@@ -109,11 +109,6 @@ In eu mi bibendum neque. Porta lorem mollis aliquam ut porttitor. Suscipit tellu
 
 Et leo duis ut diam quam nulla porttitor massa id. Ultrices neque ornare aenean euismod elementum nisi. Id volutpat lacus laoreet non. Elit at imperdiet dui accumsan sit amet nulla. Ut eu sem integer vitae justo eget magna fermentum iaculis. Sit amet consectetur adipiscing elit. Tortor pretium viverra suspendisse potenti nullam. Pharetra massa massa ultricies mi. Amet risus nullam eget felis eget nunc. At tellus at urna condimentum mattis pellentesque id nibh. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Pellentesque nec nam aliquam sem et tortor consequat id. Venenatis cras sed felis eget velit aliquet. Elementum nibh tellus molestie nunc non. Non sodales neque sodales ut etiam sit amet nisl. Sapien eget mi proin sed libero enim sed faucibus.
 
-https://forum.typst.app/t/does-mathjax-katex-like-math-typesetting-for-the-web-but-with-typst-math-syntax-exist/5557/6
-
-$ x = (-b plus.minus sqrt(b^2 - 4a c)) / (2a) $
-
-
 When <math><mi>a</mi><mo>≠</mo><mn>0</mn></math>, there are two solutions to <math><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>c</mi><mo>=</mo><mn>0</mn></math> and they are:
 
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML" alttext="x equals negative b plus or minus the square root of b squared minus 4 a c, all over 2 a">
@@ -291,24 +286,5 @@ The <u>u element</u> example
 <div class="danger">
 	<b>Danger!</b> Indicates a dangerous or potentially negative action.
 </div>
-
-## Matemáticas con Typst
-
-Aquí hay una fórmula escrita en la sintaxis de Typst:
-
-```typst
-$ sum_(k=0)^n k = (n(n+1)) / 2 $
-```
-
-Y una matriz compleja:
-
-```typst
-$ mat(
-  1, 2, ..., n;
-  2, 4, ..., 2n;
-  dots.v, dots.v, dots.down, dots.v;
-  n, 2n, ..., n^2;
-) $
-```
 
 [^1]: [http://es.wikipedia.org/wiki/Lorem_ipsum](http://es.wikipedia.org/wiki/Lorem_ipsum)

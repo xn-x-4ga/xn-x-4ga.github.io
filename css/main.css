@@ -240,7 +240,7 @@ hr.asterism:after {
 
 /* --- 7. POSTS Y ARTÍCULOS --- */
 header {
-	padding-bottom: 1.5rem;
+/*	padding-bottom: 1.5rem;*/
 	border-bottom: 0.0625rem solid var(--border-color);
 }
 

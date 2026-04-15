@@ -196,26 +196,26 @@ hr.asterism:after {
 .main-nav a:hover { color: #fff; }
 
 .nav-logo {
-    display: inline-block;
-    width: 28px;
-    height: 28px;
-    
-    /* El color de fondo será el color del logo */
-    background-color: currentColor;
-    
-    /* Aplicamos el SVG como máscara */
-    -webkit-mask-image: url('../img/logo.svg');
-    mask-image: url('../img/logo.svg');
-    
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	
+	/* El color de fondo será el color del logo */
+	background-color: currentColor;
+	
+	/* Aplicamos el SVG como máscara */
+	-webkit-mask-image: url('../img/logo.svg');
+	mask-image: url('../img/logo.svg');
+	
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
 }
 
 .nav-logo:hover {
-    opacity: 0.8;
-    transition: opacity 0.2s ease-in-out;
+	opacity: 0.8;
+	transition: opacity 0.2s ease-in-out;
 }
 
 .search-form { display: flex; align-items: center; }
@@ -270,36 +270,36 @@ header {
 
 /* Contenedor del enlace */
 a.source-link {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--accent-color);
-    transition: color 0.2s ease;
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	color: var(--accent-color);
+	transition: color 0.2s ease;
 }
 
 a.source-link:hover {
-    opacity: 0.7;
+	opacity: 0.7;
 }
 
 /* El icono propiamente dicho */
 .icon-link {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-color: currentColor; /* Esto hace que el SVG use el color del texto */
-    
-    /* Ruta a tu archivo SVG */
-    -webkit-mask-image: url('../img/external-link.svg');
-    mask-image: url('../img/external-link.svg');
-    
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
-    mask-size: contain;
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background-color: currentColor; /* Esto hace que el SVG use el color del texto */
+	
+	/* Ruta a tu archivo SVG */
+	-webkit-mask-image: url('../img/external-link.svg');
+	mask-image: url('../img/external-link.svg');
+	
+	-webkit-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-size: contain;
+	mask-size: contain;
 
-    /* Ajuste fino de posición */
-    vertical-align: middle;
-    margin-left: 4px;
+	/* Ajuste fino de posición */
+	vertical-align: middle;
+	margin-left: 4px;
 }
 
 .translator { display: block; font-style: oblique; }
@@ -422,38 +422,38 @@ a.source-link:hover {
 /* --- 9. MULTIMEDIA --- */
 /* Imagen Destacada en el Header del Post */
 .featured-image-container {
-    width: 100%;
-    max-width: 100%; /* Evita desbordamientos del contenedor */
-    margin: 1.5rem 0 2.5rem 0;
-    overflow: hidden; /* Corta cualquier posible pixel rebelde */
+	width: 100%;
+	max-width: 100%; /* Evita desbordamientos del contenedor */
+	margin: 1.5rem 0 2.5rem 0;
+	overflow: hidden; /* Corta cualquier posible pixel rebelde */
 }
 
 .featured-image {
-    display: block;
-    width: 100%; /* Se expande hasta el ancho de main */
-    max-width: 100%; /* Pero nunca lo supera */
-    height: auto;
-    object-fit: cover;
+	display: block;
+	width: 100%; /* Se expande hasta el ancho de main */
+	max-width: 100%; /* Pero nunca lo supera */
+	height: auto;
+	object-fit: cover;
 }
 
 audio {
-    /* Centrado automático (requiere que el elemento sea block) */
-    display: block;
-    margin: 2rem auto;
-    
-    /* Dimensiones y forma de "píldora" */
-    width: 100%;
-    max-width: 400px;
-    height: 45px;
-    border-radius: 50px;
-    
-    /* Estética estilo Chrome (Gris claro) */
-    background-color: #f1f3f4;
-    
-    /* Ajustes específicos para Firefox */
-    border: 1px solid #dcdcdc;
-    filter: contrast(90%) brightness(105%); 
-    outline: none;
+	/* Centrado automático (requiere que el elemento sea block) */
+	display: block;
+	margin: 2rem auto;
+	
+	/* Dimensiones y forma de "píldora" */
+	width: 100%;
+	max-width: 400px;
+	height: 45px;
+	border-radius: 50px;
+	
+	/* Estética estilo Chrome (Gris claro) */
+	background-color: #f1f3f4;
+	
+	/* Ajustes específicos para Firefox */
+	border: 1px solid #dcdcdc;
+	filter: contrast(90%) brightness(105%); 
+	outline: none;
 }
 
 figure {
@@ -488,24 +488,40 @@ figcaption b {
 }
 
 .video-container {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    background: #000;
-    margin: 2rem 0;
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	background: #000;
+	margin: 2rem 0;
 }
 
 .video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
 }
 
 /* --- 10. TABLAS Y CÓDIGO --- */
 .plus_25 {
-	width: 125%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: none !important;
+	margin: 0 auto;
+	width: 125% !important;
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
+}
+.plus_25:not(.warning):not(.danger):not(.success):not(.info) tbody tr:nth-child(odd) td,
+.plus_25:not(.warning):not(.danger):not(.success):not(.info) tbody tr:nth-child(odd) th {
+	background-color: transparent !important;
+}
+.plus_25.warning td, .plus_25.warning th { background-color: var(--bg-warning) !important; color: var(--color-warning); }
+.plus_25.danger td, .plus_25.danger th { background-color: var(--bg-danger) !important; color: var(--color-danger); }
+.plus_25.success td, .plus_25.success th { background-color: var(--bg-success) !important; color: var(--color-success); }
+.plus_25.info td, .plus_25.info th { background-color: var(--bg-info) !important; color: var(--color-info); }
+.plus_25 td, .plus_25 th {
+	border: none !important;
+	padding: 10px;
 }
 
 tr { vertical-align: top; }
@@ -533,7 +549,7 @@ td, th {
 th { font-weight: 700; background-color: var(--bg-color); }
 
 pre, code, kbd, samp { font-family: var(--font-mono); }
-pre { background: transparent;  padding: 0.4rem; }
+pre { background: transparent; padding: 0.4rem; }
 p code, li code {
 	background: #80808026;
 	padding: 0.2em 0.4em;

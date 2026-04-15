@@ -30,15 +30,26 @@ class BlogGenerator:
 
         effective_locale = args.locale if args.locale else (locale.getlocale(locale.LC_TIME)[0] or 'es_ES')
 
-        # Normalización de URLs
-        site_url = args.site_url.rstrip('/')
-        base_path = f"/{args.base_path.strip('/')}" if args.base_path.strip('/') else ""
-        full_base_url = f"{site_url}{base_path}/"
+        # --- NORMALIZACIÓN DE URLs ---
+        # Garantiza que el dominio principal siempre termine en /
+        # Esto soluciona el error https://dominio.netfavicon.svg -> https://dominio.net/favicon.svg
+        site_url = args.site_url.rstrip('/') + '/'
+        
+        # Limpia la subruta de barras sobrantes
+        raw_path = args.base_path.strip('/')
+        
+        # Construye la base_url del blog (dominio + subruta)
+        if raw_path:
+            full_base_url = f"{site_url}{raw_path}/"
+            base_path_for_links = f"/{raw_path}"
+        else:
+            full_base_url = site_url
+            base_path_for_links = ""
 
         self.config = {
             'site_name': args.site_name,
             'site_url': site_url,
-            'base_path': base_path,
+            'base_path': base_path_for_links,
             'base_url': full_base_url,
             'locale': effective_locale,
             'settings': {
@@ -167,7 +178,6 @@ class BlogGenerator:
 
         posts.sort(key=lambda x: x['date'] or datetime.datetime.min.replace(tzinfo=datetime.timezone.utc), reverse=True)
 
-        # Regeneración selectiva
         for p in posts:
             target_path = self.dest_dir / p['url']
             if target_path.exists():
@@ -223,7 +233,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generador de Blog Estático")
     parser.add_argument("--site-name", default="WWW.net", help="Nombre del sitio")
     parser.add_argument("--site-url", default="https://www.net", help="Dominio principal")
-    parser.add_argument("--base-path", default="/blog", help="Subruta del blog")
+    parser.add_argument("--base-path", default="blog", help="Subruta del blog")
     parser.add_argument("--posts-per-page", type=int, default=10, help="Posts por página")
     parser.add_argument("--locale", default="", help="Locale (ej: es_ES.UTF-8)")
 

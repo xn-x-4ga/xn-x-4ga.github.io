@@ -420,6 +420,22 @@ a.source-link:hover {
 }
 
 /* --- 9. MULTIMEDIA --- */
+/* Imagen Destacada en el Header del Post */
+.featured-image-container {
+    width: 100%;
+    margin: 2rem 0; /* Espaciado entre título y metadata */
+}
+
+.featured-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Mantiene proporción de red social */
+    object-fit: cover;
+    border-radius: 0.25rem; /* Consistente con el resto de tus imágenes */
+    border: 0.0625rem solid var(--border-color); /* Toque sutil de marco */
+}
+
 audio {
     /* Centrado automático (requiere que el elemento sea block) */
     display: block;

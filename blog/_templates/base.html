@@ -22,7 +22,9 @@
 	<meta property="og:description" content="{{ description | striptags }}">
 	{%- endif %}
 	<meta property="og:type" content="article">
-	<meta property="og:image" content="{{ config.base_url }}img/og-default.jpg">
+	<meta property="og:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpg' }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpg' }}">
 
 	<!-- Microdatos (JSON-LD) -->
 	<script type="application/ld+json">
@@ -32,6 +34,7 @@
 		"headline": {{ title | tojson }},
 		"description": {{ description | default('') | striptags | tojson }},
 		"url": "{{ current_url }}",
+		"image": "{{ config.base_url }}img/{{ image if image else 'og-default.jpg' }}",
 		{%- if date %}
 		"datePublished": "{{ date.strftime('%Y-%m-%d') }}",
 		{%- endif %}
@@ -74,6 +77,11 @@
 		<article>
 			<header>
 				<h1>{{ title }}</h1>
+				{%- if image %}
+				<div class="featured-image-container">
+					<img src="{{ config.base_url }}img/{{ image }}" alt="{{ title }}" class="featured-image">
+				</div>
+				{%- endif %}
 				{%- if author or date or source or translator %}
 				<div class="post-metadata">
 					{%- set labels = {

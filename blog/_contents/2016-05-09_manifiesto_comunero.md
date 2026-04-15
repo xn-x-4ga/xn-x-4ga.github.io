@@ -2,6 +2,9 @@
 title: Manifiesto Comunero
 author: Club de las Indias
 date: 2016-05-09
+category: Archivo
+tags: [Sociedad Transnacional, Redes, Abundancia, Cibercultura, Autonomía, Procomún, Post–capitalismo]
+description: Declaración política y económica del grupo Las Indias (Sociedad de las Indias Electrónicas) sobre la construcción de una sociedad transnacional basada en la abundancia, el procomún y la soberanía de las comunidades frente al Estado–nación.
 source:
   name: lasindias.blog
   url: https://lasindias.blog/manifiesto-comunero-html

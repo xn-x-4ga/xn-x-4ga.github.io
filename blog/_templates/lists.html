@@ -31,7 +31,7 @@
 					<a href="{{ base_path }}{{ p.url }}" class="taxonomy-link">{{ p.title | default('Sin título') }}</a>
 					
 					{% if p.description -%}
-						<p class="taxonomy-description">{{ p.description | striptags | truncate(200) }}</p>
+						<p class="taxonomy-description">{{ p.description }}</p>
 					{%- endif %}
 				</li>
 			{% else -%}

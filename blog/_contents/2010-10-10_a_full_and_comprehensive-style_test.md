@@ -12,7 +12,7 @@ source:
   url: https://gist.github.com/ErisDS/7e3455b70133640823c0
 translator:
   name: "Nombre del Traductor"
-  link: https://web.net
+  url: https://web.net
 lang: en
 ---
 

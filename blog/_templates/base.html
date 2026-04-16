@@ -17,8 +17,7 @@
 
                 {%- if author or date or source or translator %}
                 <div class="post-metadata">
-                    {%- set post_lang = lang if lang else config.locale.split('_')[0] -%}
-                    {%- set l = i18n.labels.get(post_lang, i18n.labels['es']) -%}
+                    {%- set l = i18n.labels[lang] -%}
 
                     {%- if author %}
                     <b>{{ author }}</b> 
@@ -27,9 +26,9 @@
                     {%- if date %}
                     <time datetime="{{ date.strftime('%Y-%m-%d') }}" title="{{ date.strftime('%d/%m/%Y %H:%M') }}">
                         {%- if lang == 'en' %}
-                            {{ i18n.months_en[date.month - 1] }} {{ date.strftime('%d, %Y') }}
+                            {{ i18n.months[lang][date.month - 1] }} {{ date.strftime('%d, %Y') }}
                         {%- else %}
-                            {{ date.strftime('%d de %B, %Y') }}
+                            {{ date.strftime('%d de ') }}{{ i18n.months[lang][date.month - 1] }}{{ date.strftime(', %Y') }}
                         {%- endif %}
                         {%- if date.hour > 0 %} · {{ date.strftime('%H:%M') }}{% endif %}
                     </time>

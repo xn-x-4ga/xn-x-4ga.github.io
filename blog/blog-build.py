@@ -4,7 +4,6 @@
 import time
 import frontmatter
 import datetime
-import locale
 import sys
 import tomllib
 from concurrent.futures import ThreadPoolExecutor
@@ -34,8 +33,7 @@ class BlogGenerator:
 		with open(config_path, "rb") as f:
 			raw_config = tomllib.load(f)
 
-		locale_str = raw_config["locale"]
-		self.setup_locale(locale_str)
+		lang_str = raw_config["lang"]
 
 		site_url = raw_config["site_url"].rstrip('/') + '/'
 		raw_path = raw_config["base_path"].strip('/')
@@ -52,7 +50,7 @@ class BlogGenerator:
 			'site_url': site_url,
 			'base_path': base_path_for_links,
 			'base_url': full_base_url,
-			'locale': locale_str,
+			'lang': lang_str,
 			'settings': {
 				'posts_per_page': raw_config["posts_per_page"]
 			}
@@ -64,14 +62,7 @@ class BlogGenerator:
 
 		self.setup_markdown_and_templates()
 
-	def setup_locale(self, user_locale):
-		try:
-			locale.setlocale(locale.LC_TIME, user_locale)
-		except locale.Error:
-			try:
-				locale.setlocale(locale.LC_TIME, '')
-			except locale.Error:
-				pass
+
 
 	def setup_markdown_and_templates(self):
 		self.md = (
@@ -125,7 +116,8 @@ class BlogGenerator:
 		data.update({
 			'slug': file_path.stem,
 			'url': f"{file_path.stem}.html",
-			'mtime': mtime
+			'mtime': mtime,
+			'lang': data.get('lang', self.config['lang'])
 		})
 
 		data['date'] = self._parse_date(data.get('date'))

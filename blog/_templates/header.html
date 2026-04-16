@@ -1,79 +1,78 @@
 <!DOCTYPE html>
-<html lang="{{ config.locale.split('_')[0] }}">
+<html lang="{{ lang | default(config.lang) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | {{ config.site_name }}</title>
-    
-    {%- if description %}
-    <meta name="description" content="{{ description | striptags }}">
-    {%- endif %}
-    {%- if author %}
-    <meta name="author" content="{{ author }}">
-    {%- endif %}
-    {%- if tags %}
-    <meta name="keywords" content="{{ tags | join(', ') }}">
-    {%- endif %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ title }} | {{ config.site_name }}</title>
 
-    <meta property="og:site_name" content="{{ config.site_name }}">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:url" content="{{ current_url }}">
-    {%- if description %}
-    <meta property="og:description" content="{{ description | striptags }}">
-    {%- endif %}
-    <meta property="og:type" content="article">
-    {# Usamos config.base_url para asegurar rutas absolutas en imágenes de redes sociales #}
-    <meta property="og:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpeg' }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpeg' }}">
+	{%- if description %}
+	<meta name="description" content="{{ description | striptags }}">
+	{%- endif %}
+	{%- if author %}
+	<meta name="author" content="{{ author }}">
+	{%- endif %}
+	{%- if tags %}
+	<meta name="keywords" content="{{ tags | join(', ') }}">
+	{%- endif %}
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": {{ title | tojson }},
-        "description": {{ description | default('') | striptags | tojson }},
-        "url": "{{ current_url }}",
-        "image": "{{ config.base_url }}img/{{ image if image else 'og-default.jpeg' }}",
-        {%- if date %}
-        "datePublished": "{{ date.strftime('%Y-%m-%d') }}",
-        {%- endif %}
-        "author": {
-            "@type": "Person",
-            "name": {{ author | default('Admin') | tojson }}
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": {{ config.site_name | tojson }}
-        }
-    }
-    </script>
+	<meta property="og:site_name" content="{{ config.site_name }}">
+	<meta property="og:title" content="{{ title }}">
+	<meta property="og:url" content="{{ current_url }}">
+	{%- if description %}
+	<meta property="og:description" content="{{ description | striptags }}">
+	{%- endif %}
+	<meta property="og:type" content="article">
+	{# Usamos config.base_url para asegurar rutas absolutas en imágenes de redes sociales #}
+	<meta property="og:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpeg' }}">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpeg' }}">
 
-    {# Favicon y Assets usando la base_url combinada #}
-    <link rel="icon" type="image/svg+xml" href="{{ config.site_url }}favicon.svg">
-    <link rel="stylesheet" href="{{ config.base_url }}css/main.css">
-    {%- if has_code %}
-    <link rel="stylesheet" href="{{ config.base_url }}css/pygments.css">
-    {%- endif %}
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ config.base_url }}rss.xml">
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		"headline": {{ title | tojson }},
+		"description": {{ description | default('') | striptags | tojson }},
+		"url": "{{ current_url }}",
+		"image": "{{ config.base_url }}img/{{ image if image else 'og-default.jpeg' }}",
+		{%- if date %}
+		"datePublished": "{{ date.strftime('%Y-%m-%d') }}",
+		{%- endif %}
+		"author": {
+			"@type": "Person",
+			"name": {{ author | default('Admin') | tojson }}
+		},
+		"publisher": {
+			"@type": "Organization",
+			"name": {{ config.site_name | tojson }}
+		}
+	}
+	</script>
+
+	{# Favicon y Assets usando la base_url combinada #}
+	<link rel="icon" type="image/svg+xml" href="{{ config.site_url }}favicon.svg">
+	<link rel="stylesheet" href="{{ config.base_url }}css/main.css">
+	{%- if has_code %}
+	<link rel="stylesheet" href="{{ config.base_url }}css/pygments.css">
+	{%- endif %}
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ config.base_url }}rss.xml">
 </head>
 <body>
-    <nav class="main-nav" aria-label="Navegación principal">
-        <div class="nav-left">
-            {# Lleva a la raíz del blog configurada #}
-            <a href="{{ config.site_url }}" aria-label="Inicio">
-                <span class="nav-logo"></span>
-            </a>
-        </div>
-        <div class="nav-right">
-            {# Ajuste de rutas: agregamos el slash para evitar errores de concatenación #}
-            <a href="{{ config.base_url }}about/index.html">Acerca de</a>
-            <a href="{{ config.base_url }}index.html">Blog</a>
-            
-            <form class="search-form" action="https://duckduckgo.com/" role="search">
-                <input type="search" placeholder="Buscar…" name="q" aria-label="Buscar contenido">
-                {# DuckDuckGo usará la URL completa del blog para filtrar resultados #}
-                <input type="hidden" name="sites" value="{{ config.base_url }}">
-            </form>
-        </div>
-    </nav>
+	<nav class="main-nav" aria-label="Navegación principal">
+		<div class="nav-left">
+			{# Lleva a la raíz del blog configurada #}
+			<a href="{{ config.site_url }}" aria-label="Inicio">
+				<span class="nav-logo"></span>
+			</a>
+		</div>
+		<div class="nav-right">
+			{# Ajuste de rutas: agregamos el slash para evitar errores de concatenación #}
+			<a href="{{ config.base_url }}about/index.html">Acerca de</a>
+			<a href="{{ config.base_url }}index.html">Blog</a>
+			<form class="search-form" action="https://duckduckgo.com/" role="search">
+				<input type="search" placeholder="Buscar…" name="q" aria-label="Buscar contenido">
+				{# DuckDuckGo usará la URL completa del blog para filtrar resultados #}
+				<input type="hidden" name="sites" value="{{ config.base_url }}">
+			</form>
+		</div>
+	</nav>

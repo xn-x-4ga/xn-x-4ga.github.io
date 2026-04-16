@@ -1,23 +1,17 @@
-    <footer>
-        <p>
-            <a href="{{ config.base_url }}rss.xml" class="footer-link-item" target="_blank">
-                <img src="{{ config.base_url }}img/rss.svg" alt="RSS Feed" class="icon-rss">
-            </a>
-        </p>
-        
-        <a class="footer-validators" 
-           href="https://validator.w3.org/nu/?doc={{ current_url | urlencode }}" 
-           target="_blank" 
-           rel="noopener noreferrer">
-            <img src="{{ config.base_url }}img/w3c-html5.svg" alt="¡HTML5 Válido!" class="img-validator">
-        </a>
+	<footer>
+		<p>
+			<a href="{{ config.base_url }}rss.xml" class="footer-link-item" target="_blank">
+				<img src="{{ config.base_url }}img/rss.svg" alt="RSS Feed" class="icon-rss">
+			</a>
+		</p>
 
-        <a class="footer-validators" 
-           href="https://jigsaw.w3.org/css-validator/validator?uri={{ (config.base_url ~ 'css/main.css') | urlencode }}" 
-           target="_blank" 
-           rel="noopener noreferrer">
-            <img src="{{ config.base_url }}img/w3c-css.svg" alt="¡CSS Válido!" class="img-validator">
-        </a>
-    </footer>
+		<a class="footer-validators" href="https://validator.w3.org/nu/?doc={{ current_url | urlencode }}" target="_blank" rel="noopener noreferrer">
+			<img src="{{ config.base_url }}img/w3c-html5.svg" alt="¡HTML5 Válido!" class="img-validator">
+		</a>
+
+		<a class="footer-validators" href="https://jigsaw.w3.org/css-validator/validator?uri={{ (config.base_url ~ 'css/main.css') | urlencode }}" target="_blank" rel="noopener noreferrer">
+			<img src="{{ config.base_url }}img/w3c-css.svg" alt="¡CSS Válido!" class="img-validator">
+		</a>
+	</footer>
 </body>
 </html>

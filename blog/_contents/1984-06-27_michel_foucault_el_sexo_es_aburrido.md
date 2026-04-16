@@ -14,21 +14,21 @@ A Michel Foucault no le gustaban las entrevistas, y esta última, concedida a do
 
 ---
 
-**<span class="sans">El primer volumen de su obra <cite>Historia de la sexualidad</cite> se publicó en 1976, ¿sigue usted pensando que el conocimiento de la sexualidad es imprescindible para comprender lo que somos?</sans>**
+<span class="question">El primer volumen de su obra <cite>Historia de la sexualidad</cite> se publicó en 1976, ¿sigue usted pensando que el conocimiento de la sexualidad es imprescindible para comprender lo que somos?</span>
 
 Debo aclarar que me interesan mucho más los problemas relacionados con las técnicas del yo que el sexo… El sexo es aburrido.
 
-**<span class="sans">Parece ser que a los griegos tampoco les interesaba el sexo.</sans>**
+<span class="question">Parece ser que a los griegos tampoco les interesaba el sexo.</span>
 
 Sí, así es. Consideraban que no era un problema importante. De hecho, le concedían una mayor importancia a la alimentación y a los regímenes. Creo que tiene un gran interés la observancia del movimiento extremadamente lento que va desde el momento en que se pone el énfasis en la alimentación —preocupación omnipresente en Grecia— hasta aquel en que se presta atención a la sexualidad. La alimentación era mucho más importante que el sexo en los primeros tiempos del cristianismo. En las reglas monacales, el problema fundamental era la alimentación. Durante la Edad Media se produjo un lento desplazamiento. Finalmente, después del siglo <span class="small-caps">xvii</span> se impuso la sexualidad como problema esencial.
 
-**<span class="sans">El tomo II de su <cite>Historia de la sexualidad, El uso de los placeres</cite>, se ocupa casi exclusivamente, del sexo.</sans>**
+<span class="question">El tomo II de su <cite>Historia de la sexualidad, El uso de los placeres</cite>, se ocupa casi exclusivamente, del sexo.</span>
 
 En este segundo volumen me he propuesto demostrar que en el siglo IV antes de Jesucristo prevalecía un código de restricciones y prohibiciones muy semejante al que tenían presente los moralistas y médicos de los primeros tiempos del Imperio Romano. Creo, sin embargo, que la forma de entregar estas prohibiciones con respecto al yo por parte de estos últimos era muy distinta. A mi entender, ello se debe a que el objetivo principal de este tipo de ética era de orden estético. En primer lugar, la ética a que nos referimos se limitaba a un problema de elección personal. En segundo lugar, estaba reservada a un sector muy reducido de la población y, por consiguiente, no podía prescribir un modelo de comportamiento para todo el mundo. Por último, la elección personal era determinada en la voluntad de vivir una existencia bella y de dejar a los demás el recuerdo de una vida honorable. No creo que este tipo de ética pueda considerarse como un intento destinado a establecer una normalización de la población.
 
 A leer a Séneca, Plutarco y otros autores afines me pareció que se ocupaban de un gran número de problemas relacionados con el yo, la ética del yo, la tecnología del yo… A partir de ahí se me ocurrió escribir un libro compuesto por una serie de estudios independientes que se ocuparan de determinados aspectos de la antigua tecnología pagana del yo.
 
-**<span class="sans">¿Cuál es su título?</sans>**
+<span class="question">¿Cuál es su título?</span>
 
 <cite>La experiencia de sí mismo</cite>. Esta obra, que no forma parte de la serie de libros sobre la sexualidad, se compone de diferentes escritos sobre el yo, el papel de la escritura y la lectura en su constitución, el problema de la experiencia médica del yo, etcétera.
 
@@ -36,49 +36,49 @@ Lo que me llama la atención es que la ética griega se preocupaba más por la c
 
 Me pregunto si nuestro problema hoy no es, en cierta forma, similar, ya que la mayoría de nosotros hemos dejado de creer que la ética esté sustentada por la religión, y nos oponemos a que un sistema legal intervenga en nuestra vida privada moral y personal. Los movimientos de liberación más recientes están perdiendo fuerza porque no consiguen encontrar un principio que pueda servir de base para la elaboración de una nueva ética. Necesitan una ética, pero la única que encuentran se halla sustentada por un supuesto conocimiento científico de lo que es el yo, el deseo, el inconsciente, etcétera. La similitud entre estos problemas y los que se planteaban los griegos es sorprendente.
 
-**<span class="sans">¿Cree usted que los griegos ofrecen una alternativa atrayente y plausible?</sans>**
+<span class="question">¿Cree usted que los griegos ofrecen una alternativa atrayente y plausible?</span>
 
 ¡De ninguna manera! Yo no busco una solución alternativa; no se puede resolver un problema imitando lo que hicieron otros hombres en otro tiempo. Mi intención no es reconstruir la historia de las soluciones, y éste es el motivo por el que rechazo la palabra *alternativa*; lo que me propongo es elaborar la genealogía de los problemas, de las problemáticas. Yo no creo que todas las soluciones sean malas, sino que todas encierran un peligro, lo que no es exactamente lo mismo. Si todas son peligrosas, tenemos siempre algo que hacer. Por consiguiente, mi postura no conduce a la apatía, sino a una militancia de la que no está excluido el pesimismo.
 
 Pienso que la elección ético–política que debemos hacer cada día consiste en determinar cuál es el peligro principal. Considere, por ejemplo, el análisis de Robert Castel sobre la historia del movimiento antipsiquiátrico. Aunque su estudio no induce a plantear el valor incondicional de todo lo que se deriva de la antipsiquiatría, tampoco se debe llegar a la conclusión de que los manicomios eran mejores que la antipsiquiatría. Sigue habiendo buenas razones para establecer una crítica de los hospitales psiquiátricos.
 
-**<span class="sans">Puede que la vida de los griegos no fuese perfecta; sin embargo, parece ofrecer una alternativa atrayente frente al eterno autoanálisis cristiano.</sans>**
+<span class="question">Puede que la vida de los griegos no fuese perfecta; sin embargo, parece ofrecer una alternativa atrayente frente al eterno autoanálisis cristiano.</span>
 
 La ética griega estaba vinculada a una sociedad puramente viril, que dejaba un sitio a los esclavos y en la que las mujeres eran seres relativamente inferiores, cuya vida sexual, caso de estar casadas, debía orientarse hacia una ratificación de su estado de esposas.
 
-**<span class="sans">Las mujeres estaban, pues, dominadas. Sin embargo, el amor homosexual se vivía, sin duda, mejor que ahora.</sans>**
+<span class="question">Las mujeres estaban, pues, dominadas. Sin embargo, el amor homosexual se vivía, sin duda, mejor que ahora.</span>
 
 Esa es la impresión más extendida. El hecho de que en la cultura griega exista una abundante y enjundiosa literatura sobre el amor entre hombres jóvenes ha sido considerado por los historiadores como una prueba evidente de que los griegos gustaban de practicar este tipo de relación. Pero ello demuestra al mismo tiempo que la homosexualidad planteaba varios problemas. De no ser así, los griegos se hubiesen referido a esas relaciones con los mismos términos que utilizaban para hablar de amor heterosexual. El problema era que no podían aceptar que un joven que estaba llamado a convertirse en un ciudadano libre pudiese estar dominado y fuera utilizado como un objeto para el placer de otro. La mujer y el esclavo podían ser positivos, puesto que ello formaba parte de su naturaleza y de su estado. Reflexiones como éstas sobre el amor homosexual demuestran que los griegos no podía integrar esta práctica real en el marco de su yo social.
 
 Ni siquiera podían imaginar que hubiese reciprocidad de placer en las relaciones entre un joven y un hombre. Si Plutarco, por ejemplo, cree que el amor de los efebos plantea problemas, ello no se debe a que considere que es contrario a la naturaleza. Su tesis es que «no puede haber reciprocidad en las relaciones físicas entre un joven y un hombre».
 
-**<span class="sans">Hay un aspecto de la cultura griega al que se refiere Aristóteles y que usted omite, a pesar de que parece muy importante: la amistad. En la literatura clásica, la amistad es la que permite el reconocimiento mutuo. Aunque tradicionalmente no ha sido considerada como la más alta de las virtudes, al leer a Aristóteles y a Cicerón se tiene la impresión de que se trata, en realidad, de la más importante de todas ellas. La amistad es, en efecto, desinteresada y duradera; no se compra con facilidad, no niega la utilidad y el placer del mundo y, sin embargo, busca algo más.</sans>**
+<span class="question">Hay un aspecto de la cultura griega al que se refiere Aristóteles y que usted omite, a pesar de que parece muy importante: la amistad. En la literatura clásica, la amistad es la que permite el reconocimiento mutuo. Aunque tradicionalmente no ha sido considerada como la más alta de las virtudes, al leer a Aristóteles y a Cicerón se tiene la impresión de que se trata, en realidad, de la más importante de todas ellas. La amistad es, en efecto, desinteresada y duradera; no se compra con facilidad, no niega la utilidad y el placer del mundo y, sin embargo, busca algo más.</span>
 
 <cite>El uso de los placeres</cite> se ocupa de la ética sexual. No es un libro sobre el amor, la amistad o la reciprocidad. No hay que olvidar que cuando Platón intenta integrar el amor de los jóvenes en la amistad se ve obligado a pasar por alto las relaciones sexuales. La amistad es recíproca, pero las relaciones sexuales no lo son: en ellas se es pasivo o activo, se es penetrado o se penetra. Estoy completamente de acuerdo con lo que dice usted acerca de la amistad, pero creo que ello confirma lo que señalábamos acerca de la ética sexual griega: si hay amistad, es difícil que existan relaciones sexuales. Una de las razones por las cuales los griegos tuvieron que elaborar una filosofía para justificar este tipo de amor es que no podían aceptar la reciprocidad física. En <cite>El banquete</cite>, Jenofonte refleja las opiniones de Sócrates al decir que en las relaciones entre un hombre y un joven es evidente que el joven no es más que el espectador del placer del hombre. Es más, para el joven resulta deshonroso sentir cualquier tipo de placer en su relación con un hombre.
 
 Lo que me interesa descubrir es lo siguiente: ¿Somos capaces de formular una ética de los actos y de su placer que tenga en cuenta el placer del otro? ¿Es posible integrar el placer del otro en nuestro propio placer sin que sea necesario referirse a una ley, al matrimonio o a cualquier otra obligación?
 
-**<span class="sans">Aunque parece que la no reciprocidad era un problema para los griegos, se tiene a la vez la impresión de que ese problema se podría haber resuelto. ¿Por qué el placer sexual había de ser masculino? ¿Por qué el placer de las mujeres y de los efebos no podía ser tomado en consideración sin que ello diera lugar a una importante alteración del sistema? ¿Quiere ello decir que no se trataba de un problema sin importancia y que si se intentaba introducir el placer del otro se venía abajo todo el sistema jerárquico y ético?</sans>**
+<span class="question">Aunque parece que la no reciprocidad era un problema para los griegos, se tiene a la vez la impresión de que ese problema se podría haber resuelto. ¿Por qué el placer sexual había de ser masculino? ¿Por qué el placer de las mujeres y de los efebos no podía ser tomado en consideración sin que ello diera lugar a una importante alteración del sistema? ¿Quiere ello decir que no se trataba de un problema sin importancia y que si se intentaba introducir el placer del otro se venía abajo todo el sistema jerárquico y ético?</span>
 
 Eso es exactamente lo que hubiera ocurrido. La ética griega del placer está vinculada a una sociedad viril, a la falta de simetría, a la exclusión del otro, a la obsesión por la penetración, a una especie de temor a ser desposeído de la propia energía, etcétera.
 
-**<span class="sans">Está bien. Admitamos que para los griegos las relaciones sexuales constituyeron, a la vez, una situación de no reciprocidad y un motivo de preocupación. Sin embargo, el placer no parecía plantearles ningún tipo de problema.</sans>**
+<span class="question">Está bien. Admitamos que para los griegos las relaciones sexuales constituyeron, a la vez, una situación de no reciprocidad y un motivo de preocupación. Sin embargo, el placer no parecía plantearles ningún tipo de problema.</span>
 
 En El <cite>uso de los placeres</cite> he intentado demostrar, por ejemplo, que se da una tensión creciente entre el placer y la salud. Las opiniones de los médicos y el interés que prestan a los problemas relacionados con el régimen alimenticio demuestran que los motivos principales de preocupación han sido muy similares durante varios siglos. Sin embargo, la idea de que el sexo es peligroso tiene mucha mayor fuerza en si siglo II de nuestra era que en el siglo V o IV antes de Jesucristo. Creo que se puede demostrar que ya Hipócrates, en el siglo V antes de Jesucristo, consideraba que el acto sexual podía ser peligroso y que cuando se hacía el amor había que tener cuidado con los momentos, las estaciones, las circunstancias, etcétera. En los siglos I y II de nuestra era parece que para los médicos el acto sexual está ya mucho más cerca de lo patológico. Creo que la diferencia más importante reside en el hecho de que en el siglo IV antes de Jesucristo el acto sexual es actividad, mientras que para los cristianos se caracteriza por su pasividad y su naturaleza de castigo del pecado original.
 
-**<span class="sans">¿Los griegos le prestaban, pues, mayor atención a la salud que al placer?</sans>**
+<span class="question">¿Los griegos le prestaban, pues, mayor atención a la salud que al placer?</span>
 
 Sí, así es. Son muy numerosas las obras que se ocupan de lo que los griegos debían comer para conservar la salud. Por el contrario, son muy pocas las que tratan de lo que se debe hacer cuando se tienen relaciones sexuales con otra persona. En lo que respecta a la alimentación, estudian sus relaciones con el clima y las estaciones, la humedad y sequedad de los alimentos, etcétera.
 
-**<span class="sans">Por consiguiente, a pesar de lo que hayan podido creer los helenistas alemanes, la Grecia clásica no fue una edad de oro. Pese a ello, tienen, sin duda, algo que enseñarnos.</sans>**
+<span class="question">Por consiguiente, a pesar de lo que hayan podido creer los helenistas alemanes, la Grecia clásica no fue una edad de oro. Pese a ello, tienen, sin duda, algo que enseñarnos.</span>
 
 No creo que una época que no sea la nuestra pueda tener un valor ejemplar para nosotros. No se puede regresar al pasado. Con todo, podemos encontrar en los griegos el ejemplo de una experiencia ética que implicaba un vínculo muy sólido entre el placer y el deseo. Si la comparamos con la experiencia de la sociedad contemporánea, en la que todo el mundo —el filósofo y el psicoanalista— intenta demostrar que lo que importa ante todo y sobre todo es el deseo, podemos preguntarnos si esta ruptura no constituye un acontecimiento histórico sin relación alguna con la naturaleza humana.
 
-**<span class="sans">Usted ya ha ilustrado este punto de vista en su <cite>Historia de la sexualidad</cite>, al oponer nuestra ciencia de la sexualidad al arte erótico oriental.</sans>**
+<span class="question">Usted ya ha ilustrado este punto de vista en su <cite>Historia de la sexualidad</cite>, al oponer nuestra ciencia de la sexualidad al arte erótico oriental.</span>
 
 Entre los errores en los que incurrí en este libro se debe incluir lo que dije acerca de este arte erótico. Ni los griegos ni los romanos tenían un arte erótico que fuese comparable al de los chinos. Disponían de una <it xml:lang="gr">techné tou biou</it> en la que la economía del placer desempeñaba un papel muy importante. En este <em>arte de la vida</em>, la idea de que el hombre debe adquirir un dominio perfecto de sí mismo se convirtió muy pronto en la preocupación más importante. La hermenéutica cristiana del yo constituye una nueva elaboración de esta <it xml:lang="gr">techné</it>
 
-**<span class="sans">Después de lo que hemos dicho acerca de la reciprocidad y la obsesión, ¿qué enseñanzas podemos sacar de esta tercera alternativa?</sans>**
+<span class="question">Después de lo que hemos dicho acerca de la reciprocidad y la obsesión, ¿qué enseñanzas podemos sacar de esta tercera alternativa?</span>
 
 Cuando se lee a Sócrates, Séneca o Plinio, por ejemplo, se descubre que los griegos y los romanos no se hacían ninguna pregunta acerca de la vida futura, de lo que sucede después de la muerte o de la existencia de Dios. No consideraban que éste fuese un problema importante. Lo que les preocupaba era ante todo qué <it xml:lang="gr">techné</it> debía utilizar el hombre para vivir tan bien como debería. Creo, que se produjo una importante evolución en la cultura antigua cuando esta <it xml:lang="gr">techné tou biou</it>, este arte de la vida, se fue convirtiendo poco a poco en una <it xml:lang="gr">techné</it> del yo. Supongo que un ciudadano griego del siglo V o IV antes de Cristo debía pensar que esta <it xml:lang="gr">techné</it> consistía en no preocuparse por la ciudad ni por los compañeros. Para Séneca, en cambio, el problema consistía en preocuparse por uno mismo.
 
@@ -86,41 +86,41 @@ Ya en el <cite>Alcibíades</cite> de Platón aparece esta idea: uno debe preocup
 
 La idea del <it xml:lang="la">bios</it> como motivo de una obra de arte estética me parece muy interesante. Me fascina también la idea de que la estética pueda constituir una sólida estructura de la existencia, con independencia de lo jurídico, de un sistema autoritario, de una estructura disciplinaria.
 
-**<span class="sans">¿Cuál era entonces la actitud de los griegos frente a la desviación?</sans>**
+<span class="question">¿Cuál era entonces la actitud de los griegos frente a la desviación?</span>
 
 De acuerdo con la ética de los griegos; lo que diferenciaba a las personas no era el hecho de que prefiriesen a las mujeres o a los muchachos o de que hicieran el amor de tal o cual forma. La diferencia fundamental residía en la cantidad, la actividad y la pasividad: ¿eres esclavo de tus deseos o eres su amo?
 
-**<span class="sans">¿Qué sucedía si una persona hacía tan a menudo el amor que su salud se resentía?</sans>**
+<span class="question">¿Qué sucedía si una persona hacía tan a menudo el amor que su salud se resentía?</span>
 
 Eso es lo que los griegos llamaban <it xml:lang="gr">hubris</it>, exceso. El problema no estaba en la desviación, sino en el exceso o en la moderación.
 
-**<span class="sans">¿Qué hacían los griegos con esos individuos?</sans>**
+<span class="question">¿Qué hacían los griegos con esos individuos?</span>
 
 Los consideraban como personas de mala reputación.
 
-**<span class="sans">¿No intentaban curarlos, corregir su comportamiento?</sans>**
+<span class="question">¿No intentaban curarlos, corregir su comportamiento?</span>
 
 Existían ejercicios cuyo fin era conseguir que la persona se hiciera dueña de sí misma. Según Epícteto, el hombre debía ser capaz de contemplar una bella mujer o un joven hermoso sin sentir ningún deseo por ella o por él. En este sentido, era necesario tener un dominio absoluto de uno mismo.
 
 En la sociedad griega la austeridad sexual constituía una corriente de pensamiento, un movimiento filosófico que emanaba de las personas cultas, deseosas de imprimir a su existencia una mayor belleza e intensidad. En cierta medida, se puede decir que en el siglo XX ha ocurrido algo similar: se ha producido un intento de liberación con respecto a toda la represión sexual que impone la sociedad o que se ha acumulado en la infancia. En Grecia, Gide hubiera sido un filósofo austero.
 
-**<span class="sans">Los griegos creían que la austeridad era un medio para hacer que su vida fuera bella; nosotros, en cambio, intentamos realizarnos individualmente porque así lo prescribe la ciencia psicológica.</sans>**
+<span class="question">Los griegos creían que la austeridad era un medio para hacer que su vida fuera bella; nosotros, en cambio, intentamos realizarnos individualmente porque así lo prescribe la ciencia psicológica.</span>
 
 En efecto, entre las invenciones culturales de la humanidad existe un cúmulo de medios, técnicas, ideas, procedimientos, etcétera, que no se puede reactivar, pero que, al menos, conforma —o puede ayudar a conformar— un punto de vista que sirve como instrumento para analizar lo que está sucediendo en el mundo presente y para cambiarlo. No tenemos que elegir entre nuestro mundo y el mundo de los griegos. Pero, dado que nos permite comprender que algunos principios fundamentales de nuestra ética estuvieran vinculados en un determinado momento a una estética de la existencia, pienso que este tipo de análisis histórico puede sernos muy útil. Durante varios siglos hemos estado convencidos de que existían relaciones analizables entre nuestra ética, nuestra ética personal y nuestra vida cotidiana, por un lado, y las grandes estructuras políticas, sociales y económicas, por otro. Hemos pensado, por ejemplo, que para cambiar nuestra vida sexual o familiar era imprescindible alterar por completo nuestra economía, nuestra democracia, etcétera. Pienso que debemos deshacemos de la idea de que existe un vínculo analítico o necesario entre la ética y las estructuras sociales, económicas o políticas; con esto no quiero decir que no existan relaciones entre éstas y aquélla. De cualquier modo, se trata de relaciones variables.
 
-**<span class="sans">Ahora que sabemos que sólo existe un vínculo histórico, y no una relación necesaria, entre la ética y las otras estructuras, ¿qué tipo de ética podemos construir?</sans>**
+<span class="question">Ahora que sabemos que sólo existe un vínculo histórico, y no una relación necesaria, entre la ética y las otras estructuras, ¿qué tipo de ética podemos construir?</span>
 
 Me llama la atención el hecho de que en nuestra sociedad el arte se haya convertido en algo que atañe a los objetos y no a la vida ni a los individuos. El arte es una especialidad que está reservada a los expertos, a los artistas. ¿Por qué un hombre cualquiera no puede hacer de su vida una obra de arte? ¿Por qué una determinada lámpara o una casa pueden ser obras de arte y no puede serlo mi vida?
 
-**<span class="sans">Pero si el hombre debe crearse a sí mismo, sin recurrir al conocimiento o a unas reglas universales, ¿en qué difiere su punto de vista del sostenido por el existencialismo de Sartre?</sans>**
+<span class="question">Pero si el hombre debe crearse a sí mismo, sin recurrir al conocimiento o a unas reglas universales, ¿en qué difiere su punto de vista del sostenido por el existencialismo de Sartre?</span>
 
 Desde el punto de vista teórico, parece que Sartre, por medio de la noción moral de autenticidad, vuelve a la idea de que debemos ser nosotros mismos: ser de verdad nuestro verdadero yo. Sin embargo, la consecuencia práctica de lo que dice Sartre nos lleva a relacionar su pensamiento teórico con la práctica de la creatividad, y no con la de la autenticidad. Creo que de la idea de que el yo no nos es dado solo se puede extraer una consecuencia práctica: debemos constituirnos, fabricarnos, ordenamos como una obra de arte. Es interesante advertir que en sus análisis de Baudelaire o de Flaubert, Sartre sostiene que el trabajo de creación depende de una determinada relación consigo mismo —del autor consigo mismo—, que puede revestir la forma tanto de la autenticidad como de la falta de autenticidad. Me pregunto si no se puede sostener exactamente lo contrario: en lugar de considerar que la actividad creadora de un individuo depende del tipo de relacion que mantiene consigo mismo, es posible vincular el tipo de relación que mantiene con él mismo con una actividad creadora, que constituye el centro de su actividad ética.
 
-**<span class="sans">Ello nos recuerda las observaciones de F. Nietzsche en <cite>El gay saber</cite> cuando nos dice que debemos crear nuestra propia vida, confiriéndole un estilo por medio de una larga práctica y de un trabajo cotidiano.</sans>**
+<span class="question">Ello nos recuerda las observaciones de F. Nietzsche en <cite>El gay saber</cite> cuando nos dice que debemos crear nuestra propia vida, confiriéndole un estilo por medio de una larga práctica y de un trabajo cotidiano.</span>
 
 Sí. Podemos sentimos mucho más próximos de Nieztsche que de Sartre.
 
-**<span class="sans">Los dos libros que siguen al volumen I de su <cite>Historia de la sexualidad</cite>, ¿cómo se integran en su proyecto de genealogía?</sans>**
+<span class="question">Los dos libros que siguen al volumen I de su <cite>Historia de la sexualidad</cite>, ¿cómo se integran en su proyecto de genealogía?</span>
 
 Se pueden distinguir tres campos que interesan a la genealogía. En primer lugar, una ontología histórica de nosotros mismos en relación con la verdad, en virtud de la cual nos constituimos como sujetos de conocimiento; en segundo lugar, una ontología histórica de nosotros mismos en relación con el campo del poder, en virtud del cual nos constituimos como sujetos que actúan sobre los otros; por último, una ontología histérica de nosotros mismos en relación con la ética, en virtud de la cual nos constituimos como agentes morales.
 

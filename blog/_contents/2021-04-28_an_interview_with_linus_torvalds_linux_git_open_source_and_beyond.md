@@ -1,0 +1,476 @@
+---
+title: "An Interview With Linus Torvalds: Linux, Git, Open Source And Beyond"
+author: Jeremy Andrews
+date: 2021-04-28
+category: Archivo
+tags: [Linus Torvalds, Linux, open source]
+description: Thirty years ago, Linus Torvalds was a 21 year old student at the University of Helsinki when he first released the Linux Kernel. His announcement started, “I’m doing a (free) operating system (just a hobby, won’t be big and professional…)”. Three decades later, the top 500 supercomputers are all running Linux, as are over 70% of all smartphones. Linux is clearly both big and professional.
+source:
+  name: Tag1
+  url: https://www.tag1consulting.com/blog/interview-linus-torvalds-linux-and-git
+lang: en
+---
+
+## Linux Kernel Development
+
+**<span class="sans">Jeremy Andrews:</sans>** Linux is everywhere, and has been an inspiration to the entire open source world. Of course, it wasn’t always that way. You famously released the Linux kernel back in 1991 with a modest Usenet posting on `comp.os.minix`. A decade later you wrote an engaging and personal book titled, <cite>Just for Fun: The Story of an Accidental Revolutionary</cite> exploring much of that history. This year, in August, Linux will celebrate its 30th anniversary! That’s amazing, congratulations! At what point during this journey did you realize what you’d done, that Linux was so much more than “just a hobby”?
+
+**<span class="sans">Linus Torvalds:</sans>** This may sound a bit ridiculous, but that actually happened very early. Already by late ’91 (and certainly by early ’92) Linux had already become much bigger than I had expected.
+
+And yeah, considering that by that point, there were probably just a few hundred users (and even “users” may be too strong - people were tinkering with it), it probably sounds odd considering how Linux then later ended up growing much bigger. But in many ways for me personally, the big inflection point was when I realized that other people are actually using it, and interested in it, and it started to have a life of its own. People started sending patches, and the system was actually starting to do much more than I had initially really envisioned.
+
+I think that X11 was ported to Linux some time in April ’92 (don’t take my word for the dates —it’s a *loong* time ago), and that was another big step where suddenly there was a GUI and a whole new set of capabilities.
+
+To put this all in perspective - I really didn’t start out with any big plans of high expectations. It was a personal project that grew not out of some big dream to create a new operating system, but literally grew kind of haphazardly from me initially just trying to learn the in-and-outs of my new PC hardware.
+
+So when I released the very first version, it was really more of a “look at what I did”, and sure, I was hoping that others would find it interesting, but it wasn’t a real serious and usable OS. It was more of a proof of concept, and just a personal project I had worked on for several months at that time.
+
+And going from that “personal project” to being something where others used it, sent feedback (and bug reports), and occasional patches, that was the *big* change for me.
+
+Just to give an example of something really fundamental: the original copyright license was something like “you can distribute this in source form, but not for money”.
+
+That was because for me one of the issues had literally been that commercial unix was *expensive* (well, for a poor student who spent all his money on the new PC it was), and so to me a big important thing was that the source code be available (so that people could tinker with it), and I wanted it to be open to people like me who just couldn’t *afford* the alternatives.
+
+And I changed the license in late ’91 (or maybe very early ’92) to the [GPLv2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) because there were people who wanted to distribute it on floppies to local Unix Users Groups, but wanted to at least recoup the costs of the floppies and their copying time. And I realized that was obviously entirely reasonable, and that the important thing wasn’t the “no money”, but the “source needs to be openly available” part.
+
+End result: not only did people distribute it at Unix user group meetings, but early floppy distributions like SLS and Slackware happened within months.
+
+Compared to those initial really fundamental changes, everything else was “incremental”. Sure, some of the incrementals were pretty big (IBM coming aboard, Oracle DB being ported, Red Hat IPOs, Android becoming big on phones etc), but they were still less personally revolutionary than that early initial “people I don’t even know are using Linux”.
+
+**<span class="sans">J. A.:</sans>** Do you ever regret your choice of license, or how much money other people and companies have made off something you created?
+
+**<span class="sans">L. T.:</sans>** Absolutely not.
+
+First off, I’m doing quite well. I’m not insanely rich, but I’m a well-paid software engineer, doing what I like to do, on my own schedule. I’m not hurting.
+
+But equally importantly, I’m 100% convinced that the license has been a big part of the success of Linux (and Git, for that matter). I think everybody involved ends up being much happier when they know that everybody has equal rights, and nobody is special with regards to licensing.
+
+There’s a fair number of these “dual license” projects where the original owner retains a commercial license (“you can use this in your proprietary product if you pay us license fees”) and then on the other hand the project is also available under something like the GPL for open source cases.
+
+And I think it’s really hard to build a community around that kind of situation, because the open source side always knows it’s “second class”. Plus it leads to a lot of just licensing paperwork in order for the special party to always retain their special rights. So it adds a *lot* of friction to the project.
+
+And on the other hand, I’ve seen a lot of BSD (or MIT or similar) licensed open source projects that just fragment when they become big enough to be commercially important, and the involved companies inevitably decide to turn their own parts proprietary.
+
+So I think the GPLv2 is pretty much the perfect balance of “everybody works under the same rules”, and still requires that people give back to the community (“tit-for-tat”). And everybody knows that all the other people involved are bound by the same rules, so it’s all very equitable and fair.
+
+Of course, another part of that is that you also get out what you put in. Sure, you can try to “coast” on the project and be just a user, and that’s ok. But if you do that, you also have no control over the project. That can be perfectly fine too, if you really just need a basic operating system, and Linux already does everything you want. But if you have special requirements, the only way to really affect the project is to participate.
+
+This keeps everybody honest. Including me. Anybody can fork the project and go their own way, and say “bye bye Linus, I’m taking over maintenance of my version of Linux”. I’m “special” only because —and as long as— people trust me to do a good job. And that’s exactly how it should be.
+
+That “anybody can maintain their own version” worried some people about the GPLv2, but I really think it’s a strength, not a weakness. Somewhat unintuitively, I think it’s actually what has caused Linux to *avoid* fragmenting: everybody can make their own fork of the project, and that’s OK. In fact, that was one of the core design principles of “Git” - every clone of the repository is its own little fork, and people (and companies) forking off their own version is how all development really gets done.
+
+So forking isn’t a problem, as long as you can then merge back the good parts. And that’s where the GPLv2 comes in. The right to fork and do your own thing is important, but the other side of the coin is *equally* important - the right to then always join back together when a fork was shown to be successful.
+
+Another issue is that you really want to have the tools to support that workflow, but you also have to have the *mindset* to support it. A big impediment to joining forks back is not just licensing, but also “bad blood”. If the fork starts from very antagonistic reasons, it can be very hard to merge the two forks - not for licensing or technical reasons, but because the fork was so acrimonious. Again, I think Linux has avoided that mainly because we’ve always seen forking things as natural, and then it’s also very natural to try to merge back when some work has shown itself to be successful.
+
+So this answer kind of went off at a tangent, but I think it’s an important one - I very much don’t regret the choice of license, because I really do think the GPLv2 is a huge part of why Linux has been successful.
+
+Money really isn’t that great of a motivator. It doesn’t pull people together. Having a common project, and really feeling that you really can be a full partner in that project, *that* motivates people, I think.
+
+**<span class="sans">J. A.:</sans>** These days when people release source code under the GPLv2, they generally do it because of Linux. How did you find the license, and how much time and effort did you put into reviewing other existing licenses?
+
+**<span class="sans">L. T.:</sans>** Back then, people still had fairly big flame wars about BSD vs GPL (I think partly fueled by how rms really has a knack for pissing people off), so I’d seen some of the license discussions just through various usenet newsgroups I was reading (things like `comp.arch`, `comp.os.minix` etc).
+
+But the two main reasons were probably simply gcc - which was very much instrumental in getting Linux going, since I absolutely required a C compiler - and Lars Wirzenius (“Lasu”), who was the other Swedish-speaking CS student at University in my year (Swedish being a fairly small minority in Finland).
+
+Lasu was much more into license discussions etc than I was.
+
+To me, the choice of GPLv2 wasn’t some huge political issue, it was mainly about the fact that my original license had been so ad-hoc and needed updating, and I felt indebted to gcc, and the GPLv2 matched my “you have to give source back” expectations.
+
+So rather than make up another license (or just edit the original one - just removing the “no money can change hands” clause could have been an option), I wanted to pick one that people already knew about, and had had some lawyers involved.
+
+**<span class="sans">J. A.:</sans>** What is your typical day like? How much of it is spent writing code, versus reviewing code, versus reading and writing emails? And how do you balance personal life and working on the Linux Kernel?
+
+**<span class="sans">L. T.:</sans>** I write very little code these days, and haven’t for a long time. And when I do write code, the most common situation is that there’s some discussion about some particular problem, and I make changes and send them out as a patch mainly as an explanation of a suggested solution.
+
+In other words, most of the code I write is more of a “look, how about we do it *this* way” where the patch is a very concrete example. It’s easy to get bogged down into some theoretical high-level discussion about how to solve something, and I find that the best way to describe a solution is often to just write the snippet of code - maybe not the whole thing - and just make it very concrete that way.
+
+Because all my real work is spent on reading and writing emails. It’s mostly about communication, not coding. In fact, I consider this kind of communication with journalists and tech bloggers etc to literally *be* part of my workday - it may get lower priority than actual technical discussions, but I do spend a fair amount of time on things like this too.
+
+And yes, I spend time on code reviews too, but honestly, by the time I get a pull request, generally the code in question should already have been reviewed by multiple people already. So while I still look at patches, I actually tend to look more at the explanations, and the history of how the patch came to me. And with the people I’ve worked the longest with, I don’t do even that: they are the maintainers of their subsystem, I’m not there to micro-manage their work.
+
+So quite often, my main job is to “be there”, and be the collection point, and be the person who manages and enforces the releases. In other words, my job is generally more about the maintenance process than the low-level code.
+
+**<span class="sans">J. A.:</sans>** What is your work environment like? For example, do you prefer a dark room with no distractions, or a room with a view? Do you tend to work in silence, or while listening to music? What kind of hardware do you typically use? Do you review code with `vi` in a terminal, or with a fancy IDE? And, do you have a preferred Linux distribution for this work?
+
+**<span class="sans">L. T.:</sans>** My room isn’t exactly “dark”, but I do have the blinds on the window next to my desk closed, because I don’t want bright sunlight (not that it’s necessarily very common this time of year in Oregon ;). So no views, just a (messy) desk, with dual 4k monitors and [a powerful desktop computer under the desk](https://youtu.be/Kua9cY8q_EI). And a couple of laptops sitting around for testing and for when I’m on the road.
+
+And I want to work in silence. I used to hate the ticking of mechanical disk drives - happily long relegated to the garbage bin as I’ve used exclusively SSD’s for over a decade by now - and noisy CPU fans are unacceptable too.
+
+And it’s all done in a traditional terminal, although I don’t use `vi`. I use this abomination called “micro-emacs”, which has absolutely nothing to do with GNU emacs except that some of the key bindings are similar. I got used to it at the University of Helsinki when I was a wee lad, and I’ve not been able to wean myself from it, although I suspect I will have to soon enough. I hacked up (a very limited) utf-8 support for it a few years ago, but it’s really showing its age, and showing all the signs of having been written in the 80’s and the version I use was a fork that hasn’t been maintained since the mid 90’s.
+
+University of Helsinki used it because it worked on DOS, VAX/VMS *and* Unix, which is why I got introduced to it. And now my fingers are hardcoded for it. I really need to switch over to something that is actually maintained and does utf-8 properly. Probably `nano`. But my hacked-up piece of historical garbage works just barely well enough that I’ve never been really *forced* to teach my old fingers new tricks.
+
+So my desktop environment is fairly simple: several text terminals open, and a web browser with email (and several other tabs, mostly news and tech sites). I want to have a fair amount of desktop space, because I’m used to having fairly big terminal windows (100×40 is kind of my default starting size), and I have multiple terminals open side-by side. Thus the dual 4k monitors.
+
+I use Fedora on all my machines, not because it’s necessarily “preferred”, but because it’s what I’m used to. I don’t care deeply about the distribution - to me it’s mainly a way to get Linux installed on a machine and get all my tools set up, so that I can then replace the kernel and work on just that.
+
+**<span class="sans">J. A.:</sans>** The Linux Kernel Mailing List is where kernel development happens publicly, and is extremely high traffic. How do you keep up with so much email? Have you explored other solutions for collaboration and communication outside of a mailing list, or is there something about a simple mailing list that is perfect for what you do?
+
+**<span class="sans">L. T.:</sans>** Oh, I don’t read the kernel mailing list directly, and haven’t in years. It’s much too much.
+
+No, the point of the kernel mailing list is that it basically gets cc’d on all the discussions (well - *one* of the kernel mailing lists do, there are many - and then the traditional lkml list is the fallback for when there isn’t some more targeted list). And that way, when a new person is brought into the discussion, they can see the history and the background by looking at the kernel mailing list.
+
+So what I used to do was to be subscribed to the list, but have all the lkml email that I wasn’t cc’d on personally be auto-archived, so I’d not see it by default. But then when some issue escalated to me, all that discussion would show up, because it was there in my email, just not in my inbox until it was needed.
+
+These days, I actually use the [`lore.kernel.org`](https://lore.kernel.org/) functionality instead, because it works so well and we have some other tools built around it. So rather than having it auto-archived in my own mail archives, the discussions end up being visible that way instead. But the basic workflow is conceptually the same.
+
+I do get a fair amount of email still, obviously - but in many ways it has been getting better over the years, rather than worse. A big part of that is Git and how well the kernel release flow works: we used to have many more problems with code flow, and tooling. My email situation was actually much much worse back around the turn of the century, when we still dealt in huge patch-bombs and we had serious scalability problems in the development flow.
+
+And the mailing list (with tooling around it) model really does work very well. That’s not to say that people don’t use other means of communication in addition to email (both person-to-person, and the mailing lists): there are people who enjoy various realtime chat setups (IRC being the traditional one). And while that has never been my thing, it is clearly what some people like to use for brainstorming. But that “mailing list as an archive” model works very well, and works seamlessly together with the whole “send patches between developers as emails” and “send problem reports as emails”.
+
+So email remains the main communication channel, and makes it easy to discuss technical issues, with patches embedded in the same medium. And it works across time zones, which is very important when everybody is so spread out geographically.
+
+**<span class="sans">J. A.:</sans>** I followed kernel development closely for about a decade, blogging about it on [KernelTrap](https://en.wikipedia.org/wiki/KernelTrap) and writing about new features as they evolved. I stopped around the time the 3.0 kernel was released, which had followed 8 years of 2.6.x versions. Is it possible to summarize some of the more interesting things that have happened in the kernel since the 3.0 release?
+
+**<span class="sans">L. T.:</sans>** Heh. That’s so long ago that I couldn’t even begin to summarize things. It’s been a decade since 3.0, and we’ve had a *lot* of technical changes in that decade. ARM has grown up and ARM64 has become one of our primary architectures. Lots and lots of new drivers, and new core functionality.
+
+If anything, what is interesting about the last decade is how we’ve actually kept the actual development model really smooth, and what *hasn’t* changed.
+
+We’ve gone through many different version number schemes over the decades, we’ve had different development models, but the 3.0 release was in fact the one that finalized the model we’ve used ever since. It kind of made official the whole “releases are time-based, version numbers are just numbers, and don’t have any feature dependencies”.
+
+We’d started the whole time-based releases with a merge window in the 2.6.x days, so that part wasn’t new. But 3.0 was when the last vestiges of “the number has meaning” were thrown overboard.
+
+We’d had the random numbering scheme (mainly before 1.0), we’d had the whole “odd minor numbers means development kernel, even means stable production kernel” model, and then in 2.6.x we started doing the time-based release model. But people still had that “what will it take to increase the major number” question. And 3.0 made it official that even the major version number has no meaning, and that we’ll just try to keep the numbers easy to deal with and not let them grow too big.
+
+So for the last decade, we’ve made absolutely huge changes (Git makes it easy to show some statistics in numbers: about three quarters of a million commits by over 17 thousand people). But the development model itself has actually been quite smooth and stable.
+
+And that really hasn’t always been the case. The first two decades of kernel development were full of fairly painful development model changes. This last decade has been much more predictable release-wise.
+
+**<span class="sans">J. A.:</sans>** As of now, the latest release is 5.12-rc5. How standardized is the release process? For example, what sorts of changes go into an -rc1, versus an -rc2 and so on? And at what point do you decide a given release is ready to be officially released? What happens if you’re wrong and a large regression is found after the final release, and how often does this happen? How has this process evolved over the years?
+
+**<span class="sans">L. T.:</sans>** So I alluded to this earlier: the process itself really is pretty standard, and has stayed so for the last decade. It went through several upheavals before that, but it’s actually been almost like clock-work since 3.0 (and in fact a few years before that - the switch to Git in many ways was the beginning of the modern process, and it took a while before everybody got used to it).
+
+So we’ve had this cadence of “two weeks of merge window” followed by roughly 6-8 weekly release candidates before final release for almost 15 years by now, I think.
+
+And the rules have always been the same, although they haven’t always been entirely strictly enforced: the merge window is for new code that is supposedly “tested and ready”, and then the subsequent roughly two months are for fixes and to actually make sure all the problems are shaken out. Which doesn’t always happen, and sometimes that supposedly “ready” code gets disabled or outright reverted before the release.
+
+And then it repeats - so we have a release roughly every 10 weeks or so.
+
+And the release criteria is me feeling confident enough, which obviously in turn is based on what kinds of problem reports are still coming in. If some area still shows issues late in the rc game, I’m fairly aggressive about just reverting things, and saying “we’ll deal with this in a later release once we’ve figured the thing out fully”, but on the whole it’s fairly rare that that is needed.
+
+Does it always work out? No. Once the kernel is released - and particularly once a distro picks it up - you get new users, you get people who didn’t test it during development that find things that didn’t work and we didn’t catch during the rc series. That’s pretty much inevitable. It’s part of why we have the whole “stable kernel” trees, which continue to add fixes after the release. And some stable kernels are maintained for longer than others, and get called LTS (“Long Term Support”) kernels.
+
+All of this has remained fairly unchanged in the last ten years, although we do end up having a lot more automation in place. Kernel testing automation is hard in general - partly because so much of the kernel is drivers which then obviously depends on hardware availability - but there are several farms doing both boot and performance testing, and do various randomized load testing. And that has improved a lot over the years.
+
+**<span class="sans">J. A.:</sans>** Last November you were quoted as being impressed by Apple’s new ARM64 chips found in some of their new computers. Are you following the development effort to support them with Linux? I see [work](https://lore.kernel.org/lkml/bdb18e9f-fcd7-1e31-2224-19c0e5090706@marcan.st/) was [merged into for-next](https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?h=for-next&amp;id=0d5fe4b31785b732b71e764b55cda5c8d6e3bbbf). Is it likely Linux will boot on Apple’s MacBook hardware as early as the upcoming 5.13 kernel? Are you likely to be an early adopter? What is the significance of ARM64?
+
+**<span class="sans">L. T.:</sans>** I’m checking in on it very occasionally, but it’s early days yet. As you note, the very early support will likely be merged into 5.13, but you need to realize that that is really only the beginning, and doesn’t make Apple hardware *useful* with Linux yet.
+
+It’s not the arm64 part that ends up being the problem, but all the drivers for the hardware around it (the SSD and GPU in particular). The early work so far gets some of the really low-level stuff working, but doesn’t result in anything useful outside of early hardware enablement. It will take some time for it to be a real option for people to try out.
+
+But it’s not just the Apple hardware that has improved - the infrastructure for arm64 in general has grown up a lot, and the cores have gone from “Meh” to being much more competitive in the server space. The arm64 server space was pretty sad not that long ago, but Amazon’s Graviton2 and Ampere’s Altra processors - both based on the much improved ARM Neoverse IP - are much better than what the offerings were a few years ago.
+
+I’ve been waiting to have a usable ARM machine for over a decade by now, and it’s not there yet, but it’s clearly much closer than it used to be.
+
+In fact, I guess I could say that I’ve been wanting an ARM machine for much longer than that - back when I was a teenager, the machine I really wanted was an Acorn Archimedes, but availability and price made me go with a Sinclair QL (M68008 processor) and then obviously a few years later a i386 PC instead.
+
+So it’s been kind of brewing for decades, but they still haven’t been widely available and price/performance competitive as computers for me. One day. Hopefully in the not *too* distant future.
+
+**<span class="sans">J. A.:</sans>** Is there anything in the kernel which is not optimal, but would require a complete rewrite to address properly? In other words, the kernel is 30 years old and knowledge, languages and hardware have changed a lot in these 30 years: if you rewrote it from scratch now, what would you change?
+
+**<span class="sans">L. T.:</sans>** We’ve actually been *really* good about even completely rewriting things if necessary, so anything that would have been an unmitigated disaster has long since been rewritten.
+
+Sure, we have a fair amount of “compatibility” layers, but they are usually not horrendous. And it’s unclear if even those compatibility layers would really go away if rewriting from scratch - they are about backwards compatibility with older binaries (and often backwards compatibility with older architectures, e.g. running 32-bit x86 apps on x86-64). Since I consider backwards compatibility to be very important, I’d want to keep those even in a rewrite.
+
+So there are obviously lots of things that are “not optimal” in the sense that anything can be improved, but the way you phrase the question, I’d have to say that no, there’s nothing there that I despise. There’s legacy drivers that nobody is ever going to care about enough to clean up, and so they may do ugly things, but a key part of that is “nobody cares enough”. It hasn’t been a problem, and when it does become a problem we tend to fairly actively remove true legacy support that we can’t find anybody that cares about. So we’ve gotten rid of lots of drivers over the years, and we’ve gotten rid of whole architecture support when it no longer makes any sense at all to maintain.
+
+No, the only major reason for a “rewrite” would be if you end up having some use-case where the whole structure no longer makes sense. The most likely scenario would be some small embedded system that just doesn’t want everything that Linux offers, and has a hardware footprint so small that it simply wants something smaller and simpler than what Linux has become over the years.
+
+Because Linux *has* grown a lot. Even small hardware (think cell phones etc) today is much more capable than the original machine Linux was developed on was.
+
+**<span class="sans">J. A.:</sans>** What about rewriting at least parts with Rust, a language that was specifically designed for performance and safety? Is there room for improvement in this way? Do you feel it’s ever possible for another language like Rust to replace C in the kernel?
+
+**<span class="sans">L. T.:</sans>** We’ll see. I don’t think Rust will take over the core kernel, but doing individual drivers (and maybe whole driver subsystems) in it doesn’t sound entirely unlikely. Maybe filesystems too. So it’s not “replace C”, but more of “augment our C code where it makes sense”.
+
+Of course, drivers in particular is about half of the actual kernel code, so there’s a lot of room for that, but I don’t think anybody is really expecting to rewrite existing drivers in Rust wholesale, more of a “some people will do new drivers in Rust, and a couple of drivers might be rewritten where it makes sense”.
+
+But right now that’s more of a “people are trying it out and playing with it” rather than anything more than that. It’s easy to point to advantages, but there are certainly complexities too, so I’m very much taking a wait-and-see approach to see if the promised advantages really do pan out.
+
+**<span class="sans">J. A.:</sans>** Are there any specific parts of the kernel that you are personally most proud of?
+
+**<span class="sans">L. T.:</sans>** The stand-out parts I tend to point to are the VFS (“virtual filesystem”) layer (and the pathname lookup in particular) and our VM code. The former because Linux just does some of those fundamental things (looking up a filename really is such a core operation in an operating system) so much better than anything else out there. And the latter mainly because we support 20+ architectures, and we still do it with a largely unified VM layer, which I think is pretty impressive.
+
+But at the same time, this is very much a function of “what part of the kernel do you care about”. The kernel is big enough that different developers (and different users) will simply have different opinions of what matters most. Some people think scheduling is the most exciting part of the kernel. Others like the nitty-gritty of device drivers (and we have a lot of those). I personally tend to be more involved in the VM and VFS areas, so I then naturally point to those.
+
+**<span class="sans">J. A.:</sans>** I found [this description of pathname lookup](https://www.kernel.org/doc/html/latest/filesystems/path-lookup.html), and it’s more complex than I expected. What makes the Linux implementation so much better than what is done in other operating systems? And what do you mean by “better”?
+
+**<span class="sans">L. T.:</sans>** Pathname lookup is really such a common and fundamental thing that most people outside of kernel developers don’t even think about it as a problem: they just open files, and take it all for granted.
+
+But it’s actually fairly complicated to do really well. Exactly because absolutely *everything* does pathname lookups all the time, it’s hugely performance-critical, and it’s very much one of those areas where you also want to scale well in SMP environments, and it has lots of complexity in locking. And you very much do not want to do any IO, so caching is very important. In fact, pathname lookup is *so* important that you can’t leave it to the low-level filesystem, because we have 20+ different filesystems, and having each of them do their own caching and their own locking would be a complete disaster.
+
+So one of the main things the VFS layer does is really handle all the locking and caching of pathname components, and handle all the serialization and the mount point traversal, and do it all with mostly lock-free algorithms ([RCU](https://en.wikipedia.org/wiki/Read-copy-update)), but also with some really clever lock-like things (the Linux kernel “lockref” lock is a very special “spinlock with reference count” which was literally designed *for* the dcache caching, and it’s basically a specialized lock-aware reference count that can do lock elision for certain common situations).
+
+End result: the low-level file systems still need to do the actual lookup for things that aren’t cached, but they don’t need to worry about caching and all the coherency rules and the atomicity rules that go along with pathname lookups. The VFS handles all that for them.
+
+And it all outperforms anything any other operating system has done, while basically scaling perfectly to even machines with thousands of CPU’s. And it does that even when those machines all end up touching the same directories (because things like the root directory, or a project home directory, are things that even heavily threaded applications all touch at the same time, and that don’t get distributed to any kind of per-thread behavior).
+
+So it’s not just “better”, it’s “Better” with a capital ‘B’. Nothing else out there comes even *close*. The Linux dcache is simply in a class all its own.
+
+**<span class="sans">J. A.:</sans>** The past year has been difficult all around the world. How has the COVID-19 pandemic affected the kernel development process?
+
+**<span class="sans">L. T.:</sans>** It actually has had very minimal effect, because of how we always worked. Email really ends up being a wonderful tool, and we didn’t rely on face-to-face meetings.
+
+Yes, it did affect the yearly kernel summit last year (and this year is still up in the air), and most conferences got cancelled or turned virtual. And people who worked in offices before mostly started working from home (but a lot of the core kernel maintainers already did so). So a lot of things around it changed, but the core development itself worked exactly as before.
+
+And it obviously affected all our lives in other ways - just the social ramifications in general. But on the whole, being a kernel developer who already interacted with people almost entirely over email, we were probably some of the least affected.
+
+## Git Distributed Version Control System
+
+**<span class="sans">J. A.:</sans>** Linux is only one of your ubiquitous contributions to open source. In 2005 you also created Git, the extremely popular distributed source control system. You quickly migrated the Linux kernel source tree out of the proprietary Bitkeeper and into the newly created and open sourced Git, and in the same year handed off maintainership to [Junio Hamano](https://github.com/gitster). There’s a lot of fascinating history there, what led you to handing off leadership on this project so quickly, and how did you find and select Junio?
+
+**<span class="sans">L. T.:</sans>** So there’s two parts to this answer.
+
+The first part is that I very much did *not* want to create a new source control system. Linux was created because I find the low-level interface between hardware and software fascinating - it’s basically a labor of love and personal interest. In contrast, Git was created out of necessity: not because I found source control interesting, but because I absolutely despised most source control systems out there, and the one that I found most palatable and had really worked fairly well in the Linux development model (BitKeeper) had become untenable.
+
+End result: I’ve been doing Linux over 30 years (the anniversary of the first *release* is still a few months away, but I had started on what would become Linux already 30 years ago), and I’ve been maintaining it the whole time. But Git? I did not ever think I’d really want to maintain it long-term. I love using it, and I obviously think it’s the best SCM out there by a huge amount, but it’s not my fundamental passion and interest, if you see what I’m trying to say.
+
+So I always wanted somebody else to maintain the SCM for me -in fact I would have been happiest had I not had to write one in the first place.
+
+That’s kind of the background.
+
+As to Junio - he was actually one of the very first people who came in as Git developers. His first change came in within days after I had made the very first (and very rough) version of Git public. So Junio has actually been around some since pretty much the beginning of Git.
+
+But it’s not like I handed the project off to the first random person to show up. I did maintain Git for a few months, and the thing that made me ask Junio if he wanted to be the maintainer is that very-hard-to-describe notion of “good taste”. I don’t really have a better description for it: programming is about solving technical problems, but *how* you solve them, and how you think about them is important too, and it’s one of those things you start to recognize over time: certain people have that “good taste” thing and pick the “right” solution.
+
+I don’t want to claim that programming is an art, because it really is mostly just about “good engineering”. I’m a big believer in Thomas Edison’s “one percent inspiration and ninety-nine percent perspiration” mantra: it’s almost all about the little details and the everyday grunt-work. But there *is* that occasional “inspiration” part, that “good taste” thing that is about more than just solving some problem - solving it cleanly and nicely and yes, even beautifully.
+
+And Junio had that “good taste”.
+
+And every time Git comes up, I try to remember to really make it very very clear: I may have started and designed the core ideas in Git, but I often get too much credit for that part. It’s been 15+ years, and I was really only involved with Git in that first year. Junio has been an exemplary maintainer, and he’s the one who has made Git what it is today.
+
+Btw, this whole “good taste” thing and finding people who have it, and trusting them - that’s very much not just about Git. It’s very much the history of Linux too. Unlike Git, Linux is obviously a project that I still *do* actively maintain, but very much like Git, it’s also a project with lots of other people involved, and I think one of the big successes of Linux is having literally hundreds of maintainers around, all with that hard-to-define “good taste”, and all people who maintain parts of the kernel.
+
+**<span class="sans">J. A.:</sans>** Have you ever given control to a maintainer only to later determine it was the wrong decision?
+
+**<span class="sans">L. T.:</sans>** Our maintainership structure has never been so black-and-white and inflexible that that would ever have been an issue. In fact, it’s not like we even make maintainership control be something very documented: we do have a MAINTAINERS file, but that’s so that you can *find* the right people, it’s not really a sign of some exclusive ownership.
+
+So the whole “who owns what” is more of a fluid guideline, and a “this person is active and is doing a good job” than some “oops, now we gave that person ownership and then he screwed up”.
+
+And it’s fluid also in the sense that maybe you are the maintainer of one subsystem, but if there’s something you then need from another subsystem, you can often cross borders. Usually it’s something that people *talk* about extensively before doing, of course, but the point is that it does happen and it’s not some hard “you’re only supposed to touch *that* file” kind of rule.
+
+In fact, this is actually somewhat related to the earlier discussion about the licensing, and another example of how one of the design principles of “Git” was that whole “everybody has their own tree, and no tree is technically special”.
+
+Because a lot of other projects have used tooling - like CVS or SVN - that fundamentally *does* make some people special, and that fundamentally does have a “ownership” that goes along with it. In the BSD world, they call it the “commit bit”: giving a maintainer the “commit bit” means that he’s now allowed to commit to the central repository (or at least parts of it).
+
+I always detested that model, because it inevitably results in politics and the “clique” model of development, where some people are special and implicitly trusted. And the problem isn’t even the “implicitly trusted” part - it’s really that the other side of the coin is that *other* people are *not* trusted, and are by definition outsiders, and have to go through one of the guardians.
+
+Again, in Git that kind of situation doesn’t exist. Everybody is equal. Anybody can do a clone, do their own development, and if they do a good job they can get merged back (and if they do an outstanding job, they become maintainers, and they end up being the ones doing the merging into their trees ;).
+
+So there’s no need to give people special privileges - no need for that “commit bit”. And that also means that you avoid the politics around it, and you don’t need to trust people implicitly. If they end up doing a bad job - or more commonly, just end up fading away and finding another interest - they don’t get merged back, and they also don’t stand in the way of other people who have fresh new ideas.
+
+**<span class="sans">J. A.:</sans>** Do new features of Git ever impress you, and become part of your workflow? Are there features you’d still like to see added?
+
+**<span class="sans">L. T.:</sans>** My use cases were obviously the first ones to be fulfilled, so for me it has seldom been about new features.
+
+Over the years, Git has certainly improved, and some of it has been noticeable in my workflow too. For example, Git has always been fairly fast - it was one of my design goals, after all - but a lot of it was originally done as shell-script around some core helper programs. Over the years, most of that shell scripting has gone away, and it means that I can apply patch-bombs from Andrew Morton even faster than I could originally. Which is very gratifying, as that was actually one of the early benchmarks I used for performance testing.
+
+So Git has always been good for me, but it’s gotten better.
+
+The *big* improvements have been about how much better it has become to use as a “regular user”. A lot of that has been people learning the Git workflow and just getting used to it (it *is* very different from CVS and other things that people used to be used to), but a lot of it is Git itself having become a lot more pleasant to use.
+
+## Managing Open Source Projects
+
+**<span class="sans">J. A.:</sans>** We recently spoke with Drupal creator Dries Buytaert, and he credited you with much inspiration and the occasional mentorship and advice over the past twenty years that he’s been maintaining the popular Drupal CMS. Do you frequently communicate with maintainers of other open source projects, either offering mentorship or just sharing notes? How often do other open source maintainers reach out to you looking for advice or help?
+
+**<span class="sans">L. T.:</sans>** I don’t know about others, but no, I don’t personally tend to interact all that much with other open source projects, simply because I tend to be a pretty “one-track mind” person. I think that’s why I still do kernel maintenance three decades later: some people flit from project to project, while others (like me), end up being fairly focused on one thing for longer time periods.
+
+That said, there is often a fair amount of overlap in developers, with lots of developers working on more than one open source project. And different projects obviously affect each other, with all the common infrastructure. So you do have that kind of cross-pollination, and you end up having people meet at the same conferences (back when those happened) etc.
+
+**<span class="sans">J. A.:</sans>** As the maintainer of an open source project, what are some of the key lessons you have learned that would help others manage their projects more successfully?
+
+**<span class="sans">L. T.:</sans>** This is a hard one to answer, because I don’t really know what the key to success is. Yes, Linux has been very successful, and clearly Git too started on the right foot, but it’s always very hard to really attribute that to some deeper cause. Maybe I’ve just been lucky?
+
+Because luck and timing, and being in “the right place at the right time” really *is* important. I think for both Linux and Git, the projects I started ended up being projects that a lot of people needed, even if they didn’t necessarily even know they needed them. Was that just luck? Maybe. Or was it that of all that mass of people who needed those projects, I was the one who uniquely stepped up and did the work, and got the ball rolling?
+
+My ego prefers the latter, but honesty forces me to say that you really do want luck too, and you do need to pick the *right* project. The one that people really need.
+
+But if we ignore those kinds of “big questions”, I do have a few practical and down-to-earth things that I personally think are important if you are an open source maintainer.
+
+The big one is that you have to be there. You have to stay around, you have to be there for other developers, and you have to be there <span class="small-caps">all the time</span>. You will hit technical problems, and it will be frustrating. You’ll work with people who may have very different ideas of how to solve those technical problems. And the technical problems are in some ways the easy part, because they usually *do* have technical solutions, and you can often fairly objectively say “this is better/faster/simpler/whatever”.
+
+The harder part can be that you’ll end up interacting with people who you don’t like, or with people who don’t like you, and there *will* be personality conflicts. Then you can’t fall back on “show me the numbers” - people just don’t always get along, and it’s not a numbers game. You’ll have bad days, and the people you work with will have bad days. And you’ll have to work through it all.
+
+That’s not to say that you can’t take a break. I do that all the time. If I get frustrated, I just leave the computer, and I will go read a book or something. Trying to force some productive work (or discussion) when you’re frustrated and angry is not great. And I clearly have not always done great on this, and I’ve pissed people off and used too strong language. I think I’m doing better on that, but one way I’m doing better on that is by literally walking away more - trying to actively notice “I’m in a bad mood” and just stepping away from the computer.
+
+So you don’t have to be there “all the time” in the sense that it has to be constant. Taking the day off is fine. Taking a week off might mean that you need to let people know. Taking a month off? At that point you really have to have a maintenance plan, and in three decades that has happened exactly twice: once when kernel.org got broken into and people spent a lot of time making sure that everything was ok, and the second time when I took a break to try to make sure I had my behavior under control.
+
+What I’m trying to say is that maintaining a big project is a fair amount of work, and it’s something you need to keep on doing for a long time. It’s not all fun. It’s *interesting*. It’s challenging in the best ways. I have not been bored being a kernel maintainer. But it’s not all roses either. Not everybody wants to do that kind of thing.
+
+The other big thing is that you have to be open. And I mean that in multiple ways. It’s really easy to create some kind of “clique” of people, where you have an inner cabal that discusses things in private, and then you see really only the end result (or the fringe work) in the open, because all the important stuff happened inside a company or within a core group of people, and outsiders have a hard time breaking into that clique, and often have a hard time even seeing what is going on in that core group because it was so private and exclusive.
+
+It’s one of the reasons I really like open mailing lists. Not some “by invitation” list. Not something you even have to sign up to participate in. Really open. And pretty much all the development discussions should be there.
+
+But “open” is important in another way too - be open to other people’s solutions, and don’t have this very clear and inflexible idea of how things should be done. I think one of the reasons Linux succeeded was exactly the fact that I actually did NOT have a big plan, and did not have high expectations of where things would go, and so when people started sending me patches, or sending me requests for features, to me that was all great, and I had no preconceived notion of what Linux should be. End result: all those individuals (and later big companies) that wanted to participate in Linux kernel development had a fairly easy time to do so, because I was quite open to Linux doing things that I personally had had no real interest in originally.
+
+And finally, I think “open” is important in the sense of honesty. You don’t want to play politics behind peoples back. Be open about your motivations, be open about why you do things and what you do. You don’t have to like everybody you work with, and they don’t have to like you, but if people are open about what they are aiming for and what they do, you don’t necessarily have to always be best buddies - the most important thing is that you can *trust* each other.
+
+Because trust matters. A lot.
+
+**<span class="sans">J. A.:</sans>** Beyond what you’ve already mentioned regarding less coding, and more communication and leading, were there specific skills you needed to learn that you found difficult? For example, delegating, being a better writer, and other non-coding skills — and if so, how did you learn to do this? Was it hands on, from books, or from other people? Is this something taught in school?
+
+**<span class="sans">L. T.:</sans>** So I’ll just start off by saying that almost all of the process for me has been very much incremental and a learning experience. Three decades is a *long* time, and very few changes have been very sudden, and most of how we do things have grown in a very “organic” way.
+
+In other words, it’s very much *not* a result of planning ahead and reading management text-books etc. It has very much mostly happened on its own, and any structure we have now is not from some written-down org-chart, but from people simply “finding their places”.
+
+One skill that clearly some people find difficult is “letting go of control”. I still remember the very early days, when people would send me patches, and I’d not actually *apply* them as patches, but I’d read them, figure out what people wanted to do, and then do that myself. Because that was how I had started the project, and that was how I felt more comfortable, and that way I knew the code better.
+
+It turns out that for me, this was not a big deal in the end. I stopped doing it fairly quickly, because I’m just fundamentally lazy. I got really good at reading patches and understanding what they did, and then I’d just apply them. So my control freak days were fairly quickly over. I think I’ve been pretty good at finding people to trust, and then doing just that - trusting them and not micro-managing them overly much.
+
+So delegating hasn’t been a huge problem, but I know it has for other projects. Again, part of it is that whole thing where our maintainership model doesn’t require some kind of absolute trust up-front, which really does make everything much easier.
+
+Communication skills very much *are* important. I actually come from a family of journalists (both my parents were journalists, my uncle was one, my paternal grandfather was a poet and a journalist), so I grew up in a household where reading and writing was pretty much taken for granted from a very young age. And while English is my third language, it was a pretty strong language for me already by the time I started Linux, and communication wasn’t a huge problem. But I realize that it very much *can* be a big issue, both for personal (perhaps personality) reasons and for language barrier reasons.
+
+But in general, mostly I did learn by doing. Again, remember - none of Linux happened overnight. The project it was thirty years ago is *very* different from the project it is today.
+
+**<span class="sans">J. A.:</sans>** While open source has been hugely successful, many of the biggest users, for example corporations, do nothing or little to support or contribute back to the very open source projects they rely on. Even developers of surprisingly large and successful projects (if measured by number of users) can be lucky to earn enough to buy coffee for the week. Do you think this is something that can be solved? Is the open source model sustainable?
+
+**<span class="sans">L. T.:</sans>** I really don’t have an answer to this, and for some reason the kernel has always avoided the problem. Yes, there are companies that are pure “users” of Linux, but they still end up wanting support, so they then rely on contractors or Linux distributions, and those obviously then end up as one of the big sources of kernel developer jobs.
+
+And a fair number of big tech companies that use the kernel end up actively participating in the development process. Sometimes they end up doing a lot of internal work and not being great at feeding things back upstream (I won’t name names, and some of them really are *trying* to do better), but it’s actually very encouraging how many big companies are very openly involved with upstream kernel development, and are major parts of the community.
+
+So for some reason, the kernel development community has been pretty successful about integrating with all the commercial interests. Of course, some of that has been very much conscious: Linux has very much always been open to commercial users, and I very consciously avoided the whole anti-corporate mindset that you can most definitely find in some of the “Free Software” groups. I think the GPLv2 is a great license, but at the same time I’ve been very much against some of the more extreme forms of “Free Software”, and I - and Linux - was very much part of the whole rebranding to use “Open Source”.
+
+Because frankly, some of the almost religious overtones of rms and the [FSF](https://fsf.org) were just nutty, and a certain portion of the community was actively driving commercial use away.
+
+And I say that as somebody who has always been *wary* of being too tainted by commercial interests. I very consciously didn’t want to work for a Linux company, for example. I maintained Linux for the first decade without it being my job. That’s not because I think commercial interests are wrong, but because I wanted to make sure that people saw me as a neutral party, and never felt like I was “the competition”.
+
+But I do think that some projects may have shot themselves in the foot by being a bit too anti-commercial, and made it really hard for companies to participate.
+
+And no, it’s not always easy working with companies. We have several kernel maintainers that have been very active in trying to help teach companies how to work with open source: it’s one of the things the [Linux Foundation](https://www.linuxfoundation.org/) does (not just on the technical side: there’s teaching about the legal issues etc), and apart from being one of the main kernel maintainers, [Greg KH](https://en.wikipedia.org/wiki/Greg_Kroah-Hartman) is very active on that front. So it does take some effort.
+
+But is it sustainable? Yes. I’m personally 100% convinced that not only is open source sustainable, but for complex technical issues you really *need* open source simply because the problem space ends up being too complex to manage inside one single company. Even a big and competent tech company.
+
+But it does require a certain openness on both sides. Not all companies will be good partners, and some developers don’t necessarily want to work with big companies.
+
+**<span class="sans">J. A.:</sans>** A common theme we’ve found in talking to long-term open source maintainers is burn out, in part due to the constant pressures of maintaining projects so publicly, and constant demands from users as if you owe them something. Have you experienced this? How do you deal with this, and avoid burnout? Have you ever considered walking away from kernel development?
+
+**<span class="sans">L. T.:</sans>** Well, I kind of alluded to this issue earlier in your “key lessons” question.
+
+Because yes, it’s a pressure. And yes, I’ve been fed up too at times.
+
+At the same time, at least for me personally, my bouts of “Ok, that’s enough” have generally been very much “That’s enough for <span class="small-caps">today</span>”. I get stressed out, I get annoyed. I’ve obviously exploded at people at times, and it’s not pretty when it happens (and I really have been actively trying to make sure it doesn’t happen again). And you obviously don’t see the cases where I just walk away pissed off about something or somebody.
+
+But.
+
+I go off, read a book, maybe drive around a bit if it’s nice outside, take a break. And I get over it. And I’m back the next day, because in the end, I really enjoy what I do. I’d be bored to tears without kernel development.
+
+So even when I take a vacation (I try to go scuba diving a couple of times a year, although the pandemic obviously means that that hasn’t happened the last year), I take a laptop with me so that I can keep up. I let people know that I’m not as available as usual, but particularly when I can time it to the end of the development window, it’s usually not a big deal. I’m very seldom *entirely* off the grid, although that has happened a couple of times too (again - scuba diving sometimes means “exotic location without internet” even these days), so I’ve been *entirely* incommunicado for a week due to that a couple of times.
+
+And I do love being on a liveaboard, doing five dives a day for a week, and literally not even *able* to read email. I’ve managed that three times in the last five years, I think. It’s lovely.
+
+But then I get back, and I’m really happy to be back too.
+
+**<span class="sans">J. A.:</sans>** 30 years is a long time, and while I understand it’s impossible to predict the future, I’d still like to ask: Where do you see Linux in another 30 years? And what do you envision as your roll at that time?
+
+**<span class="sans">L. T.:</sans>** So this is a question that I can’t answer, and it’s not because I’m trying to weasel out of it, but simply because it’s not how I work, and not how I think about the project.
+
+I don’t have a “30-year plan”. I don’t even have a 5-year plan. In fact, I don’t plan ahead more than a release or two (which is obviously just a few months).
+
+As an engineer, I have this strongly held opinion that “details matter”. Details are almost the *only* thing that matters. If you get the details right, the rest will follow.
+
+That may sound a bit odd, considering that I did already talk about “good taste”, and I’m certainly very much on the record as saying that the unix philosophy (“everything is a file” being one of the core pillars) is the right one.
+
+And in Git, I very much wanted to have some overall “design” too, and there’s very much a couple of overarching big concepts in Git too (“everything is an immutable object” is perhaps the Git equivalent of the Unix one).
+
+But those kinds of “high level design” things are great mainly to give you a kind of cohesive end result, and give the community a kind of “design compass”. They aren’t really the most important thing in the end. Reality is complex and often ugly, and the high-level big design cannot stand in the way of details, and all the special cases that you actually need in reality.
+
+So I just like to say that I’m a “plodding engineer”. I look at what’s going on right now, I look at the problems we have now, and I don’t really plan for the future outside of just knowing that “I have to maintain the end result”, so I do want to make sure that the work we do today won’t be a huge problem tomorrow.
+
+That *kind* of answers the last part of your question: I do see myself as being around. Not for another 30 years, but I do enjoy what I do, and as long as I feel I’m actually helping the project, I’ll be around.
+
+**<span class="sans">J. A.:</sans>** Do you have any advice for open-source developers that are looking to raise money to support their open source development efforts?
+
+**<span class="sans">L. T.:</sans>** This is the first question that I really don’t have any answer to at all.
+
+I started out thinking of Linux purely as a hobby for the longest time, and never thought it would actually be my job. My first industry job (outside of academia, where the first few years happened) was non-Linux-related, and I made my contract explicitly say that my Linux work was not company work (Transmeta did *use* Linux, but that wasn’t really my job, even if I ended up also working on some Linux issues that Transmeta had internally - mainly early SMP problems).
+
+In fact, to me Linux was *so* much non-work that I was planning to take an unpaid year off from Transmeta to get the Linux 2.6 release out (ok, to be honest, now I’m unsure what the exact version was, it’s a long time ago. I *think* it was when there was some stress during the 2.5.x days, and I felt I needed to concentrate full-time to get to 2.6). That’s when OSDL came in (“Open Source Development Labs” - later to become Linux Foundation), so that I could actually get paid to do Linux without working for a commercial Linux company.
+
+So for me, the first decade of Linux I never felt like raising money was an issue - I did it on the side. And ten years into it, when I felt I had to work on it more full-time, it had become big enough that it “just happened”.
+
+But I realize this is really really unusual, and I simply do not have an answer to your question in general.
+
+Unless the answer is then exactly “plan on it being a hobby for a decade, and if it grows so big that it cannot be a hobby any more, you’ve likely already solved the funding problem”.
+
+NOTE! This is the point where I would like to just say how lucky I was to grow up in Finland. With an education system that is completely free, and one of the best in the world, I simply came from a background where it was entirely sensible to treat Linux as a hobby, and just know that I can make money as a commercial software developer. I came out of 8 years of world-class university studies with something like $7k of student debt - not exactly worth worrying about in the world of high tech.
+
+I very much realize that a lot of people in the US don’t really understand the kind of freedom that gives you in life. You really can choose to just do what you love to do, because you can afford to.
+
+## The Linux Foundation
+
+**<span class="sans">J. A.:</sans>** How involved were you in the creation of the Linux Foundation? What is your role? Has the Foundation impacted the kernel beyond allowing you to get paid without working for a commercial Linux company?
+
+**<span class="sans">L. T.:</sans>** I have had nothing at all to do with creating OSDL (and then the Linux Foundation). I’m literally just an employee, although a high-profile one with the title of “fellow”.
+
+OSDL started out as a non-profit industry consortium for companies to do things together - particularly collaborate on enterprise capabilities - and with an original emphasis on having a machine farm that was available to developers (eg the kind of hardware that developers wouldn’t have otherwise had access to). This all started before I was employed by them, and entirely independently of that.
+
+It then became the Linux Foundation when OSDL merged with another non-profit industry consortium: the Free Standards Group. The hardware lab side part fell to the wayside, and the “industry collaboration” part became the main thing. Again, while I was by then employed by them, this was not something that I was personally part of: I have very consciously stayed very much focused on just the technical kernel development side.
+
+LF does a *lot* of other things than just support a few key developers like me and Greg KH. In fact, it does so much that you really are better off looking up [the LF web site](https://www.linuxfoundation.org/) (or [the Wikipedia one](https://en.wikipedia.org/wiki/Linux_Foundation)). LF ends up doing a lot of infrastructure of various kinds: some technical (like kernel.org), but a lot of it other “support” - organizing conferences, having lots of working groups for industry partners, things like that.
+
+So LF is basically support infrastructure and a lot of different projects for various things around Linux. And I’m just an employee with a fairly unusual employment contract that basically says that everything I do has to be open source, and that LF can’t tell me what to do with Linux. I’m happy, and it turns out that the member companies seem to be happy too, because they all know that I’m entirely outside all of the company politics.
+
+## Other Interests
+
+**<span class="sans">J. A.:</sans>** What brought you to the US? Do you miss, and have you considered returning to Finland, or elsewhere?
+
+**<span class="sans">L. T.:</sans>** So I moved to the US in ’97, and part of that was that I was fairly young, and I got an offer from a startup that did very interesting things in an area that I was very familiar with (ie the somewhat odd 80386 architecture - exploring it was why Linux got started in the first place).
+
+And Finland at the time was very much about high tech, but it was dominated by cellphone technology (Nokia is Finnish, and at the time was the biggest cellphone company in the world, and the biggest company in Finland by quite a big margin).
+
+I wasn’t interested in phones (this was before they grew up and became small computers - people actually used those things to *talk* to each other, if you can believe it). And the US seemed interesting, and I moved here with my wife and our (at the time) 10-week old daughter.
+
+Moving to another country when you just had your first child, and you have no other family around to support you may not be the smartest thing to do. But hey, we were young, we took a “let’s try it” approach to things, and it all worked out. I still remember how we moved in February, and it was cold (about -20°C, so about 0 F) in Helsinki when we left, and we walked off the plane and it was sunny and a nice balmy 70°F when we arrived at SFO.
+
+It’s been interesting. The US is home these days, and yes, I miss some parts of Finland. The US education system is a disaster. You have to move to the right area to get a good grade school or highschool, and you have to pay insane amounts of money for a good college. It’s a disgrace. So is the healthcare system. And the political climate in the US has gone from “slightly strange” to downright scary. In Finland? Things mostly JustWork(tm).
+
+But hey, there are advantages too, and it’s not just the weather (yes, we then moved up to Portland, OR, and the weather here isn’t as nice as it is in the Bay Area, but trust me - the weather is still a lot better than Finland). And we’ve been here so long that our kids don’t speak Finnish (both me and my wife are from the Swedish-speaking minority group in Finland, so we speak Swedish at home), and we have friends and social ties here in the US. And you can largely ignore the failings of US society as long as you have a good job.
+
+Did we consider moving back? Several times. First when the kids started school. Then when the kids started highschool. Then college. See a pattern? And then when it looked possible that Trump might get re-elected.
+
+**<span class="sans">J. A.:</sans>** Much of the world was carefully watching that election, and worried about what it would mean. And even yet, knowing that some 70 million Americans supported his re-election, there’s foreboding for the future. How do you handle conversations with people who supported Trump’s re-election?
+
+**<span class="sans">L. T.:</sans>** The US political system in general worries me, and the American exceptionalism and nationalism is sad and scary. Particularly when it is often by people who literally have no idea what they are talking about and have never lived outside the country.
+
+The US is a lovely country in many ways, and it’s also a very *varied* country with lots of different cultures and people (and nature), and I like that. In fact that would probably be the hardest part for me if I were to move back to Finland - Finland is a very nice, sane, and safe country, but it’s also a very small one and very homogenous.
+
+But the uneducated “Rah rah, America #1!” thing can be very annoying too. You see these huge trucks with American flags, and you just face-palm occasionally.
+
+And sometimes it’s even educated people. Before Trump was elected, I was talking to this perfectly nice medical doctor, who was absolutely convinced that the US health care system was the best in the world. He based this on having never lived anywhere else, and couldn’t possibly admit that other countries actually have better healthcare - even when discussing it with somebody who actually has literally seen that better health care first hand. This is a highly educated person who went through many years of medical school, and still has that “America, f*ck yeah!” mentality.
+
+And yes, he was a Trump supporter.
+
+Don’t get me wrong - nationalism exists everywhere, including Europe. Including even Finland. But the US version of it does seem to be pretty toxic.
+
+And honestly, it’s one of the reasons I live on the West coast. Oregon is mostly very liberal, at least in any population center (Eastern Oregon is very much different, but hardly anybody actually lives there - large in area, very small in population). So the area I live in, you certainly don’t see the confederate flag (or the Trump flag) very often, although you do see that occasional big truck person who drove in from elsewhere.
+
+That said, I do think the US is changing. We’ve lived here almost 25 years by now, and it feels like it has changed even during just that time. Religiosity is way down, although it’s obviously still very much an issue about where you live. And in many ways the US has obviously shed a lot of socially repressive policies (ie the whole legalization of gay marriage, effectively the end of the war on drugs etc). So on the whole I’m fairly optimistic, and I do think that the Trump phenomenon is possibly (hopefully) just the result of those overall positive changes. Classic reactionary conservatism.
+
+**<span class="sans">J. A.:</sans>** What are your interests and hobbies outside of the Linux kernel? What do you do when you’re not focused on kernel development?
+
+**<span class="sans">L. T.:</sans>** I’ve already mentioned the main two a couple of times: I end up reading a lot (nothing serious, it tends to be random fantasy or sci-fi off my kindle), and when I get to travel I try to do scuba diving as much as possible.
+
+And I actually have a fairly normal family life. I’ve got three daughters, but they are older and have mostly flown away. The youngest is still in college and will come home for summer, the middle one is doing some graduate work and won’t be home for summer, and the oldest is working on the other side of the country. We still try to do family vacations (but only the middle one ever got scuba certified - I tried with all of them, but it is what it is), but last year really was not great.
+
+So these days, it’s mainly me, my wife, our two dogs, and a cat. I’ve gotten my first vaccine dose, and am looking forward to trying to go back to a slightly more normal life in a couple of months.
+
+**<span class="sans">J. A.:</sans>** As an avid sci-fi reader always looking for new books, I’d be curious to know if there are any authors or series you’ve enjoyed above others? Are there any good books worth mentioning that you still think about from time to time?
+
+**<span class="sans">L. T.:</sans>** Honestly, I’m a “read-it-and-forget-it” kind of person - I read mostly very forgettable random stuff, definitely not things you think about afterwards. Things like the Miles Vorkosigan series by Lois McMaster Bujold are high-brow by my standards - I think I spent a year reading the free or 99¢ kindle scsi and fantasy novels by random unknown authors with editing problems. Probably mostly fantasy, largely because it’s easier to find (and I find bad scifi much more annoying than bad fantasy).
+
+On the “not trash” side of fantasy, I think Brandon Sanderson and maybe Robin Hobb stand out. But for every Sanderson, there’s probably fifty forgettable random sword-and-sorcery coming-of-age stories.
+
+There are a couple of things I come back to, and I think I’ve re-read the Dune saga about once per decade. It’s one of (very few) things that have stood the test of time and actually aged well. I remember loving Heinlein as a teenager, and now I just cringe at it.
+
+So no, don’t take reading cues from me. To me, reading is something I do to relax, and is never high-brow or very serious.
+
+**<span class="sans">J. A.:</sans>** I found [this earlier interview](https://divelog.blue/linus_torvalds.html) an interesting read, offering a lot of background into your diving. Do you still use and contribute to Subsurface, the divelog program you started?
+
+**<span class="sans">L. T.:</sans>** I still use it, although for obvious reasons I haven’t used it in the last year. Subsurface is a bit like `Git` in that it’s not something I *wanted* to write, but that I wrote because I needed it. And like Git, I found a maintainer for it, and Dirk Hohndel has been maintaining it for a long time now and taken it to be something much more than it was for me (with support for Windows, MacOS, iOS and Android, not just my original Linux support).
+
+And without any diving, I haven’t been motivated to work much on it, although I’ve helped fix a few reported problems over the last year.
+
+My second vaccine dose is a couple of weeks away, and I’ll go diving again in a couple of months. So that might make me fix a few more issues.
+
+**<span class="sans">J. A.:</sans>** Thank you. My entire career has grown out of your “hobby”, both directly through usage of Linux, and indirectly through countless other projects that exist because of Linux and Git. I’m grateful to know that through all of this you’re still enjoying what you’re doing. I’m glad that you’re on your way to being fully vaccinated. And I’m sincerely appreciative that you’ve shared so much of your time to thoroughly and insightfully answer all of these questions! Again, thank you!

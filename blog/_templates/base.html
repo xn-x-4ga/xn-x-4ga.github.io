@@ -84,9 +84,12 @@
             <header>
                 <h1>{{ title }}</h1>
                 {%- if image %}
-                <div class="featured-image-container">
-                    <img src="{{ config.base_url }}img/{{ image }}" alt="{{ title }}" class="featured-image">
-                </div>
+                <figure class="featured-image">
+                    <img src="{{ config.base_url }}img/{{ image }}" alt="{{ title }}">
+                    {%- if figcaption %}
+                    <figcaption>{{ figcaption }}</figcaption>
+                    {%- endif %}
+                </figure>
                 {%- endif %}
 
                 {%- if author or date or source or translator %}

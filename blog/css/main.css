@@ -421,36 +421,47 @@ a.source-link:hover {
 }
 
 /* --- 9. MULTIMEDIA --- */
-/* Imagen destacada en el header del post */
-.featured-image {
-	display: block;
-	width: 100%;
-	max-width: 100%;
-	height: auto;
-	object-fit: cover;
-	margin: 1.5rem 0 2.5rem 0;
-	/* overflow: hidden; */ /* Generalmente innecesario en la img misma */
-}
-
 audio {
-	/* Centrado automático (requiere que el elemento sea block) */
 	display: block;
 	margin: 2rem auto;
-	
-	/* Dimensiones y forma de "píldora" */
-	width: 100%;
-	max-width: 400px;
-	height: 45px;
-	border-radius: 50px;
-	
-	/* Estética estilo Chrome (Gris claro) */
-	background-color: #f1f3f4;
-	
-	/* Ajustes específicos para Firefox */
-	border: 1px solid #dcdcdc;
-	filter: contrast(90%) brightness(105%); 
-	outline: none;
 }
+
+/* Imagen destacada en el header del post */
+.featured-image {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5rem 0 2.5rem 0;
+    line-height: 0;
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.featured-image figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00000066; 
+    color: #FFFFFF;
+    padding: 0.5rem 1.0rem;
+    margin: 0;
+    text-align: right;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    box-sizing: border-box;
+    backdrop-filter: blur(0.25rem);
+}
+
+
 
 figure {
 	margin: 2.5rem 0;
@@ -744,7 +755,11 @@ footer {
 
 /* --- 14. RESPONSIVIDAD --- */
 @media (max-width: 56.25rem) {
-	table {
+	.featured-image figcaption {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+    table {
 		width: 100%;
 		margin-left: 0;
 		display: block;

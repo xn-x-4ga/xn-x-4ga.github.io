@@ -6,6 +6,7 @@ category: Test
 tags: [html, css, test, sit amet]
 description: Exhaustive test of HTML tags present in this site.
 image: lorem_ipsum.jpeg
+figcaption: Mauris at erat pulvinar, ultrices arcu sit amet.
 source:
   name: GitHub
   url: https://gist.github.com/ErisDS/7e3455b70133640823c0

@@ -10,7 +10,7 @@ source:
 lang: en
 ---
 
-Richard Stallman was reading computer books before he’d ever seen a computer. When the Sixties Revolution was running out of steam, he was liberating MIT computers from behind locked doors and helping set off the next great Boomer movement. Though he disdained hippies and radicals in his youth, today, as the leader of the Free Software Movement, he’s a long-haired rebel coder-writer with a cause, and an idealistic thorn in the side of the cyber world’s killer-app capitalists.</p>
+Richard Stallman was reading computer books before he’d ever seen a computer. When the Sixties Revolution was running out of steam, he was liberating MIT computers from behind locked doors and helping set off the next great Boomer movement. Though he disdained hippies and radicals in his youth, today, as the leader of the Free Software Movement, he’s a long-haired rebel coder-writer with a cause, and an idealistic thorn in the side of the cyber world’s killer-app capitalists.
 
 <span class="question">So you were born 1953. Where?</span>
 

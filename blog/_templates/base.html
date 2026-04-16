@@ -57,12 +57,12 @@
             {{ content | safe }}
 
             {%- if tags %}
-            <section class="post-tags-section">
+            <div class="post-tags-section">
                 {%- for tag in tags %}
                 {# IMPORTANTE: Usamos config.base_url para que las etiquetas funcionen desde cualquier subdirectorio #}
                 <a class="tag-box" href="{{ config.base_url }}tag/{{ tag.lower().replace(' ', '_') }}.html" rel="tag">{{ tag }}</a>
                 {%- endfor %}
-            </section>
+            </div>
             {%- endif %}
         </article>
         {%- endblock -%}

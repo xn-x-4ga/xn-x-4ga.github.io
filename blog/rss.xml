@@ -4,7 +4,7 @@
         <title>ØX.net</title>
         <link>https://xn--x-4ga.net/blog/</link>
         <description>Publicaciones recientes de ØX.net</description>
-        <lastBuildDate>Thu, 16 Apr 2026 15:18:55 </lastBuildDate>
+        <lastBuildDate>Thu, 16 Apr 2026 16:03:54 </lastBuildDate>
         <atom:link href="https://xn--x-4ga.net/blog/rss.xml" rel="self" type="application/rss+xml" />
         
         
@@ -51,6 +51,21 @@
             
             
             <description><![CDATA[Thirty years ago, Linus Torvalds was a 21 year old student at the University of Helsinki when he first released the Linux Kernel. His announcement started, “I’m doing a (free) operating system (just a hobby, won’t be big and professional…)”. Three decades later, the top 500 supercomputers are all running Linux, as are over 70% of all smartphones. Linux is clearly both big and professional.]]></description>
+        </item>
+        
+        <item>
+            <title>Ítaca</title>
+            <link>https://xn--x-4ga.net/blog/2020-03-03_itaca.html</link>
+            
+            
+            
+            <pubDate>Tue, 03 Mar 2020 00:00:00 -0300</pubDate>
+            
+            
+            <guid>https://xn--x-4ga.net/blog/2020-03-03_itaca.html</guid>
+            
+            
+            <description><![CDATA[]]></description>
         </item>
         
         <item>

@@ -3,7 +3,7 @@
     <!-- Índice Principal -->
     <url>
         <loc>https://xn--x-4ga.net/blog/</loc>
-        <lastmod>2026-04-16T15:18:55</lastmod>
+        <lastmod>2026-04-16T16:03:54</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -35,6 +35,16 @@
         
         
         <lastmod>2021-04-28T00:00:00-0400</lastmod>
+        
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://xn--x-4ga.net/blog/2020-03-03_itaca.html</loc>
+        
+        
+        <lastmod>2020-03-03T00:00:00-0300</lastmod>
         
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

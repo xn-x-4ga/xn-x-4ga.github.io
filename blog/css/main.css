@@ -87,7 +87,7 @@ body {
 	line-height: 1.75;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh; 
+	min-height: 100vh;
 }
 
 ::selection {
@@ -95,19 +95,8 @@ body {
 	color: #fff;
 }
 
-/* --- 4. TIPOGRAFÍA Y TÍTULOS --- 
+/* --- 4. TIPOGRAFÍA Y TÍTULOS --- */
 h1, h2, h3, h4, h5, h6 {
-	font-family: var(--font-sans);
-	font-weight: 700;
-	color: var(--text-primary);
-}
-
-h1 {
-	font-size: clamp(2.2rem, 5vw, 3rem);
-	line-height: 1.1;
-	margin-bottom: 0.5rem; */
-}
-h1, h2, h3, h4, h5, h6, .question {
 	font-family: var(--font-sans);
 	font-weight: 700;
 	color: var(--text-primary);
@@ -137,7 +126,7 @@ h4 {
 	line-height: 1.3; 
 }
 
-h5, .question { 
+h5 { 
 	font-size: clamp(1.125rem, 2.5vw, 1.25rem); 
 	line-height: 1.4; 
 }
@@ -147,10 +136,15 @@ h6 {
 	line-height: 1.4; 
 }
 
-span.question {
-    /*display: block;       Obligamos al span a comportarse como h5 */
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+.question {
+	font-family: var(--font-sans) !important;
+	font-weight: 700;
+	color: var(--text-primary);
+	font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+	line-height: 1.4;
+	display: block; 
+	margin-top: 2.5rem; 
+	margin-bottom: 1rem;
 }
 
 .sans { font-family: var(--font-sans); }
@@ -177,11 +171,14 @@ main {
 	box-sizing: border-box;
 }
 
-main p a:not([class]):not(.footnote-ref a) {
+main p a:not([class]) {
 	color: inherit;
 	text-decoration: none;
 	border-bottom: 0.1rem solid var(--url-color);
-	transition: all 0.3s ease;
+}
+
+main p a.footnote-ref {
+	border-bottom: none;
 }
 
 main p a:not([class]):hover {
@@ -657,7 +654,12 @@ blockquote {
 	font-size: 0.95em;
 }
 
-blockquote p { margin: 0; }
+blockquote p { 
+	margin: 1rem 0; 
+}
+
+blockquote p:first-child { margin-top: 0; }
+blockquote p:last-child { margin-bottom: 0; }
 
 /* Alertas */
 .danger, .info, .success, .warning {

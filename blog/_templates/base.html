@@ -43,8 +43,8 @@
                     {%- if translator and translator.name %}
                     <span class="translator">
                         {{ l.translated }} 
-                        {%- if translator.link %}
-                        <a href="{{ translator.link }}">{{ translator.name }}</a>
+                        {%- if translator.url %}
+                        <a href="{{ translator.url }}">{{ translator.name }}</a>
                         {%- else %}
                         {{ translator.name }}
                         {%- endif %}

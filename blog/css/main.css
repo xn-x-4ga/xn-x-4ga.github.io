@@ -103,14 +103,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 3rem;
+	font-size: clamp(2.2rem, 5vw, 3rem);
 	line-height: 1.1;
 	margin-bottom: 0.5rem;
 }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.875rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.25rem); }
+h3 { font-size: clamp(1.5rem, 3.5vw, 1.875rem); }
+h4 { font-size: clamp(1.25rem, 3vw, 1.5rem); }
+h5 { font-size: clamp(1.125rem, 2.5vw, 1.25rem); }
 h6 { font-size: 1.125rem; }
 
 .sans { font-family: var(--font-sans); }
@@ -241,7 +241,6 @@ hr.asterism:after {
 
 /* --- 7. POSTS Y ARTÍCULOS --- */
 header {
-/*	padding-bottom: 1.5rem;*/
 	border-bottom: 0.0625rem solid var(--border-color);
 }
 
@@ -273,13 +272,15 @@ header {
 a.source-link {
 	display: inline-flex;
 	align-items: center;
-	text-decoration: none;
+	text-decoration: none !important;
+	border: none !important;
 	color: var(--accent-color);
 	transition: color 0.2s ease;
 }
 
 a.source-link:hover {
 	opacity: 0.7;
+	border: none !important;
 }
 
 /* El icono propiamente dicho */
@@ -428,37 +429,37 @@ audio {
 
 /* Imagen destacada en el header del post */
 .featured-image {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    margin: 1.5rem 0 .5rem 0;
-    line-height: 0;
-    overflow: hidden;
-    border-radius: 0.25rem;
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	margin: 1.5rem 0 .5rem 0;
+	line-height: 0;
+	overflow: hidden;
+	border-radius: 0.25rem;
 }
 
 .featured-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
 }
 
 .featured-image figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #00000066; 
-    color: #FFFFFF;
-    padding: 0.5rem 1.0rem;
-    margin: 0;
-    text-align: right;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    line-height: 1.4;
-    box-sizing: border-box;
-    backdrop-filter: blur(0.25rem);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #00000066; 
+	color: #FFFFFF;
+	padding: 0.5rem 1.0rem;
+	margin: 0;
+	text-align: right;
+	font-family: var(--font-sans);
+	font-size: 0.85rem;
+	line-height: 1.4;
+	box-sizing: border-box;
+	backdrop-filter: blur(0.25rem);
 }
 
 figure {
@@ -493,8 +494,8 @@ figcaption b {
 }
 
 main p img {
-    display: block;
-    margin: 2rem auto; 
+	display: block;
+	margin: 2rem auto; 
 }
 .video-container {
 	aspect-ratio: 16 / 9;
@@ -512,56 +513,56 @@ main p img {
 /* --- 10. TABLAS Y CÓDIGO --- */
 /* Clase maestra para romper el contenedor al 125% */
 .plus-25 {
-    width: 125% !important;
-    max-width: 125% !important; 
-    margin-left: 50% !important;
-    transform: translateX(-50%);
-    position: relative;
-    z-index: 1;
+	width: 125% !important;
+	max-width: 125% !important; 
+	margin-left: 50% !important;
+	transform: translateX(-50%);
+	position: relative;
+	z-index: 1;
 }
 
 /* RESET TOTAL para tablas con clase .plus-25 */
 table.plus-25 {
-    border: none !important;
-    border-collapse: collapse;
+	border: none !important;
+	border-collapse: collapse;
 }
 
 table.plus-25 td, 
 table.plus-25 th, 
 table.plus-25 tr {
-    border: none !important; /* Elimina líneas de celdas y filas */
-    padding: 0.75rem 1rem;
+	border: none !important; /* Elimina líneas de celdas y filas */
+	padding: 0.75rem 1rem;
 }
 
 /* Eliminar el fondo cebra si existe en estas tablas */
 table.plus-25 tbody tr:nth-child(odd) td,
 table.plus-25 tbody tr:nth-child(odd) th {
-    background-color: transparent !important;
+	background-color: transparent !important;
 }
 
 /* Mantener el soporte para colores de alerta pero sin bordes */
 .plus-25.warning { background-color: var(--bg-warning) !important; color: var(--color-warning); border: none !important; }
 .plus-25.danger  { background-color: var(--bg-danger) !important;  color: var(--color-danger);  border: none !important; }
 .plus-25.success { background-color: var(--bg-success) !important; color: var(--color-success); border: none !important; }
-.plus-25.info    { background-color: var(--bg-info) !important;    color: var(--color-info);    border: none !important; }
+.plus-25.info	{ background-color: var(--bg-info) !important;	color: var(--color-info);	border: none !important; }
 
 .table-oversize {
-    width: 125% !important;
-    max-width: 125% !important;
-    margin-left: 50% !important;
-    transform: translateX(-50%);
-    position: relative;
-    z-index: 1;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+	width: 125% !important;
+	max-width: 125% !important;
+	margin-left: 50% !important;
+	transform: translateX(-50%);
+	position: relative;
+	z-index: 1;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 /* Soporte para imágenes y figuras */
 figure.plus-25 img, 
 img.plus-25 {
-    display: block;
-    height: auto;
-    border-radius: 0.25rem;
+	display: block;
+	height: auto;
+	border-radius: 0.25rem;
 }
 
 tr { vertical-align: top; }
@@ -754,33 +755,32 @@ footer {
 /* --- 14. RESPONSIVIDAD --- */
 @media (max-width: 56.25rem) {
 	.featured-image figcaption {
-        font-size: 0.75rem;
-        padding: 0.4rem 0.8rem;
-    }
-    table {
+		font-size: 0.75rem;
+		padding: 0.4rem 0.8rem;
+	}
+	table {
 		width: 100%;
 		margin-left: 0;
 		display: block;
 		overflow-x: auto;
 		white-space: nowrap;
 	}
-    .plus-25 {
-        width: 100% !important;
-        margin-left: 0 !important;
-        transform: none !important;
-        left: 0 !important;
-    }
-    .table-oversize {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        transform: none !important;
-    }
+	.plus-25 {
+		width: 100% !important;
+		margin-left: 0 !important;
+		transform: none !important;
+		left: 0 !important;
+	}
+	.table-oversize {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin-left: 0 !important;
+		transform: none !important;
+	}
 }
 
 @media (max-width: 50rem) {
 	main { padding: 2rem 1.5rem; }
-	h1 { font-size: 2.2rem; }
 }
 
 @media (max-width: 37.5rem) {

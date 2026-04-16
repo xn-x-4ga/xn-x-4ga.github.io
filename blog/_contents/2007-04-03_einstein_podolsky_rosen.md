@@ -75,54 +75,8 @@ Por alrededor de 15 años despúes de su publicación, la paradoja EPR fue discu
 
 Los resultados de Bell han sido refinados progresivamente tras complejos estudios y tests. Se originaron y profundizaron un variopinto abanico investigacional... Estas innovadoras ramificaciones continúan liderando activas facciones debatiendo a la candente vanguardia puntera revolucionando ramas nacientes innovadoras disruptivas inusitadas abriendo paso irreversible prometedora inmersión abriendo campos inexcrutables subrogados anidados incrustados de lleno a cimentación informática emergente enarbolando procesamientos cuánticos de cifrados tele-informáticos irremplazables...
 
-<style>
-/* Contenedor de la lista de referencias */
-/* Selecciona el UL que está DENTRO del span con clase .referencias */
-span.referencias ul {
-    list-style: none !important; /* Fuerza la eliminación de las balas */
-    padding-left: 0 !important;  /* Elimina el margen interno del navegador */
-    margin: 1.5rem 0;
-}
-
-/* Selecciona los LI que están DENTRO del span con clase .referencias */
-span.referencias li {
-    padding-left: 2rem;   /* Espacio de la sangría */
-    text-indent: -2rem;  /* Efecto de sangría francesa */
-    margin-bottom: 1rem;
-    line-height: 1.5;
-    list-style-type: none; /* Refuerzo para asegurar que no haya puntos */
-}
-
-/* Asegura que el span contenedor se comporte como un bloque para aplicar márgenes */
-span.referencias {
-    display: block;
-    
-/* Estilo para el título de referencias dentro del contenedor */
-span.referencias h2 {
-    font-family: var(--font-sans);
-    font-size: 1.25rem;            /* Un tamaño moderado, no tan grande como un h2 normal */
-    font-variant: small-caps;      /* Coincide con el estilo de los nombres de autores */
-    letter-spacing: 0.05rem;
-    color: var(--text-primary);
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-/* Línea decorativa después del título */
-span.referencias h2::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-}
-</style>
 <span class="referencias">
-
 ## Referencias
-
-
 
 * <span class="small-caps">Bacciagaluppi, Guido</span>. Did Bohr understand EPR? En: <span class="small-caps">Aaserud</span>, F. y <span class="small-caps">Kragh</span>, H. (eds.). *One Hundred Years of the Bohr Atom*. Copenhagen: Royal Danish Academy of Sciences and Letters, 2015, pp. 377–396.
 * <span class="small-caps">Bacciagaluppi, Guido</span> y <span class="small-caps">Valentini, Antony</span>. *Quantum Theory at the Crossroads: Reconsidering the 1927 Solvay Conference*. Cambridge: Cambridge University Press, 2009.
@@ -178,5 +132,4 @@ span.referencias h2::after {
 * <span class="small-caps">Weinstein, Steven</span>. Nonlocality without nonlocality. *Foundations of Physics*. 2009, vol. 39, pp. 921–936.
 * <span class="small-caps">Whitaker, Andrew</span>. The EPR Paper and Bohr’s response: A re-assessment. *Foundations of Physics*. 2004, vol. 34, pp. 1305–1340.
 * <span class="small-caps">Winsberg, Eric</span> y <span class="small-caps">Fine, Arthur</span>. Quantum life: Interaction, entanglement and separation. *Journal of Philosophy*. 2003, vol. 100, pp. 80–97.
-
 </span>

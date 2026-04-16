@@ -112,7 +112,7 @@ Et leo duis ut diam quam nulla porttitor massa id. Ultrices neque ornare aenean 
 
 When <math><mi>a</mi><mo>≠</mo><mn>0</mn></math>, there are two solutions to <math><mi>a</mi><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi>x</mi><mo>+</mo><mi>c</mi><mo>=</mo><mn>0</mn></math> and they are:
 
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML" alttext="x equals negative b plus or minus the square root of b squared minus 4 a c, all over 2 a">
+<math display="block" alttext="x equals negative b plus or minus the square root of b squared minus 4 a c, all over 2 a">
   <mi>x</mi>
   <mo>=</mo>
   <mrow>

@@ -12,15 +12,15 @@ lang: en
 
 Richard Stallman was reading computer books before he’d ever seen a computer. When the Sixties Revolution was running out of steam, he was liberating MIT computers from behind locked doors and helping set off the next great Boomer movement. Though he disdained hippies and radicals in his youth, today, as the leader of the Free Software Movement, he’s a long-haired rebel coder-writer with a cause, and an idealistic thorn in the side of the cyber world’s killer-app capitalists.</p>
 
-**<span class="sans">So you were born 1953. Where?</sans>**
+<span class="question">So you were born 1953. Where?</span>
 
 In New York. My mother was a substitute teacher. And my father started a printing brokerage business at some point in the ’50s, putting together the photographers and the typesetters and the platemakers and the people who owned the presses.
 
-**<span class="sans">Was he a serviceman? Had he been in the war?</sans>**
+<span class="question">Was he a serviceman? Had he been in the war?</span>
 
 Yes. He avoided being in battles and getting shot at very much. But he had learned to speak French so well that he could pose as a Frenchman, and he did this before the U.S. was in the war because he wanted to use it to defeat the Nazis. So when he was in the Army, he did things for which knowledge of French was useful. For example, liaison with Free French battalions.
 
-**<span class="sans">Where did you grow up?</sans>**
+<span class="question">Where did you grow up?</span>
 
 Mostly Manhattan. West Side. 95th Street, 93rd Street, 89th Street.
 

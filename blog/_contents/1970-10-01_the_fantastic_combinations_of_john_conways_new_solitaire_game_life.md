@@ -33,19 +33,34 @@ Conways genetic laws are delightfully simple. First note that each cell of the c
 2. Deaths. Each counter with four or more neighbors dies (is removed) from overpopulation. Every counter with one neighbor or none dies from isolation.
 3. Births. Each empty cell adjacent to exactly three neighbors—no more, no fewer—is a birth cell. A counter is placed on it at the next move.
 
-<figure class="plus_25">
+<figure class="plus-25">
 	<img src="img/doi10.1038_scientificamerican1070-120_img-1.svg" alt="img" />
 	<figcaption class="align-center">The fate of five triplets in “life”.</figcaption>
 </figure>
 
-<figure>
+<figure class="plus-25">
 	<img src="img/doi10.1038_scientificamerican1070-120_img-2.svg" alt="img" />
 	<figcaption class="align-center">The life histories of the five tetrominoes</figcaption>
 </figure>
 
-<figure>
+<figure class="plus-25">
 	<img src="img/doi10.1038_scientificamerican1070-120_img-3.svg" alt="img" />
-	<figcaption class="align-center"></figcaption>
+	<figcaption class="align-center">The commonest stable forms</figcaption>
+</figure>
+
+<figure class="plus-25">
+	<img src="img/doi10.1038_scientificamerican1070-120_img-4.svg" alt="img" />
+	<figcaption class="align-center">The R pentomino (a) and exercises for the reader</figcaption>
+</figure>
+
+<figure class="plus-25">
+	<img src="img/doi10.1038_scientificamerican1070-120_img-5.svg" alt="img" />
+	<figcaption class="align-center">The “glider”</figcaption>
+</figure>
+
+<figure class="plus-25">
+	<img src="img/doi10.1038_scientificamerican1070-120_img-6.svg" alt="img" />
+	<figcaption class="align-center">Three remarkable patterns, one stable and two oscillating</figcaption>
 </figure>
 
 It is important to understand that all births and deaths occur <em>simultaneously</em>. Together they constitute a single generation or, as we shall call it, a “move” in the complete “life history” of the initial configuration. Conway recommends the following procedure for making the moves:

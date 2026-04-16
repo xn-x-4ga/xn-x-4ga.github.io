@@ -23,9 +23,9 @@
     {%- endif %}
     <meta property="og:type" content="article">
     {# Usamos config.base_url para asegurar rutas absolutas en imágenes de redes sociales #}
-    <meta property="og:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpg' }}">
+    <meta property="og:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.svg' }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.jpg' }}">
+    <meta name="twitter:image" content="{{ config.base_url }}img/{{ image if image else 'og-default.svg' }}">
 
     <script type="application/ld+json">
     {
@@ -34,7 +34,7 @@
         "headline": {{ title | tojson }},
         "description": {{ description | default('') | striptags | tojson }},
         "url": "{{ current_url }}",
-        "image": "{{ config.base_url }}img/{{ image if image else 'og-default.jpg' }}",
+        "image": "{{ config.base_url }}img/{{ image if image else 'og-default.svg' }}",
         {%- if date %}
         "datePublished": "{{ date.strftime('%Y-%m-%d') }}",
         {%- endif %}

@@ -1,5 +1,5 @@
-site_name = "WWW.net"
-site_url = "https://www.net"
+site_name = "ØX.net"
+site_url = "https://xn--x-4ga.net"
 base_path = "blog"
 posts_per_page = 10
-locale = "es_ES.UTF-8"
+locale = "es_CL.UTF-8"

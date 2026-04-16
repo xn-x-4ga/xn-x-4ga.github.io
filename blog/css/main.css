@@ -147,6 +147,12 @@ h6 {
 	line-height: 1.4; 
 }
 
+span.question {
+    /*display: block;       Obligamos al span a comportarse como h5 */
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .sans { font-family: var(--font-sans); }
 .small-caps { font-variant: small-caps; }
 

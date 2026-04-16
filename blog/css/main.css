@@ -431,7 +431,7 @@ audio {
     position: relative;
     width: 100%;
     max-width: 100%;
-    margin: 1.5rem 0 2.5rem 0;
+    margin: 1.5rem 0 .5rem 0;
     line-height: 0;
     overflow: hidden;
     border-radius: 0.25rem;
@@ -460,8 +460,6 @@ audio {
     box-sizing: border-box;
     backdrop-filter: blur(0.25rem);
 }
-
-
 
 figure {
 	margin: 2.5rem 0;

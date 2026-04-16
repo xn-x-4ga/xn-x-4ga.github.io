@@ -21,7 +21,7 @@ But good research questions are not just precise questions that nobody has asked
 
 Cultivating such questions requires patience, creativity and humility. Here, I will tell you about my process for developing them, including concrete tips and some traps you might encounter ([Box 1](#box)), to help to equip you to build good research questions yourself.
 
-<table class="plus_25 warning" id="box">
+<table class="plus-25 warning" id="box">
 	<tr>
 		<th colspan="2">BOX 1: Development process and traps to avoid</th>
 	</tr>

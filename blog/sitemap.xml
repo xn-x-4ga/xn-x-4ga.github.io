@@ -3,7 +3,7 @@
     <!-- Índice Principal -->
     <url>
         <loc>https://xn--x-4ga.net/blog/</loc>
-        <lastmod>2026-04-15T23:25:04</lastmod>
+        <lastmod>2026-04-15T23:52:36</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -115,6 +115,16 @@
         
         
         <lastmod>1986-01-08T00:00:00-0300</lastmod>
+        
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://xn--x-4ga.net/blog/1984-06-27_michel_foucault_el_sexo_es_aburrido.html</loc>
+        
+        
+        <lastmod>1984-06-27T00:00:00-0400</lastmod>
         
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

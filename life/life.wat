@@ -1,155 +1,153 @@
 (module
-  ;; Importamos la memoria desde el host (JS)
-  (import "env" "memory" (memory 1))
-
-  ;; Variables globales de dimensiones
-  (global $width (mut i32) (i32.const 0))
-  (global $height (mut i32) (i32.const 0))
-
-  ;; --- FUNCIÓN: Inicialización ---
-  (func (export "init") (param $w i32) (param $h i32)
-    local.get $w
-    global.set $width
-    local.get $h
-    global.set $height
+  (memory (export "memory") 1)
+  
+  (global $width (mut i32) (i32.const 80))
+  (global $height (mut i32) (i32.const 40))
+  (global $current_buf (mut i32) (i32.const 0))
+  
+  (func $init (export "init") (param $w i32) (param $h i32)
+    (global.set $width (local.get $w))
+    (global.set $height (local.get $h))
+    (global.set $current_buf (i32.const 0))
+    (call $clear)
   )
 
-  ;; --- FUNCIÓN INTERNA: Obtener celda (Toroidal) ---
-  (func $getCell (param $ptr i32) (param $x i32) (param $y i32) (result i32)
-    (local $nx i32)
-    (local $ny i32)
-
-    ;; nx = (x + width) % width
-    local.get $x
-    global.get $width
-    i32.add
-    global.get $width
-    i32.rem_s
-    local.set $nx
-
-    ;; ny = (y + height) % height
-    local.get $y
-    global.get $height
-    i32.add
-    global.get $height
-    i32.rem_s
-    local.set $ny
-
-    ;; return memory[ptr + (ny * width + nx)]
-    local.get $ptr
-    local.get $ny
-    global.get $width
-    i32.mul
-    local.get $nx
-    i32.add
-    i32.add
-    i32.load8_u
+  (func $get_current_buffer (export "get_current_buffer") (result i32)
+    (global.get $current_buf)
   )
 
-  ;; --- FUNCIÓN: Evolución de Generación ---
-  (func (export "nextGen") (param $currentPtr i32) (param $nextPtr i32)
-    (local $x i32)
-    (local $y i32)
-    (local $count i32)
-    (local $self i32)
+  (func $get_width (export "get_width") (result i32)
+    (global.get $width)
+  )
+
+  (func $get_height (export "get_height") (result i32)
+    (global.get $height)
+  )
+
+  (func $clear (export "clear")
+    (local $i i32)
+    (local $max_i i32)
+    (local.set $max_i (i32.mul (global.get $width) (global.get $height)))
+    (local.set $max_i (i32.mul (local.get $max_i) (i32.const 2)))
+    (block $clear_loop_end
+      (loop $clear_loop
+        (br_if $clear_loop_end (i32.ge_s (local.get $i) (local.get $max_i)))
+        (i32.store8 (local.get $i) (i32.const 0))
+        (local.set $i (i32.add (local.get $i) (i32.const 1)))
+        (br $clear_loop)
+      )
+    )
+  )
+
+  (func $toggle (export "toggle") (param $x i32) (param $y i32)
+    (local $idx i32)
+    (local $val i32)
+    (local.set $idx (i32.add (global.get $current_buf) (i32.add (i32.mul (local.get $y) (global.get $width)) (local.get $x))))
+    (local.set $val (i32.load8_u (local.get $idx)))
+    (if (i32.eq (local.get $val) (i32.const 0))
+      (then (i32.store8 (local.get $idx) (i32.const 1)))
+      (else (i32.store8 (local.get $idx) (i32.const 0)))
+    )
+  )
+
+  (func $set_cell (export "set_cell") (param $x i32) (param $y i32) (param $state i32)
+    (local $idx i32)
+    (local.set $idx (i32.add (global.get $current_buf) (i32.add (i32.mul (local.get $y) (global.get $width)) (local.get $x))))
+    (i32.store8 (local.get $idx) (local.get $state))
+  )
+
+  (func $get_cell (param $x i32) (param $y i32) (result i32)
+    (local $idx i32)
+    (local.set $idx (i32.add (global.get $current_buf) (i32.add (i32.mul (local.get $y) (global.get $width)) (local.get $x))))
+    (i32.load8_u (local.get $idx))
+  )
+
+  (func $step (export "step")
+    (local $x i32) (local $y i32)
+    (local $next_buf i32)
+    (local $size i32)
+    (local $idx i32) (local $next_idx i32)
+    (local $count i32) (local $state i32)
+    (local $prev_x i32) (local $next_x i32)
+    (local $prev_y i32) (local $next_y i32)
+
+    (local.set $size (i32.mul (global.get $width) (global.get $height)))
+    
+    (if (i32.eq (global.get $current_buf) (i32.const 0))
+      (then (local.set $next_buf (local.get $size)))
+      (else (local.set $next_buf (i32.const 0)))
+    )
 
     (local.set $y (i32.const 0))
-    (loop $y_loop
-      (local.set $x (i32.const 0))
-      (loop $x_loop
-        
-        ;; Sumar los 8 vecinos
-        (local.set $count (i32.const 0))
-        local.get $currentPtr local.get $x i32.const 1 i32.sub local.get $y i32.const 1 i32.sub call $getCell
-        local.get $currentPtr local.get $x               local.get $y i32.const 1 i32.sub call $getCell i32.add
-        local.get $currentPtr local.get $x i32.const 1 i32.add local.get $y i32.const 1 i32.sub call $getCell i32.add
-        local.get $currentPtr local.get $x i32.const 1 i32.sub local.get $y               call $getCell i32.add
-        local.get $currentPtr local.get $x i32.const 1 i32.add local.get $y               call $getCell i32.add
-        local.get $currentPtr local.get $x i32.const 1 i32.sub local.get $y i32.const 1 i32.add call $getCell i32.add
-        local.get $currentPtr local.get $x               local.get $y i32.const 1 i32.add call $getCell i32.add
-        local.get $currentPtr local.get $x i32.const 1 i32.add local.get $y i32.const 1 i32.add call $getCell i32.add
-        local.set $count
+    (block $y_loop_end
+      (loop $y_loop
+        (br_if $y_loop_end (i32.ge_s (local.get $y) (global.get $height)))
 
-        ;; Estado actual de la celda
-        local.get $currentPtr local.get $x local.get $y call $getCell
-        local.set $self
+        ;; Calculate prev_y and next_y
+        (local.set $prev_y (i32.sub (local.get $y) (i32.const 1)))
+        (if (i32.lt_s (local.get $prev_y) (i32.const 0))
+          (then (local.set $prev_y (i32.sub (global.get $height) (i32.const 1))))
+        )
+        (local.set $next_y (i32.add (local.get $y) (i32.const 1)))
+        (if (i32.ge_s (local.get $next_y) (global.get $height))
+          (then (local.set $next_y (i32.const 0)))
+        )
 
-        ;; Calcular dirección de memoria para guardar resultado
-        local.get $nextPtr
-        local.get $y
-        global.get $width
-        i32.mul
-        local.get $x
-        i32.add
-        i32.add
+        (local.set $x (i32.const 0))
+        (block $x_loop_end
+          (loop $x_loop
+            (br_if $x_loop_end (i32.ge_s (local.get $x) (global.get $width)))
 
-        ;; Aplicar Reglas de Conway
-        local.get $self
-        if (result i32)
-          local.get $count i32.const 2 i32.eq
-          local.get $count i32.const 3 i32.eq
-          i32.or
-        else
-          local.get $count i32.const 3 i32.eq
-        end
+            ;; Calculate prev_x and next_x
+            (local.set $prev_x (i32.sub (local.get $x) (i32.const 1)))
+            (if (i32.lt_s (local.get $prev_x) (i32.const 0))
+              (then (local.set $prev_x (i32.sub (global.get $width) (i32.const 1))))
+            )
+            (local.set $next_x (i32.add (local.get $x) (i32.const 1)))
+            (if (i32.ge_s (local.get $next_x) (global.get $width))
+              (then (local.set $next_x (i32.const 0)))
+            )
 
-        ;; Guardar (0 = Muerta, 1 = Viva)
-        i32.store8
+            ;; Count neighbors
+            (local.set $count (i32.const 0))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $prev_x) (local.get $prev_y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $x)      (local.get $prev_y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $next_x) (local.get $prev_y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $prev_x) (local.get $y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $next_x) (local.get $y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $prev_x) (local.get $next_y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $x)      (local.get $next_y))))
+            (local.set $count (i32.add (local.get $count) (call $get_cell (local.get $next_x) (local.get $next_y))))
 
-        ;; Control de bucle X
-        local.get $x i32.const 1 i32.add local.tee $x
-        global.get $width i32.lt_s
-        br_if $x_loop
+            ;; Apply rules
+            (local.set $state (call $get_cell (local.get $x) (local.get $y)))
+            (local.set $next_idx (i32.add (local.get $next_buf) (i32.add (i32.mul (local.get $y) (global.get $width)) (local.get $x))))
+            
+            (if (i32.eq (local.get $state) (i32.const 1))
+              (then
+                (if (i32.or (i32.lt_s (local.get $count) (i32.const 2)) (i32.gt_s (local.get $count) (i32.const 3)))
+                  (then (i32.store8 (local.get $next_idx) (i32.const 0)))
+                  (else (i32.store8 (local.get $next_idx) (i32.const 1)))
+                )
+              )
+              (else
+                (if (i32.eq (local.get $count) (i32.const 3))
+                  (then (i32.store8 (local.get $next_idx) (i32.const 1)))
+                  (else (i32.store8 (local.get $next_idx) (i32.const 0)))
+                )
+              )
+            )
+
+            (local.set $x (i32.add (local.get $x) (i32.const 1)))
+            (br $x_loop)
+          )
+        )
+        (local.set $y (i32.add (local.get $y) (i32.const 1)))
+        (br $y_loop)
       )
-      ;; Control de bucle Y
-      local.get $y i32.const 1 i32.add local.tee $y
-      global.get $height i32.lt_s
-      br_if $y_loop
     )
-  )
 
-  ;; --- FUNCIÓN: Renderizado a Píxeles (Framebuffering) ---
-  (func (export "render") (param $currentPtr i32) (param $pixelPtr i32)
-    (local $i i32)
-    (local $total i32)
-    (local $isAlive i32)
-
-    global.get $width
-    global.get $height
-    i32.mul
-    local.set $total
-    
-    (local.set $i (i32.const 0))
-    (loop $pixel_loop
-      ;; Dirección del píxel en el array RGBA (4 bytes por píxel)
-      local.get $pixelPtr
-      local.get $i
-      i32.const 4
-      i32.mul
-      i32.add
-
-      ;; Leer estado de la celda lógica
-      local.get $currentPtr
-      local.get $i
-      i32.add
-      i32.load8_u
-      local.set $isAlive
-
-      ;; Si está viva, pintar negro (0xFF000000). Si no, blanco (0xFFFFFFFF).
-      ;; Nota: Formato Little-endian en memoria (AABBGGRR)
-      local.get $isAlive
-      if (result i32)
-        i32.const 0xFF000000 ;; Negro opaco
-      else
-        i32.const 0xFFFFFFFF ;; Blanco opaco
-      end
-      
-      i32.store ;; Escribir 4 bytes de color de una vez
-      
-      ;; Incrementar índice
-      local.get $i i32.const 1 i32.add local.tee $i
-      local.get $total i32.lt_s
-      br_if $pixel_loop
-    )
+    ;; Swap buffers
+    (global.set $current_buf (local.get $next_buf))
   )
 )

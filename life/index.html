@@ -16,20 +16,36 @@
 			max-width: 50em; }
 		a {
 			color: inherit;
-			text-decoration: none;
 			border-bottom: 0.1rem solid #ff827c;
+			text-decoration: none;
 			transition: all 0.3s ease; }
 		.buttons {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-			justify-content: center;
 			align-items: center;
-			gap: .2rem;
+			display: grid;
+			grid-auto-flow: column;
+			gap: .5rem;
+			justify-content: center;
 			margin-bottom: 5rem; }
+		.buttons input, .buttons select {
+			padding: 0.5rem;
+			cursor: pointer;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			background: #fff;
+			transition: background 0.2s, opacity 0.2s;
+			font-size: 1rem;
+		}
+		.buttons input:hover:not(:disabled), .buttons select:hover:not(:disabled) {
+			background: #f0f0f0;
+		}
+		.buttons input:disabled, .buttons select:disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
 		.canvas-container {
+			margin: 1em auto;
 			max-width: 800px;
-			margin: 1em auto; }
+			touch-action: none; /* Prevent scrolling when drawing on touch devices */ }
 		h1, h2 {
 			font-family: sans-serif; }
 		#universe{
@@ -55,14 +71,14 @@
 			<div class="speed-indicator">
 				Speed: <span id="speed">1</span>
 			</div>
-			<canvas id="universe" width="800" height="400"></canvas>
+			<canvas id="universe" width="801" height="401"></canvas>
 		</div>
 		<div class="buttons ">
-			<input type="button" class="material-icons" value="play_arrow" onclick="life.toggleLife();" id="start">
-			<input type="button" class="material-icons" value="skip_next" onclick="life.nextGen();">
-			<input type="button" class="material-icons" value="fast_rewind" onclick="life.changeSpeed(life.speed() - 1); $('#speed').text(life.speed());">
-			<input type="button" class="material-icons" value="fast_forward" onclick="life.changeSpeed(life.speed() + 1); $('#speed').text(life.speed());">
-			<input type="button" class="material-icons" value="clear" onclick="life.clear();">
+			<input type="button" class="material-icons" value="play_arrow" id="start">
+			<input type="button" class="material-icons" value="skip_next" id="next">
+			<input type="button" class="material-icons" value="fast_rewind" id="slower">
+			<input type="button" class="material-icons" value="fast_forward" id="faster">
+			<input type="button" class="material-icons" value="clear" id="clearBtn">
 			<select id="patterns">
 				<option value="" selected="selected">Patterns</option>
 				<option value="patterns/glider.rle">Glider</option>
@@ -74,28 +90,293 @@
 			</select>
 		</div>
 	</main>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="canvaslife.js"></script>
 	<script>
-	$('document').ready(function () {
-		life.initUniverse('#universe');
-			$('#speed').text(life.speed());
-			let start_value = 'play_arrow';
-			$('#start').click(function () {
-				if ($(this).val() == start_value) {
-					$(this).val("pause");
-				} else {
-					$(this).val(start_value);
+		class GameEngine {
+			constructor(canvasId) {
+				this.canvas = document.getElementById(canvasId);
+				this.ctx = this.canvas.getContext('2d', { willReadFrequently: true, alpha: false });
+				this.cellSize = 10;
+				this.xCells = Math.floor(this.canvas.width / this.cellSize);
+				this.yCells = Math.floor(this.canvas.height / this.cellSize);
+				this.isEvolving = false;
+				this.speed = 1;
+				this.lastFrameTime = 0;
+				this.animationFrameId = null;
+				this.wasm = null;
+				this.memory = null;
+				
+				// ImageData mapping for ultra-fast rendering
+				this.imageData = this.ctx.createImageData(this.canvas.width, this.canvas.height);
+				this.pixels = new Uint32Array(this.imageData.data.buffer);
+				
+				// Generate endian-safe colors
+				const buf = new ArrayBuffer(4);
+				const u8 = new Uint8Array(buf);
+				const u32 = new Uint32Array(buf);
+
+				// Black (Alive)
+				u8[0] = 0; u8[1] = 0; u8[2] = 0; u8[3] = 255;
+				this.colorAlive = u32[0];
+				
+				// White (Dead)
+				u8[0] = 255; u8[1] = 255; u8[2] = 255; u8[3] = 255;
+				this.colorDead = u32[0];
+				
+				// rgb(50, 50, 50) (Grid line)
+				u8[0] = 50; u8[1] = 50; u8[2] = 50; u8[3] = 255;
+				this.colorGrid = u32[0];
+
+				// Pre-fill everything with grid color
+				this.pixels.fill(this.colorGrid);
+			}
+
+			async init(wasmUrl) {
+				try {
+					const response = await fetch(wasmUrl);
+					const buffer = await response.arrayBuffer();
+					const module = await WebAssembly.compile(buffer);
+					const instance = await WebAssembly.instantiate(module);
+					
+					this.wasm = instance.exports;
+					this.wasm.init(this.xCells, this.yCells);
+					this.memory = new Uint8Array(this.wasm.memory.buffer);
+					
+					// Fill all cells cleanly
+					this.clearCanvasMemory();
+					this.bindEvents();
+				} catch (err) {
+					console.error("Failed to load Wasm", err);
 				}
-			});
-			$('#patterns').change(function () {
-				$('#patterns option:selected').each(function () {
-					url = $(this).val();
-					if (url) {
-						life.loadPattern(url);
+			}
+
+			setControlsState(disabled) {
+				const nodes = document.querySelectorAll('.buttons input, .buttons select');
+				nodes.forEach(node => node.disabled = disabled);
+			}
+
+			clearCanvasMemory() {
+				// We don't overwrite grid border lines, just reset inner cells
+				for (let y = 0; y < this.yCells; y++) {
+					for (let x = 0; x < this.xCells; x++) {
+						this.drawCellMapped(x, y, false);
 					}
+				}
+				this.ctx.putImageData(this.imageData, 0, 0);
+			}
+
+			drawCellMapped(x, y, isAlive) {
+				const color = isAlive ? this.colorAlive : this.colorDead;
+				const startY = y * this.cellSize + 1;
+				const startX = x * this.cellSize + 1;
+				const canvasW = this.canvas.width;
+				const size = this.cellSize - 1; // 9 px inner cell
+				
+				for (let dy = 0; dy < size; dy++) {
+					const rowIdx = (startY + dy) * canvasW;
+					for (let dx = 0; dx < size; dx++) {
+						this.pixels[rowIdx + (startX + dx)] = color;
+					}
+				}
+			}
+
+			render() {
+				const ptr = this.wasm.get_current_buffer();
+				for (let y = 0; y < this.yCells; y++) {
+					const rowOffset = ptr + y * this.xCells;
+					for (let x = 0; x < this.xCells; x++) {
+						const isAlive = this.memory[rowOffset + x] === 1;
+						this.drawCellMapped(x, y, isAlive);
+					}
+				}
+				this.ctx.putImageData(this.imageData, 0, 0);
+			}
+
+			nextGen() {
+				this.wasm.step();
+				this.render();
+			}
+
+			loop(timestamp) {
+				if (!this.isEvolving) return;
+				
+				const delay = 100 - this.speed * 10;
+				
+				if (timestamp - this.lastFrameTime >= delay) {
+					this.nextGen();
+					this.lastFrameTime = timestamp;
+				}
+				
+				this.animationFrameId = requestAnimationFrame((t) => this.loop(t));
+			}
+
+			toggleLife() {
+				const btn = document.getElementById('start');
+				this.isEvolving = !this.isEvolving;
+				if (this.isEvolving) {
+					btn.value = 'pause';
+					this.lastFrameTime = performance.now();
+					this.animationFrameId = requestAnimationFrame((t) => this.loop(t));
+				} else {
+					btn.value = 'play_arrow';
+					cancelAnimationFrame(this.animationFrameId);
+				}
+			}
+
+			changeSpeed(delta) {
+				const newSpeed = this.speed + delta;
+				if (newSpeed < 0 || newSpeed > 10) return;
+				this.speed = newSpeed;
+				document.getElementById('speed').textContent = this.speed;
+			}
+
+			clear() {
+				if (this.isEvolving) this.toggleLife();
+				this.wasm.clear();
+				this.clearCanvasMemory();
+			}
+
+			async loadPattern(url) {
+				if (!url) return;
+				this.setControlsState(true);
+				try {
+					const res = await fetch(url);
+					const data = await res.text();
+					
+					// Ignore metadata and comments starting with #
+					const cleanData = data.split('\n')
+						.map(line => line.trim())
+						.filter(line => line.length > 0 && !line.startsWith('#'))
+						.join('\n');
+					
+					const match = cleanData.match(/x\s*=\s*(\d+)[^\n\r]*y\s*=\s*(\d+)[^\n\r]*[\n\r]+([\s\S]*?)!/);
+					if (!match) {
+						console.error("Invalid RLE format");
+						return;
+					}
+					
+					const pattern = match[3].replace(/\s+/g, "");
+					
+					// Clear grid
+					this.wasm.clear();
+					
+					let x = 1, y = 1;
+					let numberAcc = '';
+
+					// Robust Character parser for Run Length Encondig
+					for (let i = 0; i < pattern.length; i++) {
+						const char = pattern[i];
+						if (char >= '0' && char <= '9') {
+							numberAcc += char;
+						} else if (char === 'o' || char === 'b') {
+							const count = numberAcc ? parseInt(numberAcc, 10) : 1;
+							if (char === 'o') {
+								for (let c = 0; c < count; c++) {
+									this.wasm.set_cell(x + c, y, 1);
+								}
+							}
+							x += count;
+							numberAcc = '';
+						} else if (char === '$') {
+							const count = numberAcc ? parseInt(numberAcc, 10) : 1;
+							y += count;
+							x = 1; // Carriage return to start of pattern line
+							numberAcc = '';
+						} else if (char === '!') {
+							break;
+						}
+					}
+					this.render();
+				} catch (err) {
+					console.error("Error loading pattern", err);
+				} finally {
+					this.setControlsState(false);
+					// Reset select box UI gracefully
+					document.getElementById('patterns').value = ''; 
+				}
+			}
+
+			bindEvents() {
+				// Controls
+				document.getElementById('start').addEventListener('click', () => this.toggleLife());
+				document.getElementById('next').addEventListener('click', () => this.nextGen());
+				document.getElementById('slower').addEventListener('click', () => this.changeSpeed(-1));
+				document.getElementById('faster').addEventListener('click', () => this.changeSpeed(1));
+				document.getElementById('clearBtn').addEventListener('click', () => this.clear());
+				document.getElementById('patterns').addEventListener('change', (e) => this.loadPattern(e.target.value));
+
+				// Pointer mapping
+				const getMatrixCell = (clientX, clientY) => {
+					const rect = this.canvas.getBoundingClientRect();
+					const scaleX = this.canvas.width / rect.width;
+					const scaleY = this.canvas.height / rect.height;
+					return {
+						x: Math.floor(((clientX - rect.left) * scaleX) / this.cellSize),
+						y: Math.floor(((clientY - rect.top) * scaleY) / this.cellSize)
+					};
+				};
+
+				let isDragging = false;
+				let drawState = null;
+				let lastCellStr = null;
+
+				const handleInteraction = (e, clientX, clientY, isStart) => {
+					// Useful when touching not to scroll the screen horizontally if we draw
+					if (e.cancelable) e.preventDefault(); 
+					
+					const cell = getMatrixCell(clientX, clientY);
+					if (cell.x >= 0 && cell.x < this.xCells && cell.y >= 0 && cell.y < this.yCells) {
+						const ptr = this.wasm.get_current_buffer();
+						const currentState = this.memory[ptr + cell.y * this.xCells + cell.x];
+						
+						if (isStart) {
+							drawState = currentState === 0 ? 1 : 0;
+						}
+
+						const str = `${cell.x},${cell.y}`;
+						if (lastCellStr !== str && drawState !== null) {
+							this.wasm.set_cell(cell.x, cell.y, drawState);
+							// Apply Fast Put Data Incrementally
+							this.drawCellMapped(cell.x, cell.y, drawState === 1);
+							this.ctx.putImageData(this.imageData, 0, 0);
+							lastCellStr = str;
+						}
+					}
+				};
+
+				// Mouse events
+				this.canvas.addEventListener('mousedown', (e) => {
+					isDragging = true;
+					handleInteraction(e, e.clientX, e.clientY, true);
 				});
-			});
+				window.addEventListener('mouseup', () => {
+					isDragging = false;
+					drawState = null;
+					lastCellStr = null;
+				});
+				this.canvas.addEventListener('mousemove', (e) => {
+					if (isDragging) handleInteraction(e, e.clientX, e.clientY, false);
+				});
+
+				// Touch events
+				this.canvas.addEventListener('touchstart', (e) => {
+					isDragging = true;
+					handleInteraction(e, e.touches[0].clientX, e.touches[0].clientY, true);
+				}, { passive: false });
+				window.addEventListener('touchend', () => {
+					isDragging = false;
+					drawState = null;
+					lastCellStr = null;
+				});
+				this.canvas.addEventListener('touchmove', (e) => {
+					if (isDragging) handleInteraction(e, e.touches[0].clientX, e.touches[0].clientY, false);
+				}, { passive: false });
+			}
+		}
+
+		// Initialize Environment
+		document.addEventListener('DOMContentLoaded', () => {
+			const engine = new GameEngine('universe');
+			engine.init('life.wasm');
 		});
 	</script>
 </body>
